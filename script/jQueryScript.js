@@ -1,7 +1,21 @@
 $(document).ready(function () {
-  // $("#mainNav  li:has(ul)").hover(function () {
-  //   $("ul", this).stop(true, true).slideToggle();
-  // });
+  // function like_counter() {
+  //   var id_rec = $("input[name=id_article]").val();
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "./_partials_actualite/_count_Like.php",
+  //     data: { id_article: id_rec },
+  //   })
+  //     .done(function (response) {
+  //       $("#place_number_like").html(response);
+  //       console.log(response);
+  //       console.log("response en haut");
+  //     })
+  //     .fail(function () {
+  //       console.log("error");
+  //     });
+  // }
+  // like_counter();
 
   function loadSMS() {
     $.ajax({

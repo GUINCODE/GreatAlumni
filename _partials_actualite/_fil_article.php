@@ -16,7 +16,7 @@ if (!$test) {
         $nombre_like = $row["nombre_like"];
         $date = $row["date"];
         $id_user = $row["id_user"];
-
+        //   -----user infos-----
         $sql2 = "SELECT * FROM `utilisateur` WHERE `id` = $id_user  LIMIT 1 ";
         $result2 = $db->query($sql2);
         $ligne = $result2->fetch();
@@ -26,15 +26,31 @@ if (!$test) {
         if (is_null($profil) or empty($profil)) {
             $profil = "./images/medias_users/profil_par_defaut.jpg";
         }
+        // ----les likes---
+        $sql3 = "SELECT * FROM `article_votes` WHERE `id_article` = $id_article    ";
+        $result3 = $db->query($sql3);
+        $nomreLike = $result3->rowCount();
+        if ($nomreLike > 0) {
+            $like =  "<i class='fas fa-star liker'></i> " . $nomreLike;
+        } else {
+            $like = '';
+        }
 
-        $requet = "SELECT * FROM `commentaire` WHERE `id_article` = ' $id_article' ORDER BY `date` DESC  ";
-        $resultat = $db->query($requet);
-        $nbrCommente = $resultat->rowCount();
+        //  ----les commentaire----
+        $sql4 = "SELECT * FROM `commentaire` WHERE `id_article` = $id_article  ";
+        $result4 = $db->query($sql4);
+        $nombreCommentaire = $result4->rowCount();
+        if ($nombreCommentaire > 0) {
+            $commentaire =  $nombreCommentaire . " commentaires";
+        } else {
+            $commentaire = '';
+        }
+
 
 ?>
 
 <!-- ----articles----- -->
-<div class="card  mx-auto mb-3 rounded">
+<div class="card  mx-auto mb-3 rounded shadow-lg ">
     <div class="header entete_article rounded-top d-flex justify-content-start align-items-center">
         <img src=" <?php echo "$profil"; ?>  " class=" img-fluid profil-post" alt="...">
         <a href="#">
@@ -58,17 +74,11 @@ if (!$test) {
             ?>
 
     <div class="reactionAuthers border-top border-munted">
-        <input type=hidden id="idArticle" value=<?php echo $id_article; ?> />
-        <div class="ml-2" id="place_number_like"> </div>
-        <?php
-                $toggle_comentaire = "";
-                if ($nbrCommente > 0) {
-                    $toggle_comentaire = "$nbrCommente commentaires";
-                } else {
-                    $toggle_comentaire = "";
-                }
-                ?> <div class="commentaires ml-3 ">
-            <a href="#"><?php echo " $toggle_comentaire"; ?> </a>
+
+
+        <div class="ml-2" id="place_number_like"> <?php echo $like; ?> </div>
+        <div class="commentaires ml-3 ">
+            <a href="#"><?php echo $commentaire; ?> </a>
         </div>
     </div>
 
@@ -76,27 +86,28 @@ if (!$test) {
         <span type="button" class="likeIcon "><i class="far fa-star faIconsBnt"></i></span>
         <span type="button" class="likeIcon " style="display: none;"><i class="fas fa-star faIconsBnt"></i></span>
 
-        <span class="commenter"><i class="fas fa-pencil-alt faIconsBnt" type="button" id="btn_edit_comment"></i></span>
+
+        <button class="btn_edit_comment"> <span class="commenter"><i class="fas fa-pencil-alt faIconsBnt"
+                    class="btn_edit_comment"></i></span> </button>
         <span class="PartageIcon" type="button"><i class="fas fa-share faIconsBnt"></i></span>
     </div>
 
-    <div class="d-flex w-75 mx-auto bg-light shadow my-1  bloc_Parent_commentaire hideurClass "
+    <div class="d-flex w-75 mx-auto bg-light shadow my-1  bloc_Parent_commentaire  hideurClass "
         id="bloc_Parent_commentaire">
         <div class=" figure-fluid">
             <img src="./images/medias_users/profil_par_defaut.jpg" alt="user profil "
                 class="profil-commente img-fluid " />
         </div>
         <div class=" input-group w-100 ">
-            <input class="flex-grow-1 border-0 comentaireInput ml-2" type="text"
-                placeholder="Ecrivez votre commentaire..." autofocus />
+            <input class="flex-grow-1 border-0 comentaireInput ml-2" type="text" required
+                placeholder="Ecrivez votre commentaire..." />
             <div class="input-group-apend  d-flex justify-content-center align-items-center">
-                <i class="far fa-paper-plane mr-2 faIconsBnt" type="button"></i>
+                <i class="far fa-paper-plane mr-2 faIconsBnt" type="button" id="boutonLike"></i>
             </div>
         </div>
 
     </div>
 </div>
-
 
 <!-- ----end article--- -->
 <?php
