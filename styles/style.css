@@ -48,6 +48,7 @@ input:focus, select:focus, textarea:focus, button:focus {
 
 .reactionAuthers {
     display: flex;
+    background: #b5b7be;
 }
 
 .reagir {

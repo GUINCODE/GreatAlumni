@@ -1,7 +1,7 @@
 <?php
 include_once("./connectBDD.php");
 
-
+$id_user_conecter = 1;
 $sql = "SELECT * FROM article ORDER BY `date`  DESC  ";
 $verif = $db->query($sql);
 $test = $verif->fetch();
@@ -11,9 +11,8 @@ if (!$test) {
     while ($row = $result->fetch()) {
         $id_article = $row["id"];
         $titre = $row["titre"];
-        $text = $row["text"];
+        $text = $row["texts"];
         $media = $row["media"];
-        $nombre_like = $row["nombre_like"];
         $date = $row["date"];
         $id_user = $row["id_user"];
         //   -----user infos-----
@@ -36,6 +35,7 @@ if (!$test) {
             $like = '';
         }
 
+
         //  ----les commentaire----
         $sql4 = "SELECT * FROM `commentaire` WHERE `id_article` = $id_article  ";
         $result4 = $db->query($sql4);
@@ -45,7 +45,15 @@ if (!$test) {
         } else {
             $commentaire = '';
         }
-
+        // ----Liker ou pas ?---
+        $sql5 = "SELECT * FROM `article_votes` WHERE `id_article` = $id_article  AND `id_user`=$id_user_conecter";
+        $result5 = $db->query($sql5);
+        $likeP = $result5->rowCount();
+        if ($likeP > 0) {
+            $likeTest = " <span class='disabled'><i class='fas fa-star liker disabled'></i></span>";
+        } else {
+            $likeTest = " <span type='button' class='likeIcon'><i class='far fa-star faIconsBnt' onclick='handleLiker($id_user_conecter,$id_article )'></i></span>";
+        }
 
 ?>
 
@@ -83,36 +91,90 @@ if (!$test) {
     </div>
 
     <div class="reagir border-top border-bottom border-munted">
-        <span type="button" class="likeIcon "><i class="far fa-star faIconsBnt"></i></span>
-        <span type="button" class="likeIcon " style="display: none;"><i class="fas fa-star faIconsBnt"></i></span>
+        <!-- ici bouton for like -->
+        <div class="btn_Like">
+            <?= $likeTest; ?>
+        </div>
+        <!-- <span type="button" class="likeIcon " style="display: none;"><i class="fas fa-star faIconsBnt"></i></span> -->
 
 
-        <button class="btn_edit_comment"> <span class="commenter"><i class="fas fa-pencil-alt faIconsBnt"
-                    class="btn_edit_comment"></i></span> </button>
+        <span class="commenter" type="button"><i class="far fa-list-alt faIconsBnt"></i></span>
         <span class="PartageIcon" type="button"><i class="fas fa-share faIconsBnt"></i></span>
     </div>
 
-    <div class="d-flex w-75 mx-auto bg-light shadow my-1  bloc_Parent_commentaire  hideurClass "
-        id="bloc_Parent_commentaire">
+    <div class="d-flex w-75 mx-auto bg-light shadow my-1  bloc_Parent_commentaire " id="bloc_Parent_commentaire">
+
         <div class=" figure-fluid">
             <img src="./images/medias_users/profil_par_defaut.jpg" alt="user profil "
                 class="profil-commente img-fluid " />
         </div>
+
         <div class=" input-group w-100 ">
-            <input class="flex-grow-1 border-0 comentaireInput ml-2" type="text" required
+            <input class="flex-grow-1 border-0 comentaireInput ml-2 iput" type="text" required
                 placeholder="Ecrivez votre commentaire..." />
-            <div class="input-group-apend  d-flex justify-content-center align-items-center">
-                <i class="far fa-paper-plane mr-2 faIconsBnt" type="button" id="boutonLike"></i>
+            <div class="input-group-apend  d-flex justify-content-center align-items-center" type="button"
+                onclick="maFunction(<?= $id_user_conecter  ?>,<?= $id_article ?> )">
+                <i class="far fa-paper-plane mr-2 faIconsBnt"></i>
             </div>
         </div>
+
 
     </div>
 </div>
 
 <!-- ----end article--- -->
 <?php
+
     }
 }
 
 
 ?>
+<script>
+let Mcommentaire;
+$(".iput").change(function postinput() {
+    Mcommentaire = $(this).val();
+    return Mcommentaire;
+});
+
+function maFunction(idU, idAr) {
+    // console.log(idU);
+    // console.log(idAr);
+    // console.log(Mcommentaire);
+    $.ajax({
+            type: "POST",
+            url: "./_partials_actualite/_enreg_commentaire.php",
+            data: {
+                id_user: idU,
+                id_article: idAr,
+                commentaire: Mcommentaire,
+            },
+        })
+        .done(function(response) {
+            console.log(response);
+            $(".iput").val("");
+        })
+        .fail(function() {
+            console.log("error");
+        });
+}
+
+function handleLiker(idU, idAr) {
+    console.log(idU);
+    console.log(idAr);
+    $.ajax({
+            type: "POST",
+            url: "./_partials_actualite/_enreg_commentaire.php",
+            data: {
+                id_user: idU,
+                id_article: idAr,
+            },
+        })
+        .done(function(response) {
+            console.log(response);
+        })
+        .fail(function() {
+            console.log("error");
+        });
+}
+</script>

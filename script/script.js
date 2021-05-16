@@ -64,22 +64,4 @@ window.addEventListener("load", function () {
     notif_evenement();
     notif_autre();
   }, 1000);
-  // var btnCommentaire = document.getElementById("btn_edit_comment");
-  // btnCommentaire.addEventListener("click", function () {
-  // var boiteCommentaire = document.getElementById("bloc_Parent_commentaire");
-  // boiteCommentaire.classList.toggle("hideurClass");
-  // });
-  var x, i;
-  x = document.querySelectorAll(".btn_edit_comment");
-  var element = document.querySelectorAll(".bloc_Parent_commentaire");
-
-  for (i = 0; i < x.length; i++) {
-    x[i].addEventListener("click", function () {
-      var j;
-      for (j = 0; j < element.length; j++) {
-        element[j].classList.toggle("hideurClass");
-        console.log("addclass");
-      }
-    });
-  }
 });
