@@ -52,7 +52,9 @@ if (!$test) {
         if ($likeP > 0) {
             $likeTest = " <span class='disabled'><i class='fas fa-star liker disabled'></i></span>";
         } else {
-            $likeTest = " <span type='button' class='likeIcon'><i class='far fa-star faIconsBnt' onclick='handleLiker($id_user_conecter,$id_article )'></i></span>";
+            $likeTest = " <span type='button' class='likeIcon'><i class='far fa-star faIconsBnt' onclick='handleLiker($id_user_conecter,$id_article )'></i></span>
+                 
+            ";
         }
 
 ?>
@@ -160,11 +162,11 @@ function maFunction(idU, idAr) {
 }
 
 function handleLiker(idU, idAr) {
-    console.log(idU);
-    console.log(idAr);
+    // console.log(idU);
+    // console.log(idAr);
     $.ajax({
             type: "POST",
-            url: "./_partials_actualite/_enreg_commentaire.php",
+            url: "./_partials_actualite/_liker.php",
             data: {
                 id_user: idU,
                 id_article: idAr,
