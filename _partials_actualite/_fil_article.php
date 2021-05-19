@@ -50,17 +50,19 @@ if (!$test) {
         $result5 = $db->query($sql5);
         $likeP = $result5->rowCount();
         if ($likeP > 0) {
-            $likeTest = " <span class='disabled'><i class='fas fa-star liker disabled'></i></span>";
-        } else {
-            $likeTest = " <span type='button' class='likeIcon'><i class='far fa-star faIconsBnt' onclick='handleLiker($id_user_conecter,$id_article )'></i></span>
-                 
+            $likeTest = " <span type='button'><i class='fas fa-star faIconsBnt liker unlike_btn'></i></span>
+                                <span type='button' class='hideur'><i class='far fa-star faIconsBnt like_btn'></i></span>
             ";
+        } else {
+            $likeTest = " <span type='button'><i class='far fa-star faIconsBnt like_btn'></i></span>
+                                 <span  type='button' class='hideur'><i class='fas fa-star faIconsBnt liker unlike_btn'></i></span>
+                                ";
         }
 
 ?>
 
 <!-- ----articles----- -->
-<div class="card  mx-auto mb-3 rounded shadow-lg ">
+<div class="card  mx-auto mb-3 rounded  ">
     <div class="header entete_article rounded-top d-flex justify-content-start align-items-center">
         <img src=" <?php echo "$profil"; ?>  " class=" img-fluid profil-post" alt="...">
         <a href="#">
@@ -86,13 +88,17 @@ if (!$test) {
     <div class="reactionAuthers border-top border-munted">
 
 
-        <div class="ml-2" id="place_number_like"> <?php echo $like; ?> </div>
+        <div class="ml-2 place_number_like"> <?php echo $like; ?>
+
+        </div>
         <div class="commentaires ml-3 ">
             <a href="#"><?php echo $commentaire; ?> </a>
         </div>
     </div>
 
     <div class="reagir border-top border-bottom border-munted">
+        <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
+        <input type="hidden" value="<?= $id_article; ?>" class="id_article" />
         <!-- ici bouton for like -->
         <div class="btn_Like">
             <?= $likeTest; ?>
@@ -155,25 +161,6 @@ function maFunction(idU, idAr) {
         .done(function(response) {
             console.log(response);
             $(".iput").val("");
-        })
-        .fail(function() {
-            console.log("error");
-        });
-}
-
-function handleLiker(idU, idAr) {
-    // console.log(idU);
-    // console.log(idAr);
-    $.ajax({
-            type: "POST",
-            url: "./_partials_actualite/_liker.php",
-            data: {
-                id_user: idU,
-                id_article: idAr,
-            },
-        })
-        .done(function(response) {
-            console.log(response);
         })
         .fail(function() {
             console.log("error");

@@ -22,10 +22,14 @@ input:focus, select:focus, textarea:focus, button:focus {
     transition: 0.6s ease-out !important;
 }
 
-.hideurClass{
+.hideurClass {
     display: none !important;
 }
 
+.hideur {
+    display: none;
+    transition: .2s ease-in;
+}
 .comentaireInput {
     font-size: 20px;
     color: #071035;
@@ -38,8 +42,6 @@ input:focus, select:focus, textarea:focus, button:focus {
 .fa-paper-plane {
     font-size: 2rem;
 }
-
-
 
 .faIconsBnt:hover {
     color: #071035;
