@@ -19,17 +19,19 @@ input:focus, select:focus, textarea:focus, button:focus {
 .bloc_Parent_commentaire {
     height: fit-content;
     border-radius: 15px;
-    transition: 0.6s ease-out !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .hideurClass {
     display: none !important;
+    transition: .2s ease-in;
 }
 
 .hideur {
     display: none;
     transition: .2s ease-in;
 }
+
 .comentaireInput {
     font-size: 20px;
     color: #071035;
@@ -46,6 +48,10 @@ input:focus, select:focus, textarea:focus, button:focus {
 .faIconsBnt:hover {
     color: #071035;
     transform: scale(1.2);
+}
+
+.togleIconCommente {
+    color: #071035 !important;
 }
 
 .reactionAuthers {
@@ -158,4 +164,8 @@ ul {
     font-size: .9rem;
     font-family: monospace;
     font-weight: bold;
+}
+
+.boxeShadower {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

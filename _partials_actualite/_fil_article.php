@@ -62,7 +62,7 @@ if (!$test) {
 ?>
 
 <!-- ----articles----- -->
-<div class="card  mx-auto mb-3 rounded  ">
+<div class="card  mx-auto mb-3 rounded  boxeShadower ">
     <div class="header entete_article rounded-top d-flex justify-content-start align-items-center">
         <img src=" <?php echo "$profil"; ?>  " class=" img-fluid profil-post" alt="...">
         <a href="#">
@@ -106,23 +106,25 @@ if (!$test) {
         <!-- <span type="button" class="likeIcon " style="display: none;"><i class="fas fa-star faIconsBnt"></i></span> -->
 
 
-        <span class="commenter" type="button"><i class="far fa-list-alt faIconsBnt"></i></span>
+        <span class="commenter" type="button"><i class="fas fa-pen faIconsBnt"></i></span>
+
         <span class="PartageIcon" type="button"><i class="fas fa-share faIconsBnt"></i></span>
     </div>
 
-    <div class="d-flex w-75 mx-auto bg-light shadow my-1  bloc_Parent_commentaire " id="bloc_Parent_commentaire">
+    <div class="d-flex w-75 mx-auto bg-light  my-1  bloc_Parent_commentaire  hideurClass">
 
         <div class=" figure-fluid">
             <img src="./images/medias_users/profil_par_defaut.jpg" alt="user profil "
                 class="profil-commente img-fluid " />
         </div>
 
-        <div class=" input-group w-100 ">
-            <input class="flex-grow-1 border-0 comentaireInput ml-2 iput" type="text" required
+        <div class=" input-group w-100  ">
+            <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
+            <input type="hidden" value="<?= $id_article; ?>" class="id_article" />
+            <input class="flex-grow-1 border-0  ml-2  comentaireInput" type="text" required
                 placeholder="Ecrivez votre commentaire..." />
-            <div class="input-group-apend  d-flex justify-content-center align-items-center" type="button"
-                onclick="maFunction(<?= $id_user_conecter  ?>,<?= $id_article ?> )">
-                <i class="far fa-paper-plane mr-2 faIconsBnt"></i>
+            <div class="input-group-apend  d-flex justify-content-center align-items-center sendComment" type="button">
+                <i class="far fa-paper-plane mr-2 faIconsBnt "></i>
             </div>
         </div>
 
@@ -138,32 +140,3 @@ if (!$test) {
 
 
 ?>
-<script>
-let Mcommentaire;
-$(".iput").change(function postinput() {
-    Mcommentaire = $(this).val();
-    return Mcommentaire;
-});
-
-function maFunction(idU, idAr) {
-    // console.log(idU);
-    // console.log(idAr);
-    // console.log(Mcommentaire);
-    $.ajax({
-            type: "POST",
-            url: "./_partials_actualite/_enreg_commentaire.php",
-            data: {
-                id_user: idU,
-                id_article: idAr,
-                commentaire: Mcommentaire,
-            },
-        })
-        .done(function(response) {
-            console.log(response);
-            $(".iput").val("");
-        })
-        .fail(function() {
-            console.log("error");
-        });
-}
-</script>

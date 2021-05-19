@@ -23,7 +23,7 @@ if (!$check) {
 
 
     <!-- The slideshow -->
-    <div class="carousel-inner rounded">
+    <div class="carousel-inner rounded boxeShadower">
         <?php
             $i = 0;
             while ($row = $result->fetch()) {
@@ -32,7 +32,7 @@ if (!$check) {
                     $actives = 'active';
                 }
             ?>
-        <div class="carousel-item <?= $actives; ?>">
+        <div class="carousel-item <?= $actives; ?> ">
 
             <div class="card text-center">
                 <h6 class="card-title"><?= $row['titre']; ?></h6>
