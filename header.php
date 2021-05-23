@@ -79,7 +79,9 @@ $id_user_conecter = 8;
                             onkeyup="this.value=this.value.toUpperCase()">
                     </div>
                     <div class="form-group">
-                        <label> Ajouter une Image <b class="text-muted"></b> </label>
+                        <label> Ajouter une Image: <br> <small class="text-muted"> type prise en charge: (png, gif, jpg,
+                                ou
+                                jpeg) </small> </label>
                         <input type="file" id="mediass" name="media_post" accept=".jpg, .png, .gif"
                             class="form-control form-control-sm media_post">
                     </div>

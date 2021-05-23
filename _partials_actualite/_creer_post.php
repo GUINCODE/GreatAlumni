@@ -52,7 +52,7 @@ if ($media == "" && $post == "") {
         //Début des vérifications de sécurité...
         if (!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
         {
-            $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, ou jpeg..';
+            $erreur = '<p style="color:red">Vous devez uploader un fichier de type png, gif, jpg, ou jpeg</p>';
         }
         if ($taille > $taille_maxi) {
             $erreur = 'Le fichier est trop gros...';
