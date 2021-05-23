@@ -123,9 +123,6 @@ $(document).ready(function () {
     })
       .done(function (response) {
         zoneStar.html(response);
-        console.log("liked");
-        console.log("id user: " + identifiant_user);
-        console.log("id article: " + identifiant_article);
       })
       .fail(function () {
         console.log("error");
@@ -171,5 +168,43 @@ $(document).ready(function () {
       .siblings(".bloc_Parent_commentaire");
     boiteCommentaire.toggleClass("hideurClass");
     $(this).children().toggleClass("togleIconCommente");
+  });
+  $(".btn_user_profil").click(function () {
+    let subMenuser = $(this).parents(".container").siblings(".sub_btn_profi");
+    subMenuser.stop().slideToggle();
+  });
+  $(".addArticle").click(function () {
+    $(".form_new_article").toggleClass("hideurClass");
+    $(".form_new_evenement").addClass("hideurClass");
+    $(this).parents(".sub_btn_profi").slideToggle();
+  });
+  $(".addEvenement").click(function () {
+    $(".form_new_evenement").toggleClass("hideurClass");
+    $(".form_new_article").addClass("hideurClass");
+    $(this).parents(".sub_btn_profi").slideToggle();
+  });
+
+  // les requets via les modals
+  $("#form_article").on("submit", function (event) {
+    event.preventDefault();
+    let zone_infos = $(".zone_infos");
+    let donnees = new FormData(this);
+    $("#titrePost").val("");
+    $("#mediass").val("");
+    $("#postst").val("");
+
+    $.ajax({
+      type: "POST",
+      url: "./_partials_actualite/_creer_post.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+      })
+      .fail(function () {
+        console.log("error");
+      });
   });
 });

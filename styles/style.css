@@ -169,3 +169,72 @@ ul {
 .boxeShadower {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.btn_user_profil {
+    width: 50px;
+}
+
+.entete {
+    background: #383c4d !important;
+}
+
+.sub_btn_profi>li {
+    font-size: 20px !important;
+}
+
+.sub_btn_profi {
+    background: #383c4d !important;
+    width: fit-content;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    z-index: 20;
+    left: 65rem;
+    top: 4rem;
+    display: none;
+    color: whitesmoke;
+}
+
+.btn_user_profil>i {
+    margin-top: 17px;
+    margin-left: -6px;
+    font-size: 20px;
+    color: #d7d8dd;
+    filter: brightness(80%);
+}
+
+.sub_btn_profi>li:hover {
+    color: azure;
+    filter: brightness(100%);
+    background: #070e29;
+}
+
+.btn_user_profil:hover i {
+    /* transform: scale(1.2); */
+    margin-top: 30px !important;
+}
+
+.sub_btn_profi>li {
+    border-radius: 12px;
+    padding-left: 6px;
+}
+
+.logOut:hover {
+    color: azure !important;
+    background: rgb(173, 10, 10) !important;
+    /* filter: brightness(100%) !important; */
+}
+
+textarea, .title_eve {
+    background: #6a6a6e !important;
+    font-size: 20px !important;
+    font-family: lato;
+    color: #e5e6ec !important;
+}
+
+.date_Events {
+    width: 60% !important;
+}
+.modal-evenement {
+    width: 100rem !important;
+}

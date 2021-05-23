@@ -1,7 +1,7 @@
 <?php
 include_once("./connectBDD.php");
 
-$id_user_conecter = 1;
+
 $sql = "SELECT * FROM article ORDER BY `date`  DESC  ";
 $verif = $db->query($sql);
 $test = $verif->fetch();
