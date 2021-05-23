@@ -235,6 +235,48 @@ textarea, .title_eve {
 .date_Events {
     width: 60% !important;
 }
+
 .modal-evenement {
     width: 100rem !important;
+}
+
+.mediaBloc {
+    width: 35% !important;
+}
+
+.sous_titre_evenement {
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    background: #b4b4b891;
+    width: 50% !important;
+}
+
+.details_evenement {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.imageDE_eve {
+    width: 18% !important;
+}
+
+.singleEvene {
+    width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.detailsEvene {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.titreEVENEMENT {
+    width: 60% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 20px;
+    text-align: center;
 }

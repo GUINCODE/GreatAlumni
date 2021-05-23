@@ -207,4 +207,31 @@ $(document).ready(function () {
         console.log("error");
       });
   });
+
+  $("#form_events").on("submit", function (event) {
+    event.preventDefault();
+
+    let zone_infos_eve = $(".zone_infos_eve");
+    let donnees = new FormData(this);
+    $("#titre_eve").val("");
+    $("#sous_titre_eve").val("");
+    $("#date_eve").val("");
+    $("#desc_eve").val("");
+    $("#desc_eve").val("");
+    $("#medias_eve").val("");
+
+    $.ajax({
+      type: "POST",
+      url: "./_partials_actualite/_creer_evenement.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos_eve.html(response);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
 });

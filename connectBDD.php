@@ -16,7 +16,7 @@ try {
     //on peut definir le mode de fetch par defaut comme suit:
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    die("Erreur, bdd innaccessible: " . $e->getMessage());
+    die("Erreur, cerveur base des données innaccessible ");
 }
          
 //pour executer les requets esql;

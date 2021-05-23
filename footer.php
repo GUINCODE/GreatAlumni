@@ -14,7 +14,7 @@
                     <a class="nav-link" href="/GreatAlumni/vue/v_annuaire.php">Annuaire</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/GreatAlumni/vue/v_fil_dactualite.php">Fil d'actualité</a>
+                    <a class="nav-link" href="actualite.php">Atualite & partage</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/GreatAlumni/vue/v_messagerie.php">Messagerie</a>

@@ -50,7 +50,7 @@ $id_user_conecter = 8;
             class="far fa-calendar-plus mr-1"></i>Nouvel evenement</li>
     <li type="button"><i class="far fa-comments mr-1"></i> Acceder au forum</li>
     <li type="button"><i class="fas fa-sms mr-1"></i>Ma messagerie</li>
-    <li type="button"><i class="fas fa-hands-helping mr-1"></i>Partagé & Aidé</li>
+    <li type="button"><i class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>
     <li type="button"><i class="fas fa-user mr-1"></i>Mon profil</li>
     <li type="button" class="logOut text-danger"><i class="fas fa-sign-out-alt mr-1 "></i>Se deconnecter</li>
 </ul>
@@ -113,30 +113,34 @@ $id_user_conecter = 8;
                     <span aria-hidden="true" style="font-size: 50px;">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
-                <form method="POST" action="#" enctype="multipart/form-data">
-                    <input type="hidden" value="<?= $id_user_conecter ?>" class="id_userlogin_eve">
+                <form method="POST" enctype="multipart/form-data" id="form_events">
+                    <input type="hidden" value="<?= $id_user_conecter ?>" class="id_userlogin_eve"
+                        name="id_userlogin_eve">
                     <div class="form-group mb-5">
                         <label>Titre <b class="text-muted">(*)</b></label>
                         <input type="text" class="form-control form-control-sm title_eve" placeholder="Titre"
-                            onkeyup="this.value=this.value.toUpperCase()" required>
+                            name="titre_eve" id="titre_eve" onkeyup="this.value=this.value.toUpperCase()" required>
                         <label>Sous Titre <b class="text-muted">(*)</b></label>
-                        <textarea class="form-control" rows="2" placeholder="Ecivez un petit resumé de l'évenement..."
-                            required onkeyup="this.value=this.value.toUpperCase()"></textarea>
+                        <textarea class="form-control" name="sous_titre_eve" rows="2"
+                            placeholder="Ecivez un petit resumé de l'évenement..." required
+                            onkeyup="this.value=this.value.toUpperCase()" id="sous_titre_eve"></textarea>
                     </div>
                     <div class="form-group">
                         <label> Date de l'évenement <b class="text-muted">(*)</b> </label>
-                        <input type="date" class="form-control form-control-sm date_Events" required>
+                        <input type="date" class="form-control form-control-sm date_Events" name="date_eve"
+                            id="date_eve" required>
                     </div>
                     <div class="form-group">
                         <label>Décrire l'événenent <b class="text-muted">(*)</b></label>
-                        <textarea class="form-control" rows="5" placeholder="Décrivez l'événement.."
-                            required></textarea>
+                        <textarea class="form-control" name="desc_eve" rows="5" id="desc_eve"
+                            placeholder="Décrivez l'événement.." required></textarea>
                     </div>
                     <div class="form-group">
                         <label> Ajouter une Image <b class="text-muted">(*)</b> </label>
-                        <input type="file" name="img" accept=".jpg, .png, .gif" class="form-control form-control-sm"
-                            required>
+                        <input type="file" name="medias_eve" id="medias_eve" accept=".jpg, .png, .gif"
+                            class="form-control form-control-sm" required>
                     </div>
 
                     <div class="mt-1 border-top mb-2"></div>
@@ -148,7 +152,7 @@ $id_user_conecter = 8;
                     <div class="content_feedback"></div>
                 </form>
             </div>
-
+            <div class="zone_infos_eve d-flex justify-content-center align-items-center w-100"></div>
         </div>
     </div>
 </div>

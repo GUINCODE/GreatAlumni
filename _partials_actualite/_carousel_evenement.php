@@ -9,7 +9,7 @@ if (!$check) {
 ?>
 <div class="bg-info p-2  text-center rounded">
     <h6>Aucun prochain évenement planifié</h6>
-    <p>les prochains évenements planifiés apparaitrons ici</p>
+    <p>les prochains évenements publiés apparaitrons ici</p>
 </div>
 
 <?php
@@ -38,14 +38,15 @@ if (!$check) {
                 <h6 class="card-title"><?= $row['titre']; ?></h6>
                 <figure class="figure">
                     <img src="<?= $row['image_path']; ?>" class="card-img-top" alt="...">
-                    <figcaption class="figure-caption  text-center"><?= $row['date']; ?></figcaption>
+                    <figcaption class="figure-caption  text-center"><?= $row['dates']; ?></figcaption>
                 </figure>
                 <div class="card-body">
                     <p class="card-text">
-                        <?= $row['description']; ?>
+                        <?= $row['sub_titre']; ?>
 
                     </p>
-                    <a href="#" class="btn btn-outline-primary  btn-sm rounded">Lire</a>
+                    <a href="lire_un_evenement.php?id_evenement=<?= $row['id'];  ?>"
+                        class="btn btn-outline-primary  btn-sm rounded">Lire</a>
 
                 </div>
             </div>
