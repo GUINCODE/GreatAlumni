@@ -50,7 +50,8 @@ $id_user_conecter = 8;
             class="far fa-calendar-plus mr-1"></i>Nouvel evenement</li>
     <li type="button"><i class="far fa-comments mr-1"></i> Acceder au forum</li>
     <li type="button"><i class="fas fa-sms mr-1"></i>Ma messagerie</li>
-    <li type="button"><i class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>
+    <li type="button" class="addFeedback" data-toggle="modal" data-target="#staticBackdrop3"><i
+            class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>
     <li type="button"><i class="fas fa-user mr-1"></i>Mon profil</li>
     <li type="button" class="logOut text-danger"><i class="fas fa-sign-out-alt mr-1 "></i>Se deconnecter</li>
 </ul>
@@ -69,7 +70,7 @@ $id_user_conecter = 8;
             </div>
             <div class="zone_infos d-flex justify-content-center align-items-center w-100"></div>
             <div class="modal-body">
-                <form enctype="multipart/form-data" id="form_article" method="POST">
+                <form id="form_article" method="POST">
                     <input type="hidden" value="<?= $id_user_conecter ?>" class="id_userlogin_post rounded"
                         name="id_userlogin_post">
                     <div class="form-group">
@@ -129,8 +130,8 @@ $id_user_conecter = 8;
 
                         <textarea class="form-control rounded" name="sous_titre_eve" rows="2"
                             placeholder="Ecivez un petit resumé de l'évenement..." required
-                            onkeyup="this.value=this.value.toUpperCase()" id="sous_titre_eve"
-                            maxlength="430"></textarea><br>
+                            onkeyup="this.value=this.value.toUpperCase()" id="sous_titre_eve" maxlength="430">
+                            </textarea><br>
 
                     </div>
                     <div class="form-group">
@@ -155,10 +156,66 @@ $id_user_conecter = 8;
                         <input type="submit" value="Publier"
                             class="btn btn-outline-success btn-sm rounded ml-auto btn-publie-post" />
                     </div>
-                    <div class="content_feedback"></div>
+
                 </form>
             </div>
             <div class="zone_infos_eve d-flex justify-content-center align-items-center w-100"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ADD FEEDBACK -->
+<div class="modal fade   " id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+    <div class="modal-dialog  " style="max-width: 60%;" role="document">
+        <div class="modal-content rounded  shadow-lg">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="staticBackdropLabel3">Partage d'experience</h5> -->
+                <div class="w-100">
+                    <h5 class="modal-title" id="staticBackdropLabel3">Partagez vos éxperiences </h5>
+                    <span class="text-muted">Vous avez participé à des projets d’envergure importante, des projets
+                        innovents
+                        ?
+                        Faites un retour d'experience sur ces projets !!! </span>
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form method="POST" enctype="multipart/form-data" id="form_events2">
+                    <input type="hidden" value="<?= $id_user_conecter ?>" class="id_userlogin_eve rounded"
+                        name="id_userlogin_eve2">
+                    <div class="form-group ">
+                        <label>Titre <b class="text-muted">(*)</b></label>
+                        <input type="text" class="form-control form-control-sm title_eve rounded"
+                            placeholder="exemple: Mon retour d'experience sur un projet AGIL avec la societe GUINCODE"
+                            name="titre_eve2" id="titre_eve2" onkeyup="this.value=this.value.toUpperCase()" required>
+
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Détails <b class="text-muted">(*)</b></label>
+
+                        <textarea class="form-control rounded" name="sous_titre_eve2" rows="8"
+                            placeholder="Décrivez  l'éxperience dont vous avez vécu dans la realisation de ce projet..."
+                            required id="sous_titre_eve2"></textarea><br>
+
+                    </div>
+
+
+
+                    <div class="mt-1 border-top mb-2"></div>
+                    <div class="form-group d-flex mx-3 ">
+                        <input type="reset" value="Recommenser" class="btn btn-outline-dark btn-sm rounded" />
+                        <input type="submit" value="Publier"
+                            class="btn btn-outline-success btn-sm rounded ml-auto btn-publie-post" />
+                    </div>
+
+                </form>
+            </div>
+            <div class="zone_infos_eve2 d-flex justify-content-center align-items-center w-100"></div>
         </div>
     </div>
 </div>

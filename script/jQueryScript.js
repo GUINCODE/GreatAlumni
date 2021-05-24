@@ -234,4 +234,50 @@ $(document).ready(function () {
         console.log("error");
       });
   });
+  $("#form_events2").on("submit", function (event) {
+    event.preventDefault();
+
+    let zone_infos_eve2 = $(".zone_infos_eve2");
+    let donnees = new FormData(this);
+    $("#titre_eve2").val("");
+    $("#sous_titre_eve2").val("");
+    console.log("detecter");
+
+    $.ajax({
+      type: "POST",
+      url: "./_partials_actualite/_creer_feedback.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos_eve2.html(response);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+
+  // $("#form_feedback").on("submit", function (event) {
+  //   event.preventDefault();
+  //   console.log("click detecter ");
+  //   let zone_infos_feedback = $(".zone_infos_feedback");
+  //   let donneesF = new FormData(this);
+  //   $("#titre_feedback").val("");
+  //   $("#desc_feedback").val("");
+
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "./_partials_actualite/_creer_feedback.php",
+  //     data: donneesF,
+  //     processData: false,
+  //     contentType: false,
+  //   })
+  //     .done(function (response) {
+  //       zone_infos_feedback.html(response);
+  //     })
+  //     .fail(function () {
+  //       console.log("error");
+  //     });
+  // });
 });
