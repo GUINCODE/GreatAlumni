@@ -70,7 +70,7 @@ if (!$test) {
         </a>
     </div>
     <div class="card-body">
-        <h5 class="titre_article"><?php echo " $titre "; ?></h5>
+        <h6 class="titre_article"><?php echo " $titre "; ?></h6>
         <p class="card-text"> <?php echo " $text "; ?></p>
         <!-- <a href="#" class="btn btn-outline-primary  rounded">Lire tout</a> -->
     </div>
@@ -79,7 +79,7 @@ if (!$test) {
                 echo "";
             } else {
             ?>
-    <img src="<?php echo " $media"; ?>" class="card-img-top img-fluid " alt="...">
+    <img src="<?php echo " $media"; ?>" class="card-img-top img-fluid  imagePoster mx-auto rounded " alt="...">
 
     <?php
             }

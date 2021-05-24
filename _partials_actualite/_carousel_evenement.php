@@ -46,7 +46,7 @@ if (!$check) {
 
                     </p>
                     <a href="lire_un_evenement.php?id_evenement=<?= $row['id'];  ?>"
-                        class="btn btn-outline-primary  btn-sm rounded">Lire</a>
+                        class="btn btn-outline-primary  btn-sm rounded Mbouton">Lire</a>
 
                 </div>
             </div>

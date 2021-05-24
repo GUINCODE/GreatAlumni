@@ -5,7 +5,9 @@ include_once("./connectBDD.php");
 
 
 <div class="mt-5 mr-1 ">
-    <a href="#" class="btn btn-outline-info rounded mb-4 boxeShadower ">Voirs tous les retours d'experiences</a>
+    <a href="./load_all_feedback.php" class="btn btn-outline-info rounded mb-4 boxeShadower  Mbouton">Voirs tous les
+        retours
+        d'experiences</a>
     <?php
     $sql = "SELECT * FROM partages  LIMIT 2";
     $verif = $db->query($sql);
@@ -36,7 +38,8 @@ include_once("./connectBDD.php");
                 d'experience
             </h5>
             <p class="card-text text-fluid"><?= $titre  ?></p>
-            <a href="#" class="btn btn-outline-primary rounded btn-sm">consulter</a>
+            <a href="lire_partage.php?id_feedback='<?= $id ?>'"
+                class="btn btn-outline-primary rounded btn-sm Mbouton">consulter</a>
         </div>
     </div>
     <?php
@@ -46,6 +49,7 @@ include_once("./connectBDD.php");
 
     ?>
 
-    <a href="#" class="btn btn-outline-info rounded  boxeShadower">Voirs tous les retours d'experiences</a>
+    <a href="./load_all_feedback.php" class="btn btn-outline-info rounded  boxeShadower Mbouton">Voirs tous les retours
+        d'experiences</a>
 
 </div>
