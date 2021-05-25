@@ -117,7 +117,7 @@ if (!$test) {
             <div class="d-flex w-75 mx-auto bg-light  my-1  bloc_Parent_commentaire  hideurClass">
 
                 <div class=" figure-fluid">
-                    <img src="./images/medias_users/profil_par_defaut.jpg" alt="user profil " class="profil-commente img-fluid " />
+                    <img src="./images/medias_users/userLogin.png" alt="user profil " class="profil-commente img-fluid " />
                 </div>
 
                 <div class=" input-group w-100  ">

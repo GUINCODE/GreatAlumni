@@ -91,10 +91,10 @@ input:focus, select:focus, textarea:focus, button:focus {
 }
 
 .entete_article {
-    background: #383c4d !important;
+    background: #383c4dd7 !important;
      color: aliceblue;
      font-weight: bold;
-     border: 30px solid red;
+  
 }
 
 .border-munted {

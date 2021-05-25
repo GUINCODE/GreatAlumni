@@ -188,7 +188,9 @@ $(document).ready(function () {
     $(".form_new_article").addClass("hideurClass");
     $(this).parents(".sub_btn_profi").slideToggle();
   });
-
+    $(".addFeedback").click(function () {
+      $(this).parents(".sub_btn_profi").slideToggle();
+    });
   // les requets via les modals
   $("#form_article").on("submit", function (event) {
     event.preventDefault();

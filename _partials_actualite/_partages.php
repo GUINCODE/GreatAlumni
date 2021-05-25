@@ -9,7 +9,7 @@ include_once("./connectBDD.php");
         retours
         d'experiences</a>
     <?php
-    $sql = "SELECT * FROM partages  LIMIT 2";
+    $sql = "SELECT * FROM partages ORDER By date DESC LIMIT 2";
     $verif = $db->query($sql);
     $test = $verif->fetch();
     if (!$test) {
