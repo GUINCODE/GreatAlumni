@@ -91,8 +91,10 @@ input:focus, select:focus, textarea:focus, button:focus {
 }
 
 .entete_article {
-    background: rgb(134, 133, 133);
-    color: aliceblue;
+    background: #383c4d !important;
+     color: aliceblue;
+     font-weight: bold;
+     border: 30px solid red;
 }
 
 .border-munted {

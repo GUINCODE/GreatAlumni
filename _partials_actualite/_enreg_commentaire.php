@@ -16,7 +16,7 @@ if ($stmt->execute()) {
     $nombreCommentaire = $result4->rowCount();
     if ($nombreCommentaire > 0) {
 ?>
-    <span type="button" class="showcommentaire"><?php echo $nombreCommentaire . ' comentaires'; ?> </span>
+   <?php echo $nombreCommentaire ; ?> 
 
     <?php
     } else {

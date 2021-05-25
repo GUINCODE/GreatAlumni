@@ -141,8 +141,12 @@ $(document).ready(function () {
       let zone_comm = $(this)
         .parents(".bloc_Parent_commentaire")
         .siblings(".reactionAuthers")
-        .children(".commentaires");
-
+        .find(".nombreOfcommentaire");
+ let textCommentaire = $(this)
+   .parents(".bloc_Parent_commentaire")
+   .siblings(".reactionAuthers")
+   .find(".showcommentaire");
+    textCommentaire.removeClass('hideurClass')
       ////ici la requete ajax
       $.ajax({
         type: "POST",
@@ -155,6 +159,7 @@ $(document).ready(function () {
       })
         .done(function (response) {
           zone_comm.html(response);
+        
         })
         .fail(function () {
           console.log("error");

@@ -41,9 +41,11 @@ if (!$test) {
         $result4 = $db->query($sql4);
         $nombreCommentaire = $result4->rowCount();
         if ($nombreCommentaire > 0) {
-            $commentaire =  $nombreCommentaire . " commentaires";
+            $commentaire =  $nombreCommentaire;
+            $texCommentaire = '<span type="button" class="showcommentaire"> commentaires </span>';
         } else {
             $commentaire = '';
+            $texCommentaire = '<span type="button" class="showcommentaire hideurClass  "> commentaires </span>';
         }
         // ----Liker ou pas ?---
         $sql5 = "SELECT * FROM `article_votes` WHERE `id_article` = $id_article  AND `id_user`=$id_user_conecter";
@@ -91,11 +93,12 @@ if (!$test) {
                 <div class="ml-2 place_number_like"> <?php echo $like; ?>
 
                 </div>
-                <div class="commentaires ml-3 ">
-                    <span type="button" class="showcommentaire"><?php echo $commentaire; ?> </span>
+                <div class="commentaires  d-flex flex-row ml-3 ">
+                    <span class="nombreOfcommentaire mr-2"><?php echo $commentaire; ?></span>
+                    <?= $texCommentaire; ?>
                 </div>
             </div>
-            <div class="les_commentaires ml-3 mt-2 hideurClass"></div>
+            <div class="les_commentaires ml-3 mt-2 hideurClass" data-aos="fade-down"></div>
             <div class="reagir border-top border-bottom border-munted">
                 <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
                 <input type="hidden" value="<?= $id_article; ?>" class="id_article" />
