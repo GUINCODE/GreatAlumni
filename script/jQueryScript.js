@@ -258,26 +258,34 @@ $(document).ready(function () {
       });
   });
 
-  // $("#form_feedback").on("submit", function (event) {
-  //   event.preventDefault();
-  //   console.log("click detecter ");
-  //   let zone_infos_feedback = $(".zone_infos_feedback");
-  //   let donneesF = new FormData(this);
-  //   $("#titre_feedback").val("");
-  //   $("#desc_feedback").val("");
+  $('.showcommentaire').click(function (e) { 
+   
+      let id_article = $(this)
+        .parents(".reactionAuthers")
+        .siblings(".reagir")
+        .children(".id_article")
+        .val();
+     let les_commentaires = $(this)
+       .parents(".reactionAuthers")
+       .siblings(".les_commentaires");
 
-  //   $.ajax({
-  //     type: "POST",
-  //     url: "./_partials_actualite/_creer_feedback.php",
-  //     data: donneesF,
-  //     processData: false,
-  //     contentType: false,
-  //   })
-  //     .done(function (response) {
-  //       zone_infos_feedback.html(response);
-  //     })
-  //     .fail(function () {
-  //       console.log("error");
-  //     });
-  // });
+   
+       les_commentaires.toggleClass("hideurClass");
+        $(this).toggleClass("togleIconCommente");
+
+         $.ajax({
+           type: "POST",
+           url: "./_partials_actualite/_fetch_commentaire.php",
+           data: {
+             id_article: id_article,
+           },
+         })
+           .done(function (response) {
+             les_commentaires.html(response);
+           })
+           .fail(function () {
+             console.log("error");
+           });
+
+  });
 });

@@ -16,8 +16,9 @@ if ($stmt->execute()) {
     $nombreCommentaire = $result4->rowCount();
     if ($nombreCommentaire > 0) {
 ?>
-<a href="#"><?php echo $nombreCommentaire . ' comentaires'; ?> </a>
-<?php
+    <span type="button" class="showcommentaire"><?php echo $nombreCommentaire . ' comentaires'; ?> </span>
+
+    <?php
     } else {
         echo '';
     }
