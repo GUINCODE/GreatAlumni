@@ -1,5 +1,5 @@
 <?php
-include_once('../connectBDD.php');
+include_once('../partials/connectBDD.php');
 $id_user = $_POST['identifiant_user'];
 $id_article = $_POST['identifiant_article'];
 $rec_commentaire = $_POST['commentaire'];

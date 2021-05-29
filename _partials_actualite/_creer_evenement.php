@@ -1,5 +1,5 @@
 <?php
-include_once('../connectBDD.php');
+include_once('../partials/connectBDD.php');
 
 $titre_eve = $_POST['titre_eve'];
 $sous_titre = $_POST['sous_titre_eve'];

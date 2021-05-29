@@ -1,5 +1,5 @@
 <?php
-include_once('../connectBDD.php');
+include_once('../partials/connectBDD.php');
 $id_user = $_POST['id_userlogin_eve2'];
 $titre_feedback = $_POST['titre_eve2'];
 $desc_feedback = $_POST['sous_titre_eve2'];

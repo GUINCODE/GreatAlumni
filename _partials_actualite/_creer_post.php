@@ -1,5 +1,5 @@
 <?php
-include_once('../connectBDD.php');
+include_once('../partials/connectBDD.php');
 $id_user = $_POST['id_userlogin_post'];
 $titre_post = $_POST['titre_post'];
 $media = $_FILES['media_post']['tmp_name'];

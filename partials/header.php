@@ -1,5 +1,5 @@
 <?php
-include_once("../connectBDD.php");
+include_once("connectBDD.php");
 $id_user_conecter = 8;
 ?>
 <input type="hidden" value="<?= $id_user_conecter; ?>" class="user_log_identifiant" />

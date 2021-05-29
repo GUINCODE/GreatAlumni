@@ -1,6 +1,6 @@
 <?php
 
-include_once('../connectBDD.php');
+include_once('../partials/connectBDD.php');
 $id_userConnecter = $_POST['id_userConnecter'];
 $id_destinataire = $_POST['id_destinataire'];
 $messages = $_POST['message'];

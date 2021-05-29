@@ -1,5 +1,5 @@
                 <?php
-                include_once("../connectBDD.php");
+                include_once('../partials/connectBDD.php');
                 $id_user_Connecter = $_POST['id_user_Connecter'];
                 // $id_user_Connecter = 8;
 

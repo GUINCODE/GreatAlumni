@@ -1,5 +1,5 @@
 <?php
-
+include_once('../partials/connectBDD.php');
 
 $sql = "SELECT * FROM `evenements` ORDER BY dates DESC ";
 $result = $db->query($sql);

@@ -1,5 +1,5 @@
 <?php
-include_once("../connectBDD.php");
+include_once('../partials/connectBDD.php');
 
 
 $sql = "SELECT * FROM article ORDER BY `date`  DESC  ";
