@@ -1,5 +1,5 @@
 <?php
-include_once("./connectBDD.php");
+include_once("../connectBDD.php");
 
 
 $sql = "SELECT * FROM article ORDER BY `date`  DESC  ";
@@ -23,7 +23,7 @@ if (!$test) {
         $prenom = $ligne["Prenom"];
         $profil = $ligne["Photo"];
         if (is_null($profil) or empty($profil)) {
-            $profil = "./images/medias_users/profil_par_defaut.jpg";
+            $profil = "../images/medias_users/profil_par_defaut.jpg";
         }
         // ----les likes---
         $sql3 = "SELECT * FROM `article_votes` WHERE `id_article` = $id_article    ";
@@ -117,7 +117,7 @@ if (!$test) {
             <div class="d-flex w-75 mx-auto bg-light  my-1  bloc_Parent_commentaire  hideurClass">
 
                 <div class=" figure-fluid">
-                    <img src="./images/medias_users/userLogin.png" alt="user profil " class="profil-commente img-fluid " />
+                    <img src="../images/medias_users/userLogin.png" alt="user profil " class="profil-commente img-fluid " />
                 </div>
 
                 <div class=" input-group w-100  ">

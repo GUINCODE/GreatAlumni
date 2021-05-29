@@ -2,7 +2,7 @@ $(document).ready(function () {
   function loadSMS() {
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_load_msg.php",
+      url: "../_partials_actualite/_load_msg.php",
       data: { id_user: 1 },
     })
       .done(function (response) {
@@ -15,7 +15,7 @@ $(document).ready(function () {
   function loadEVE() {
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_load_evenement.php",
+      url: "../_partials_actualite/_load_evenement.php",
       data: { id_user: 1 },
     })
       .done(function (response) {
@@ -28,7 +28,7 @@ $(document).ready(function () {
   function loadAutre() {
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_load_autre.php",
+      url: "../_partials_actualite/_load_autre.php",
       data: { id_user: 1 },
     })
       .done(function (response) {
@@ -78,7 +78,7 @@ $(document).ready(function () {
     $(this).parents("span").toggleClass("hideur");
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_unLike.php",
+      url: "../_partials_actualite/_unLike.php",
       data: {
         identifiant_user: identifiant_user,
         identifiant_article: identifiant_article,
@@ -115,7 +115,7 @@ $(document).ready(function () {
     $(this).parents("span").toggleClass("hideur");
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_like.php",
+      url: "../_partials_actualite/_like.php",
       data: {
         identifiant_user: identifiant_user,
         identifiant_article: identifiant_article,
@@ -150,7 +150,7 @@ $(document).ready(function () {
       ////ici la requete ajax
       $.ajax({
         type: "POST",
-        url: "./_partials_actualite/_enreg_commentaire.php",
+        url: "../_partials_actualite/_enreg_commentaire.php",
         data: {
           identifiant_user: id_user,
           identifiant_article: id_article,
@@ -201,7 +201,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_creer_post.php",
+      url: "../_partials_actualite/_creer_post.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -228,7 +228,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_creer_evenement.php",
+      url: "../_partials_actualite/_creer_evenement.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -251,7 +251,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_creer_feedback.php",
+      url: "../_partials_actualite/_creer_feedback.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -279,7 +279,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "./_partials_actualite/_fetch_commentaire.php",
+      url: "../_partials_actualite/_fetch_commentaire.php",
       data: {
         id_article: id_article,
       },
@@ -317,7 +317,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "./_partials_messagerie/_update_statut_sms.php",
+      url: "../_partials_messagerie/_update_statut_sms.php",
       data: {
         id_userConnecter: id_userConnecter,
         id_expeditaire: id_expeditaire,
@@ -385,7 +385,7 @@ $(this).toggleClass("hideurClass");
     let fil_sms_echange = $(".fil_sms_echange");
     $.ajax({
       type: "POST",
-      url: "./_partials_messagerie/_fetch_discussion.php",
+      url: "../_partials_messagerie/_fetch_discussion.php",
       data: {
         id_connecter: id_connecter,
         id_interLocutaire: id_interLocutaire,
@@ -440,7 +440,7 @@ $(this).toggleClass("hideurClass");
         //requete d'insertion de message
         $.ajax({
           type: "POST",
-          url: "./_partials_messagerie/_envoi_message.php",
+          url: "../_partials_messagerie/_envoi_message.php",
           data: {
             id_userConnecter: id_userConnecter,
             id_destinataire: id_destinataire,

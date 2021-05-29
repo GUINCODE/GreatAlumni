@@ -1,16 +1,16 @@
 <?php
-include_once("./connectBDD.php");
 
-$sql = "SELECT * FROM `evenements` ";
+
+$sql = "SELECT * FROM `evenements` ORDER BY dates DESC ";
 $result = $db->query($sql);
 
 $check = $result->fetch();
 if (!$check) {
 ?>
-<div class="bg-info p-2  text-center rounded">
-    <h6>Aucun prochain évenement planifié</h6>
-    <p>les prochains évenements publiés apparaitrons ici</p>
-</div>
+    <div class="bg-info p-2  text-center rounded">
+        <h6>Aucun prochain évenement planifié</h6>
+        <p>les prochains évenements publiés apparaitrons ici</p>
+    </div>
 
 <?php
 
@@ -18,13 +18,13 @@ if (!$check) {
 
 ?>
 
-<div id="demo" class="carousel slide " data-ride="carousel">
+    <div id="demo" class="carousel slide " data-ride="carousel">
 
 
 
-    <!-- The slideshow -->
-    <div class="carousel-inner rounded boxeShadower">
-        <?php
+        <!-- The slideshow -->
+        <div class="carousel-inner rounded boxeShadower">
+            <?php
             $i = 0;
             while ($row = $result->fetch()) {
                 $actives = '';
@@ -32,41 +32,40 @@ if (!$check) {
                     $actives = 'active';
                 }
             ?>
-        <div class="carousel-item <?= $actives; ?> ">
+                <div class="carousel-item <?= $actives; ?> ">
 
-            <div class="card text-center">
-                <h6 class="card-title"><?= $row['titre']; ?></h6>
-                <figure class="figure">
-                    <img src="<?= $row['image_path']; ?>" class="card-img-top" alt="...">
-                    <figcaption class="figure-caption  text-center"><?= $row['dates']; ?></figcaption>
-                </figure>
-                <div class="card-body">
-                    <p class="card-text">
-                        <?= $row['sub_titre']; ?>
+                    <div class="card text-center">
+                        <h6 class="card-title"><?= $row['titre']; ?></h6>
+                        <figure class="figure">
+                            <img src="<?= $row['image_path']; ?>" class="card-img-top" alt="<?= $row['image_path']; ?>">
+                            <figcaption class="figure-caption  text-center"><?= $row['dates']; ?></figcaption>
+                        </figure>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <?= $row['sub_titre']; ?>
 
-                    </p>
-                    <a href="lire_un_evenement.php?id_evenement=<?= $row['id'];  ?>"
-                        class="btn btn-outline-primary  btn-sm rounded Mbouton">Lire</a>
+                            </p>
+                            <a href="lire_un_evenement.php?id_evenement=<?= $row['id'];  ?>" class="btn btn-outline-primary  btn-sm rounded Mbouton">Lire</a>
+
+                        </div>
+                    </div>
 
                 </div>
-            </div>
-
-        </div>
-        <?php
+            <?php
                 $i++;
             }
             ?>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
     </div>
-
-    <!-- Left and right controls -->
-    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-
-</div>
 <?php
 }
 

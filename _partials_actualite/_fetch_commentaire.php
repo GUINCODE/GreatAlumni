@@ -19,7 +19,7 @@ if ($stmt->execute()) {
         $nom = $ligne["Nom"];
         $profil = $ligne["Photo"];
         if (is_null($profil) or empty($profil)) {
-            $profil = "./images/medias_users/userLogin.png";
+            $profil = "../images/medias_users/userLogin.png";
         }
 ?>
         <div class=" d-flex mb-1  ">

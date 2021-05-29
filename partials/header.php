@@ -1,11 +1,12 @@
 <?php
+include_once("../connectBDD.php");
 $id_user_conecter = 8;
 ?>
 <input type="hidden" value="<?= $id_user_conecter; ?>" class="user_log_identifiant" />
 <div class="container  w-100  d-flex  entete rounded">
 
     <ul class="d-flex  w-100 p-2 " id="mainNav">
-        <img src="./images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="max-width:230px" />
+        <img src="../images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="max-width:230px" />
         <li class="messageBtn">
             <button class="btn-head rounded" id="btn_notif_message">
                 <i class="fas fa-sms" style="font-size: 2em"></i>
@@ -36,7 +37,7 @@ $id_user_conecter = 8;
             </ul>
         </li>
         <div class="btn_user_profil my-auto ml-auto  d-flex justify-content-center align-items-center mr-5" type="button">
-            <img src="./images/medias_users/userLogin.png" class=" img-fluid profil-post" alt="...">
+            <img src="../images/medias_users/userLogin.png" class=" img-fluid profil-post" alt="...">
             <i class="fas fa-arrow-circle-down"></i>
         </div>
     </ul>
@@ -117,8 +118,7 @@ $id_user_conecter = 8;
                     <div class="form-group mb-3">
                         <label>Sous Titre <b class="text-muted">(*)</b></label>
 
-                        <textarea class="form-control rounded" name="sous_titre_eve" rows="2" placeholder="Ecivez un petit resumé de l'évenement..." required onkeyup="this.value=this.value.toUpperCase()" id="sous_titre_eve" maxlength="430">
-                            </textarea><br>
+                        <textarea class="form-control rounded" name="sous_titre_eve" rows="2" placeholder="Ecivez un petit resumé de l'évenement..." required onkeyup="this.value=this.value.toUpperCase()" id="sous_titre_eve" maxlength="430"></textarea><br>
 
                     </div>
                     <div class="form-group">

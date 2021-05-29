@@ -14,7 +14,7 @@ window.addEventListener("load", function () {
         }
       }
     };
-    xhttp.open("POST", "./_partials_actualite/_fetch_msg_notif.php", true);
+    xhttp.open("POST", "../_partials_actualite/_fetch_msg_notif.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("id_user=1");
   }
@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
         }
       }
     };
-    xhttp.open("POST", "./_partials_actualite/_fetch_eve_notif.php", true);
+    xhttp.open("POST", "../_partials_actualite/_fetch_eve_notif.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(" id_user=1");
   }
@@ -54,7 +54,7 @@ window.addEventListener("load", function () {
         }
       }
     };
-    xhttp.open("POST", "./_partials_actualite/_fetch_autre_notif.php", true);
+    xhttp.open("POST", "../_partials_actualite/_fetch_autre_notif.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(" id_user=1");
   }

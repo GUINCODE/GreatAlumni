@@ -43,7 +43,7 @@ if ($media == "" && $post == "") {
     if (is_uploaded_file($_FILES['media_post']['tmp_name'])) {
         $date = date('d_m_y_h_i_s_');
         $dossier = '../images/medias_article/';
-        $dossier2 = './images/medias_article/';
+        $dossier2 = '../images/medias_article/';
         $fichier = basename($_FILES['media_post']['name']);
         $taille_maxi = 1000000;
         $taille = filesize($_FILES['media_post']['tmp_name']);

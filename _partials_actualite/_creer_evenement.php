@@ -21,7 +21,7 @@ if ($media == "" && $titre_eve == "") {
     if (is_uploaded_file($_FILES['medias_eve']['tmp_name'])) {
         $date = date('d_m_y_h_i_s_');
         $dossier = '../images/medias_evenement/';
-        $dossier2 = './images/medias_evenement/';
+        $dossier2 = '../images/medias_evenement/';
         $fichier = basename($_FILES['medias_eve']['name']);
         $taille_maxi = 1000000;
         $taille = filesize($_FILES['medias_eve']['tmp_name']);

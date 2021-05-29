@@ -1,8 +1,3 @@
-<?php
-
-include_once("./connectBDD.php");
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,17 +17,18 @@ include_once("./connectBDD.php");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <!-- -----cdn fontawsone----  -->
     <script src="https://kit.fontawesome.com/94935e316c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/designY.css">
 </head>
 
 <body>
     <?php
-    include_once("header.php")
-
-
+    include_once('../partials/header.php')
     ?>
+
+
+
     <h3 class="text-center liker mt-2">GREATALUMNI MESSAGERIE Privée</h3>
-    <div class="container container_messagerier   rounded  d-flex flex-row">
+    <div class="container container_messagerier   rounded  d-flex flex-row margeBottomFree">
         <div class="w-25 d-flex flex-column  py-3">
             <span class="text-muted text-center badge-secondary rounded">Messages réçus </span>
             <div class="les_sms_recus  shadow-lg p-2 rounded  d-flex flex-column mt-2">
@@ -74,7 +70,7 @@ include_once("./connectBDD.php");
                     $prenom = $ligne["Prenom"];
                     $profil = $ligne["Photo"];
                     if (is_null($profil) or empty($profil)) {
-                        $profil = "./images/medias_users/profil_par_defaut.jpg";
+                        $profil = "../images/medias_users/profil_par_defaut.jpg";
                     }
                     // on verifie le message est deja lus ou pas
                     if ($statutX == "lus") {
@@ -133,7 +129,7 @@ include_once("./connectBDD.php");
                             $prenom = $colonne['Prenom'];
                             $profil = $colonne["Photo"];
                             if (is_null($profil) or empty($profil)) {
-                                $profil = "./images/medias_users/profil_par_defaut.jpg";
+                                $profil = "../images/medias_users/profil_par_defaut.jpg";
                             }
 
                         ?>
@@ -158,7 +154,7 @@ include_once("./connectBDD.php");
                 <h5 class="ml-3 text-light">Avec : </h5>
                 <div class="infos_destinataire ml-3 d-flex align-items-center">
                     <input type="hidden" value="" class="id_user_select">
-                    <img class="img_fromUser profil_user_select" src="./images/medias_users/neutreUser2.png" alt="..." style="color:grey" />
+                    <img class="img_fromUser profil_user_select" src="../images/medias_users/neutreUser2.png" alt="..." style="color:grey" />
                     <span class=" text-capitalize text-light infos_user_select ml-2 mr-5"> <span class="text-muted"> aucun utilisateur selectionner</span> </span>
                     <i class="fas fa-sync ml-3 faIconsBnt refresh_message hideurClass" type="button" style="font-size:25px"></i>
                     <span class="refres_txt ml-3 hideurClass text-info" style="font-size:15px"> <i class="fas fa-sync mr-1 smoll_fresh"></i>mise à jour message...</span>
@@ -168,7 +164,7 @@ include_once("./connectBDD.php");
             <ul class=" fil_sms_echange mt-0 d-flex flex-column justify-contenter-start p-2 ">
                 <h4 class=" text-muted text-center mt-1">Vos conversation s'afficherons ici 😎😎</h4>
                 <b class="text-muted text-center mb-1">séléctionnez un utilisateur pour échanger avec lui</b>
-                <img src="./images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="margin-left:40%;max-width:200px; max-height:200px;" />
+                <img src="../images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="margin-left:40%;max-width:200px; max-height:200px;" />
 
                 <!-- <img src="./images/medias_users/chaLive2.gif" alt="..." style="width:300px;margin-left:30%" /> -->
             </ul>
@@ -191,21 +187,26 @@ include_once("./connectBDD.php");
 
 
 
-    <br>
+
+
+
     <?php
-    include_once("footer.php");
+    include_once("../partials/footer.php");
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
-    <script src="./script/script.js"></script>
-    <script src="./script/jQueryScript.js"></script>
+    <script src="../script/script.js"></script>
+    <script src="../script/jQueryScript.js"></script>
     <script>
         setTimeout(() => {
-            window.scrollTo(0, document.body.scrollHeight);
-        }, 3000);
-     
+            // window.scrollTo(0, document.body.scrollHeight);
+            $("html, body").animate({
+                scrollTop: "100000"
+            }, 8000);
+        }, 1000);
     </script>
+    <!-- -----cdn AOS--- -->
 
 </body>
 
