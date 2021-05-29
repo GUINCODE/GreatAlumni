@@ -1,9 +1,11 @@
 <?php
 $id_user_conecter = 8;
 ?>
+<input type="hidden" value="<?= $id_user_conecter; ?>" class="user_log_identifiant" />
 <div class="container  w-100  d-flex  entete rounded">
 
     <ul class="d-flex  w-100 p-2 " id="mainNav">
+        <img src="./images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="max-width:230px" />
         <li class="messageBtn">
             <button class="btn-head rounded" id="btn_notif_message">
                 <i class="fas fa-sms" style="font-size: 2em"></i>
@@ -46,7 +48,7 @@ $id_user_conecter = 8;
     <li type="button" class="addArticle" data-toggle="modal" data-target="#staticBackdrop"><i class="far fa-edit mr-1"></i>Nouvel article </li>
     <li type="button" class="addEvenement" data-toggle="modal" data-target="#staticBackdrop2"><i class="far fa-calendar-plus mr-1"></i>Nouvel evenement</li>
     <li type="button"><i class="far fa-comments mr-1"></i> Acceder au forum</li>
-    <li type="button"><i class="fas fa-sms mr-1"></i>Ma messagerie</li>
+    <li type="button"><a href="ma_messagerie.php"><i class="fas fa-sms mr-1"></i>Ma messagerie</a></li>
     <li type="button" class="addFeedback" data-toggle="modal" data-target="#staticBackdrop3"><i class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>
     <li type="button"><i class="fas fa-user mr-1"></i>Mon profil</li>
     <li type="button" class="logOut text-danger"><i class="fas fa-sign-out-alt mr-1 "></i>Se deconnecter</li>

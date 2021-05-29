@@ -142,11 +142,11 @@ $(document).ready(function () {
         .parents(".bloc_Parent_commentaire")
         .siblings(".reactionAuthers")
         .find(".nombreOfcommentaire");
- let textCommentaire = $(this)
-   .parents(".bloc_Parent_commentaire")
-   .siblings(".reactionAuthers")
-   .find(".showcommentaire");
-    textCommentaire.removeClass('hideurClass')
+      let textCommentaire = $(this)
+        .parents(".bloc_Parent_commentaire")
+        .siblings(".reactionAuthers")
+        .find(".showcommentaire");
+      textCommentaire.removeClass("hideurClass");
       ////ici la requete ajax
       $.ajax({
         type: "POST",
@@ -159,7 +159,6 @@ $(document).ready(function () {
       })
         .done(function (response) {
           zone_comm.html(response);
-        
         })
         .fail(function () {
           console.log("error");
@@ -188,9 +187,9 @@ $(document).ready(function () {
     $(".form_new_article").addClass("hideurClass");
     $(this).parents(".sub_btn_profi").slideToggle();
   });
-    $(".addFeedback").click(function () {
-      $(this).parents(".sub_btn_profi").slideToggle();
-    });
+  $(".addFeedback").click(function () {
+    $(this).parents(".sub_btn_profi").slideToggle();
+  });
   // les requets via les modals
   $("#form_article").on("submit", function (event) {
     event.preventDefault();
@@ -265,34 +264,198 @@ $(document).ready(function () {
       });
   });
 
-  $('.showcommentaire').click(function (e) { 
-   
-      let id_article = $(this)
-        .parents(".reactionAuthers")
-        .siblings(".reagir")
-        .children(".id_article")
-        .val();
-     let les_commentaires = $(this)
-       .parents(".reactionAuthers")
-       .siblings(".les_commentaires");
+  $(".showcommentaire").click(function (e) {
+    let id_article = $(this)
+      .parents(".reactionAuthers")
+      .siblings(".reagir")
+      .children(".id_article")
+      .val();
+    let les_commentaires = $(this)
+      .parents(".reactionAuthers")
+      .siblings(".les_commentaires");
 
-   
-       les_commentaires.toggleClass("hideurClass");
-        $(this).toggleClass("togleIconCommente");
+    les_commentaires.toggleClass("hideurClass");
+    $(this).toggleClass("togleIconCommente");
 
-         $.ajax({
-           type: "POST",
-           url: "./_partials_actualite/_fetch_commentaire.php",
-           data: {
-             id_article: id_article,
-           },
-         })
-           .done(function (response) {
-             les_commentaires.html(response);
-           })
-           .fail(function () {
-             console.log("error");
-           });
-
+    $.ajax({
+      type: "POST",
+      url: "./_partials_actualite/_fetch_commentaire.php",
+      data: {
+        id_article: id_article,
+      },
+    })
+      .done(function (response) {
+        les_commentaires.html(response);
+      })
+      .fail(function () {
+        console.log("error");
+      });
   });
+
+  // messagerie events
+
+  /// events sur l'affichage des items des autres utilisateurs
+  $(".all_user").click(function (e) {
+    $(this).toggleClass("noirSurBlan");
+    $(".list_users_All").toggleClass("hideurClass");
+    $(".fa-eye-slash").toggleClass("hideurClass");
+    $(".fa-eye").toggleClass("hideurClass");
+    $(".masquer").toggleClass("hideurClass");
+    $(".afficher").toggleClass("hideurClass");
+  });
+
+  //liste des messages recus events click
+  $(".bloc_sms_from").click(function (e) {
+    $(this).removeClass("textBol");
+    let id_userConnecter = $(this).find(".id_Connecter").val();
+    let id_expeditaire = $(this).find(".id_Expeditaire").val();
+    let profil = $(this).find("img").attr("src");
+    let userInfos = $(this).find(".namOfUserTo").val();
+    rempli_zone_echange(id_expeditaire, userInfos, profil);
+      $(".refresh_message").removeClass("hideurClass");
+   
+
+    $.ajax({
+      type: "POST",
+      url: "./_partials_messagerie/_update_statut_sms.php",
+      data: {
+        id_userConnecter: id_userConnecter,
+        id_expeditaire: id_expeditaire,
+      },
+    })
+      .done(function (response) {
+        console.log(response);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+    load_discussion(id_userConnecter, id_expeditaire);
+  });
+  // event click sur un utlisateur X
+  $(".autherUser").click(function (e) {
+    $(this).removeClass("textBol");
+    let user_dest = $(this).find(".id_autre_user").val();
+    let userLog = $(this).find(".identifant_userConnecter").val();
+    let profil = $(this).find("img").attr("src");
+    let infos_user_select = $(this).find(".name_user").text();
+  // affiche le boutton actualiser
+  $(".refresh_message").removeClass('hideurClass')
+    rempli_zone_echange(user_dest, infos_user_select, profil);
+    
+    load_discussion(userLog, user_dest);
+     $(".list_users_All").toggleClass("hideurClass");
+     $(".fa-eye-slash").toggleClass("hideurClass");
+     $(".fa-eye").toggleClass("hideurClass");
+     $(".masquer").toggleClass("hideurClass");
+     $(".afficher").toggleClass("hideurClass");
+    
+  });
+//raffraichir le fil de discussion
+$(".refresh_message").click(function (e) {
+let id_user_select = $(".id_user_select").val();
+let userLogin = $(".user_log_identifiant").val();
+load_discussion(userLogin, id_user_select);
+$('.refres_txt').toggleClass('hideurClass');
+$(this).toggleClass('hideurClass');
+
+setTimeout(() => {
+$(".refres_txt").toggleClass("hideurClass");
+$(this).toggleClass("hideurClass");
+}, 7000);
+
+
+
+
+});
+  // methode pour remplir la zone d'echange
+
+  function rempli_zone_echange(user_dest, infos_user_select, profil) {
+    //  console.log("id user connecte:  " + userLog);
+    //  console.log("id user dsetinateur:  " + user_dest);
+    //  console.log("infos user:  " + infos_user_select);
+    //  console.log("Profil user:  " + profil);
+
+    ///on rempli le to: User infos
+    $(".id_user_select").val(user_dest);
+    $(".infos_user_select").text(infos_user_select);
+    $(".profil_user_select").attr("src", profil);
+  }
+
+  function load_discussion(id_connecter, id_interLocutaire) {
+    let fil_sms_echange = $(".fil_sms_echange");
+    $.ajax({
+      type: "POST",
+      url: "./_partials_messagerie/_fetch_discussion.php",
+      data: {
+        id_connecter: id_connecter,
+        id_interLocutaire: id_interLocutaire,
+      },
+    })
+      .done(function (response) {
+        fil_sms_echange.html(response);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+    
+   
+  }
+
+  //// envoyer un message a un utilisateur
+  $(".btn_envoyer_message").click(function (e) {
+    let valeurSaisi = $(".message_rep").val();
+    let id_userConnecter = $(".user_log_identifiant").val();
+    let id_destinataire = $(".id_user_select").val();
+    if (!id_destinataire) {
+      alert("aucun destinataire selectionner");
+    } else {
+      if (
+        !valeurSaisi ||
+        valeurSaisi == " " ||
+        valeurSaisi == "  " ||
+        valeurSaisi == "   " ||
+        valeurSaisi == "    " ||
+        valeurSaisi == "     " ||
+        valeurSaisi == "      "||
+        valeurSaisi == "       "||
+        valeurSaisi == "        "||
+        valeurSaisi == "         "||
+        valeurSaisi == "          "||
+        valeurSaisi == "           "||
+        valeurSaisi == "           "
+      ) {
+        alert("message vide");
+      } else {
+        //  console.log("message: " + valeurSaisi);
+        //  console.log("id_expeditaire: " + id_userConnecter);
+        //  console.log("id_destinataire: " + id_destinataire);
+        $(".debutConversassion").addClass("hideurClass");
+        $(".fil_sms_echange").append(
+          '<li class="bg-success  sms_envoyer ml-auto mr-1 p-2 mt-4 rounded text-wrap ">' +
+            valeurSaisi +
+            "</a></li>"
+        );
+
+        $(".message_rep").val("");
+        //requete d'insertion de message
+        $.ajax({
+          type: "POST",
+          url: "./_partials_messagerie/_envoi_message.php",
+          data: {
+            id_userConnecter: id_userConnecter,
+            id_destinataire: id_destinataire,
+            message: valeurSaisi,
+          },
+        })
+          .done(function (response) {
+            console.log(response);
+          })
+          .fail(function () {
+            console.log("error");
+          });
+      }
+    }
+  });
+
+ 
 });

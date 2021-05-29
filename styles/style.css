@@ -92,9 +92,8 @@ input:focus, select:focus, textarea:focus, button:focus {
 
 .entete_article {
     background: #383c4dd7 !important;
-     color: aliceblue;
-     font-weight: bold;
-  
+    color: aliceblue;
+    font-weight: bold;
 }
 
 .border-munted {
@@ -231,6 +230,18 @@ ul {
     background: #070e29;
 }
 
+.sub_btn_profi>li>a {
+    color: azure;
+}
+
+.sub_btn_profi>li:hover a {
+    color: azure;
+    filter: brightness(100%);
+    background: #070e29;
+    text-transform: none;
+    text-decoration: none;
+}
+
 .btn_user_profil:hover i {
     /* transform: scale(1.2); */
     margin-top: 30px !important;
@@ -308,6 +319,12 @@ nav {
     height: 80px !important;
     color: #dcdfe7 !important;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 200;
+    margin-left: 5%;
+    /* right: 5px; */
+    width: 90%;
 }
 
 .imagePoster {
@@ -372,10 +389,223 @@ nav {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid #383c4d;
+    border: 2px solid #2e33498c;
 }
 
 .commentaireMon {
     background: #cdcdd4;
     color: #030718;
 }
+
+.container_messagerier {
+    width: 100%;
+    height: 30rem;
+    background: #0b0b200a;
+    margin-bottom: 70px !important;
+}
+
+.les_sms_recus {
+    height: 58rem;
+    overflow: auto;
+    /* background: red !important; */
+}
+
+.img_fromUser {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.bloc_sms_from {
+    height: 3rem;
+    background: #03071833;
+}
+
+.header_echange_sms {
+    background: #4e5369 !important;
+    /* background: #03071833 !important; */
+    border-radius: 10px 10px 0px 0px;
+    color: wheat;
+}
+
+.fil_sms_echange {
+    height: 21rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto
+}
+
+.message_rep:focus {
+    border: 2px solid #383c4d;
+}
+
+.message_rep {
+    background: rgb(233, 231, 231) !important;
+    color: #071035 !important;
+    padding: 1 !important;
+    border: 1px solid #383c4d;
+}
+
+.bloc_sms_from:hover {
+    transform: scale(1.02);
+    filter: brightness(70%);
+}
+
+.textBol {
+    font-size: 15px;
+    font-weight: bold;
+    color: #030718 !important;
+}
+
+.btn_env_sms {
+    font-size: 45px !important;
+}
+
+.btn_envoyer_message {
+    background: rgba(145, 142, 137, 0.61) !important;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zone_echange {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    position: relative;
+}
+
+.authers_users {
+    position: absolute;
+    left: 75%;
+    width: 25%;
+    background: rgb(230, 225, 225);
+}
+
+.list_users_All {
+    overflow: auto;
+    max-height: 20rem;
+    /* border: 3px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transition: .9s ease-in-out;
+}
+
+.list_users_All>div>div {
+    font-size: 12px;
+    font-weight: bold;
+    color: #030718 !important;
+    background: #696a6e94;
+    width: 100%;
+}
+
+.list_users_All>div>div:hover {
+    transform: scale(1.02);
+    filter: brightness(70%);
+}
+
+.all_user {
+    font-size: 13px !important;
+    transition: .4s ease-in-out;
+}
+
+.all_user:hover {
+    color: white !important;
+    background: #383c4d;
+    font-weight: bold;
+}
+
+.noirSurBlan {
+    color: white !important;
+    background: #383c4d;
+}
+
+.namFromsms {
+    color: #4e0d79 !important;
+    font-size: 10px !important;
+    font-style: italic;
+    font-family: cursive;
+}
+
+.searcheUser {
+    margin-top: 6rem !important;
+    padding: 2px !important;
+    line-height: 28px;
+    border-radius: 12px;
+    padding-left: 2px !important;
+    outline-style: none !important;
+    font-size: 15px !important;
+    color: #383c4d !important;
+    font-weight: bold;
+}
+
+.sms_recus {
+    width: fit-content !important;
+    max-width: 300px !important;
+    word-wrap: break-word;
+    font-size: 16px !important;
+    color: #383c4d !important;
+}
+
+.sms_envoyer {
+    width: fit-content !important;
+    max-width: 300px !important;
+    word-wrap: break-word;
+    background: #50566ece !important;
+    color: white;
+    font-size: 16px !important;
+}
+
+.refresh_message {
+    transition: .5s ease-in-out;
+}
+
+.refresh_message:hover {
+    transform: rotate(180deg);
+}
+
+.smoll_fresh {
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.smal_logo {
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 4s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
