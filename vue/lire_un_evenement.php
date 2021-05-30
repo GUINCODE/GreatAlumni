@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/logos/small_log.png">
+
     <title>GreatAlumni</title>
     <!-- -------cdn css & js AOS--- -->
 
@@ -120,7 +122,7 @@ while ($ligne = $result3->fetch()) {
 ?>
 
 
-<div class="margeBottomFree"></div>
+
 
 
 

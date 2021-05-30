@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/logos/small_log.png">
     <title>GreatAlumni</title>
     <!-- -------cdn css & js AOS--- -->
 
@@ -28,7 +29,7 @@
 
 
     <h3 class="text-center liker mt-2">GREATALUMNI MESSAGERIE Privée</h3>
-    <div class="container container_messagerier   rounded  d-flex flex-row margeBottomFree">
+    <div class="container container_messagerier   rounded  d-flex flex-row ">
         <div class="w-25 d-flex flex-column  py-3">
             <span class="text-muted text-center badge-secondary rounded">Messages réçus </span>
             <div class="les_sms_recus  shadow-lg p-2 rounded  d-flex flex-column mt-2">
@@ -109,8 +110,8 @@
                 <span class=" badge-secondary rounded p-2 all_user w-100 d-flex justify-content-center align-items-center" type="button">
                     <i class="fas fa-eye mr-2" style="font-size: 22px;"></i>
                     <i class="fas fa-eye-slash mr-2 hideurClass" style="font-size: 22px;"></i>
-                    <span class="afficher">Afficher les utilisateurs</span>
-                    <span class="masquer hideurClass">Masquer les utilisateurs</span>
+                    <span class="afficher">Afficher les utilisateurs </span> 
+                    <span class="masquer hideurClass">Masquer les utilisateurs </i></span>
 
                 </span>
                 <div class="list_users_All  hideurClass d-flex flex-column justify-content-center align-items-center  px-2 pt-5 pb-3">
@@ -162,16 +163,16 @@
 
             </div>
             <ul class=" fil_sms_echange mt-0 d-flex flex-column justify-contenter-start p-2 ">
-                <h4 class=" text-muted text-center mt-1">Vos conversation s'afficherons ici 😎😎</h4>
+                <h4 class=" text-muted text-center mt-1">Vos conversations s'afficherons ici 😎😎</h4>
                 <b class="text-muted text-center mb-1">séléctionnez un utilisateur pour échanger avec lui</b>
                 <img src="../images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="margin-left:40%;max-width:200px; max-height:200px;" />
 
                 <!-- <img src="./images/medias_users/chaLive2.gif" alt="..." style="width:300px;margin-left:30%" /> -->
             </ul>
 
-            <div class="form-group w-75 d-flex flex-row justify-content-center align-items-center  mx-auto">
+            <div class="form-group w-75 d-flex flex-row justify-content-center align-items-center    mx-auto">
                 <textarea class="form-control rounded message_rep" name="" autofocus rows="1" id="" placeholder="votre message.." required></textarea>
-                <span type="button" class="btn_envoyer_message"> <i class="far fa-paper-plane  faIconsBnt btn_env_sms "></i></span>
+                <span type="button" class="btn_envoyer_message  "> <i class="far fa-paper-plane  faIconsBnt btn_env_sms "></i></span>
 
             </div>
 
@@ -199,7 +200,7 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-       
+
     </script>
     <!-- -----cdn AOS--- -->
 

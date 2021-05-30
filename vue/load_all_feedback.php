@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/logos/small_log.png">
+
     <title>GreatAlumni</title>
     <!-- -------cdn css & js AOS--- -->
 
@@ -48,7 +50,7 @@
             $profil = "../images/medias_users/profil_par_defaut.jpg";
         }
     ?>
-        <div class="container margeBottomFree">
+        <div class="container ">
             <div class="d-flex d-75 mx-auto my-2  align-items-center items_feedback rounded shadow-lg">
                 <div class="d-flex flex-column justify-content-center align-items-center mr-5">
                     <img src="<?= $profil; ?>" atl="<?= $nom . ' ' . $prenom; ?>" class="profil_partageDeux" />

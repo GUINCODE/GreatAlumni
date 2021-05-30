@@ -1,3 +1,4 @@
+<div class="margeTopFree"></div>
 <footer class=" mt-1">
     <nav class="navbar navbar-expand-lg text-light rounded">
         <a class="navbar-brand text-light" href="actualite.php"><img src="../images/logos/logo1.png" alt="..." class="img-fluid" style="max-width:200px" /></a>

@@ -609,6 +609,11 @@ nav {
     }
 }
 
-.margeBottomFree{
-    margin-bottom: 100px !important;
+.margeTopFree {
+    margin-top: 100px !important;
+}
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
 }

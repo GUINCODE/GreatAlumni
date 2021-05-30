@@ -424,7 +424,7 @@ $(this).toggleClass("hideurClass");
     let id_userConnecter = $(".user_log_identifiant").val();
     let id_destinataire = $(".id_user_select").val();
     if (!id_destinataire) {
-      alert("aucun destinataire selectionner");
+      alert("aucun destinataire selectionner !!!\nselectionnez-en un pour l'envoyer un message");
     } else {
       if (
         !valeurSaisi ||

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/logos/small_log.png">
+
     <title>GreatAlumni</title>
     <!-- -------cdn css & js AOS--- -->
 
@@ -45,7 +47,7 @@ if (is_null($profil) or empty($profil)) {
     $profil = "../images/medias_users/profil_par_defaut.jpg";
 }
 ?>
-<div class="container margeBottomFree">
+<div class="container ">
     <div class="d-flex justify-content-start  align-items-center mx-auto  mt-5 mb-5 w-75">
         <div class="profil_content_P mr-3">
             <img src="<?= $profil; ?>" class="img-fluid imgfeedback_profil" alt="<?= $nom . " " . $prenom ?>">
