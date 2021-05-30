@@ -587,8 +587,8 @@ nav {
 }
 
 .smal_logo {
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 4s linear infinite;
+    -webkit-animation: spin 20s linear infinite;
+    animation: spin 20s linear infinite;
 }
 
 @-webkit-keyframes spin {

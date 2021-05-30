@@ -199,12 +199,7 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-        setTimeout(() => {
-            // window.scrollTo(0, document.body.scrollHeight);
-            $("html, body").animate({
-                scrollTop: "100000"
-            }, 8000);
-        }, 1000);
+       
     </script>
     <!-- -----cdn AOS--- -->
 

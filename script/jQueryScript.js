@@ -330,6 +330,12 @@ $(document).ready(function () {
         console.log("error");
       });
     load_discussion(id_userConnecter, id_expeditaire);
+     $("html,body,.fil_sms_echange").animate(
+       {
+         scrollTop: "1000000000",
+       },
+       100
+     );
   });
   // event click sur un utlisateur X
   $(".autherUser").click(function (e) {
@@ -348,7 +354,13 @@ $(document).ready(function () {
      $(".fa-eye").toggleClass("hideurClass");
      $(".masquer").toggleClass("hideurClass");
      $(".afficher").toggleClass("hideurClass");
-    
+     
+      $("html,body,.fil_sms_echange").animate(
+        {
+          scrollTop: "1000000000",
+        },
+        100
+      );
   });
 //raffraichir le fil de discussion
 $(".refresh_message").click(function (e) {
@@ -363,7 +375,12 @@ $(".refres_txt").toggleClass("hideurClass");
 $(this).toggleClass("hideurClass");
 }, 7000);
 
-
+ $("html,body,.fil_sms_echange").animate(
+   {
+     scrollTop: "1000000000",
+   },
+   100
+ );
 
 
 });
@@ -455,6 +472,12 @@ $(this).toggleClass("hideurClass");
           });
       }
     }
+     $("html,body,.fil_sms_echange").animate(
+       {
+         scrollTop: "1000000000",
+       },
+       100
+     );
   });
 
  

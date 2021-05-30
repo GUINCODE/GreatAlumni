@@ -28,7 +28,7 @@ include_once('../partials/connectBDD.php');
                             }
                         } else{ 
                             echo "<h3 class='text-muted text-center mt-5 debutConversassion'>c'est le début de votre conversation</h3>";
-                            echo "<img src='./images/medias_users/salutRobo.gif' alt='salutation' style='width:260px; margin-left:30%' />";
+                            echo "<img src='../images/medias_users/salutRobo.gif' alt='salutation' style='width:260px; margin-left:30%' />";
                         }
 
                       

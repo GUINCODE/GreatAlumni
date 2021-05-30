@@ -6,6 +6,7 @@ $id_user_conecter = 8;
 <div class="container  w-100  d-flex  entete rounded">
 
     <ul class="d-flex  w-100 p-2 " id="mainNav">
+   
         <img src="../images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="max-width:230px" />
         <li class="messageBtn">
             <button class="btn-head rounded" id="btn_notif_message">

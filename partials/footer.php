@@ -7,19 +7,21 @@
         <div class="collapse navbar-collapse  text-light" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link  text-light" href="/GreatAlumni/vue/v_profil.php">Profil</a>
+                    <a class="nav-link  text-light" href="actualite.php">Atualite & partage</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link  text-light" href="/GreatAlumni/vue/v_annuaire.php">Annuaire</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link  text-light" href="actualite.php">Atualite & partage</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link  text-light" href="ma_messagerie.php">Messagerie</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  text-light" href="/GreatAlumni/vue/v_forum.php">Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-light" href="/GreatAlumni/vue/v_profil.php">Profil</a>
                 </li>
             </ul>
             <div>
