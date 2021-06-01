@@ -165,7 +165,7 @@
             <ul class=" fil_sms_echange mt-0 d-flex flex-column justify-contenter-start p-2 ">
                 <h4 class=" text-muted text-center mt-1">Vos conversations s'afficherons ici 😎😎</h4>
                 <b class="text-muted text-center mb-1">séléctionnez un utilisateur pour échanger avec lui</b>
-                <img src="../images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="margin-left:40%;max-width:200px; max-height:200px;" />
+                <img src="../images/medias_users/chaLive2.gif" alt="..." class="img-fluid " style="margin-left:35%;max-width:300px; max-height:200px;" />
 
                 <!-- <img src="./images/medias_users/chaLive2.gif" alt="..." style="width:300px;margin-left:30%" /> -->
             </ul>

@@ -21,7 +21,7 @@ include_once('../partials/connectBDD.php');
                                 $id_destinataire = $ligne['id_destinataire'];
 
                                 if ($id_connecter == $id_expeditaire) {
-                                    echo '<li class="  sms_envoyer ml-auto mr-1 p-2 mt-1 rounded text-wrap ">' . $message . '</li>';
+                                    echo '<li class="  sms_envoyer backgroundSecondPlan ml-auto mr-1 p-2 mt-1 rounded text-wrap ">' . $message . '</li>';
                                 } else {
                                     echo '<li class="sms_recus   bg-secondary border p-2 mt-1 rounded text-wrap ">' . $message . '</li>';
                                 }

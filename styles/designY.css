@@ -2,6 +2,14 @@ body {
     background: whitesmoke !important;
 }
 
+.backgroundFirstPlan {
+    background: #13204d !important;
+}
+
+.backgroundSecondPlan {
+    background: #3d809d !important;
+}
+
 .profil-post {
     max-width: 50px !important;
     border-radius: 50%;
@@ -50,6 +58,11 @@ input:focus, select:focus, textarea:focus, button:focus {
     transform: scale(1.2);
 }
 
+.btnPoster:hover {
+    transform: scale(1.2);
+    /* transform: rotate(180deg); */
+}
+
 .togleIconCommente {
     color: #071035 !important;
     transform: scale(1.1);
@@ -91,7 +104,7 @@ input:focus, select:focus, textarea:focus, button:focus {
 }
 
 .entete_article {
-    background: #383c4dd7 !important;
+    background: #3d809d !important;
     color: aliceblue;
     font-weight: bold;
 }
@@ -131,7 +144,7 @@ ul {
 .list_notification {
     padding: 5px;
     position: absolute;
-    background: #383c4d;
+    background: #13204d;
     z-index: 2;
     display: none;
 }
@@ -194,7 +207,7 @@ ul {
 }
 
 .entete {
-    background: #383c4d !important;
+    /* background: #13204d !important; */
     height: 80px !important;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -204,7 +217,7 @@ ul {
 }
 
 .sub_btn_profi {
-    background: #383c4d !important;
+    background: #13204d !important;
     width: fit-content;
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -315,10 +328,11 @@ textarea, .title_eve {
 }
 
 nav {
-    background: #383c4d !important;
+    /* background: #13204d !important; */
     height: 80px !important;
     color: #dcdfe7 !important;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+    box-shadow: 0 -5px 20px -5px #333;
     position: fixed !important;
     bottom: 0 !important;
     z-index: 200;
@@ -344,11 +358,11 @@ nav {
 
 .imgfeedback_profil {
     border-radius: 50%;
-    border: 8px solid #383c4d;
+    border: 8px solid #13204d;
 }
 
 .nomPre_feedBack {
-    color: #383c4d;
+    color: #13204d;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -361,12 +375,12 @@ nav {
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    border: 4px solid #383c4d;
+    border: 4px solid #13204d;
 }
 
 .titre_feedBack_profil {
     font-size: 15px;
-    color: #383c4d;
+    color: #13204d;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -375,14 +389,14 @@ nav {
 }
 
 .Mbouton {
-    border: 2px solid #383c4d !important;
+    border: 2px solid #13204d !important;
     background: rgb(226, 225, 231) !important;
-    color: #383c4d !important;
+    color: #13204d !important;
 }
 
 .Mbouton:hover {
     color: white !important;
-    background: #383c4d !important;
+    background: #13204d !important;
 }
 
 .img_user_commentaeur {
@@ -421,7 +435,7 @@ nav {
 }
 
 .header_echange_sms {
-    background: #4e5369 !important;
+    background: #3d809d !important;
     /* background: #03071833 !important; */
     border-radius: 10px 10px 0px 0px;
     color: wheat;
@@ -436,14 +450,14 @@ nav {
 }
 
 .message_rep:focus {
-    border: 2px solid #383c4d;
+    border: 2px solid #13204d;
 }
 
 .message_rep {
     background: rgb(233, 231, 231) !important;
     color: #071035 !important;
     padding: 1 !important;
-    border: 1px solid #383c4d;
+    border: 1px solid #13204d;
 }
 
 .bloc_sms_from:hover {
@@ -458,16 +472,17 @@ nav {
 }
 
 .btn_env_sms {
-    font-size: 45px !important;
+    font-size: 40px !important;
 }
 
 .btn_envoyer_message {
-    background: rgba(145, 142, 137, 0.61) !important;
+    background: #3d809d !important;
     padding: 10px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgb(189, 184, 184);
 }
 
 .zone_echange {
@@ -510,13 +525,13 @@ nav {
 
 .all_user:hover {
     color: white !important;
-    background: #383c4d;
+    background: #13204d;
     font-weight: bold;
 }
 
 .noirSurBlan {
     color: white !important;
-    background: #383c4d;
+    background: #13204d;
 }
 
 .namFromsms {
@@ -534,7 +549,7 @@ nav {
     padding-left: 2px !important;
     outline-style: none !important;
     font-size: 15px !important;
-    color: #383c4d !important;
+    color: #13204d !important;
     font-weight: bold;
 }
 
@@ -543,14 +558,13 @@ nav {
     max-width: 300px !important;
     word-wrap: break-word;
     font-size: 16px !important;
-    color: #383c4d !important;
+    color: #13204d !important;
 }
 
 .sms_envoyer {
     width: fit-content !important;
     max-width: 300px !important;
     word-wrap: break-word;
-    background: #50566ece !important;
     color: white;
     font-size: 16px !important;
 }
@@ -616,4 +630,78 @@ nav {
 .disabledbutton {
     pointer-events: none;
     opacity: 0.4;
+}
+
+/* Administration design */
+
+.dangerAdmin {
+    background: rgb(82, 4, 4) !important;
+}
+
+.side_bar {
+    position: fixed;
+    padding-top: 2rem;
+    width: 210px;
+    height: 20rem;
+    background: #13204d;
+    border-radius: 0 70px 0 0 !important;
+}
+
+.content_user_space {
+    margin-left: 210px;
+    overflow: auto;
+}
+
+.admin-items {
+    transition: .3s ease-in-out;
+    width: 100% !important;
+    padding-left: 2rem !important;
+    color: white !important;
+}
+
+.admin-items:hover {
+    background: whitesmoke !important;
+    color: #13204d !important;
+    letter-spacing: 0.2px;
+    transition: .4s;
+    border-left: 14px solid #13204d;
+}
+
+.dashbord {
+    background: rgba(92, 93, 95, 0.411) !important;
+}
+
+.dashbord>div {
+    width: 100% !important;
+    border: 12px solid black;
+    background: red !important;
+}
+
+.item_active {
+    background: whitesmoke !important;
+    color: #13204d !important;
+    letter-spacing: 0.2px;
+    transition: .4s;
+    border-left: 14px solid #13204d;
+}
+
+tbody {
+    height: 100px !important;
+    overflow: auto !important;
+    /* background: #071035 !important; */
+}
+
+.btn_edit_user:hover {
+    color: #071035;
+    transform: scale(1.2);
+}
+
+.btn_delete_user:hover {
+    color: #8b1010;
+    transform: scale(1.2);
+}
+
+.z_new_user:hover {
+    transform: scale(1.01);
+    filter: brightness(60%);
 }

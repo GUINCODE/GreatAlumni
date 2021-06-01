@@ -3,11 +3,11 @@ include_once("connectBDD.php");
 $id_user_conecter = 8;
 ?>
 <input type="hidden" value="<?= $id_user_conecter; ?>" class="user_log_identifiant" />
-<div class="container  w-100  d-flex  entete rounded">
+<div class="container  w-100  d-flex  entete backgroundFirstPlan rounded">
 
-    <ul class="d-flex  w-100 p-2 " id="mainNav">
-   
-        <img src="../images/logos/small_log.png" alt="..." class="img-fluid smal_logo" style="max-width:230px" />
+    <ul class="d-flex  w-100 p-2  justify-content-center align-items-center" id="mainNav">
+
+        <img src="../images/logos/psignePlus.png" data-toggle="modal" data-target="#staticBackdrop" type="button" alt="..." class="img-fluid btnPoster  " style="width:90px; height:90px" />
         <li class="messageBtn">
             <button class="btn-head rounded" id="btn_notif_message">
                 <i class="fas fa-sms" style="font-size: 2em"></i>
@@ -61,7 +61,7 @@ $id_user_conecter = 8;
     <div class="modal-dialog" style="max-width: 50%;" role="document">
         <div class="modal-content rounded shadow-lg">
 
-            <div class="modal-header">
+            <div class="modal-header backgroundSecondPlan rounded-top">
                 <h5 class="modal-title" id="staticBackdropLabel">Créer un post</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" style="font-size: 40px;">&times;</span>
@@ -101,7 +101,7 @@ $id_user_conecter = 8;
 <div class="modal fade   " id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
     <div class="modal-dialog  " style="max-width: 60%;" role="document">
         <div class="modal-content rounded  shadow-lg">
-            <div class="modal-header">
+            <div class="modal-header backgroundSecondPlan rounded-top">
                 <h5 class="modal-title" id="staticBackdropLabel2">Ajout d'évenement</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" style="font-size: 50px;">&times;</span>
@@ -152,7 +152,7 @@ $id_user_conecter = 8;
 <div class="modal fade   " id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
     <div class="modal-dialog  " style="max-width: 60%;" role="document">
         <div class="modal-content rounded  shadow-lg">
-            <div class="modal-header">
+            <div class="modal-header backgroundSecondPlan rounded-top">
                 <!-- <h5 class="modal-title" id="staticBackdropLabel3">Partage d'experience</h5> -->
                 <div class="w-100">
                     <h5 class="modal-title" id="staticBackdropLabel3">Partagez vos éxperiences </h5>

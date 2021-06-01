@@ -387,10 +387,7 @@ $(this).toggleClass("hideurClass");
   // methode pour remplir la zone d'echange
 
   function rempli_zone_echange(user_dest, infos_user_select, profil) {
-    //  console.log("id user connecte:  " + userLog);
-    //  console.log("id user dsetinateur:  " + user_dest);
-    //  console.log("infos user:  " + infos_user_select);
-    //  console.log("Profil user:  " + profil);
+
 
     ///on rempli le to: User infos
     $(".id_user_select").val(user_dest);
@@ -443,12 +440,10 @@ $(this).toggleClass("hideurClass");
       ) {
         alert("message vide");
       } else {
-        //  console.log("message: " + valeurSaisi);
-        //  console.log("id_expeditaire: " + id_userConnecter);
-        //  console.log("id_destinataire: " + id_destinataire);
+    
         $(".debutConversassion").addClass("hideurClass");
         $(".fil_sms_echange").append(
-          '<li class="bg-success  sms_envoyer ml-auto mr-1 p-2 mt-4 rounded text-wrap ">' +
+          '<li class="backgroundSecondPlan  sms_envoyer ml-auto mr-1 p-2 mt-4 rounded text-wrap ">' +
             valeurSaisi +
             "</a></li>"
         );
@@ -480,5 +475,87 @@ $(this).toggleClass("hideurClass");
      );
   });
 
+ // les requte depuis la page admin
+
+ //edit user
+ $('.btn_edit_user').click(function (e) { 
+  let id_user = $(this).parents().siblings(".z_id_user").val();
+  let nom_user = $(this).parents().siblings(".z_nom").val();
+  let prenom_user = $(this).parents().siblings(".z_prenom").val();
+  let mail_user = $(this).parents().siblings(".z_mail").val();
+  let role_user = $(this).parents().siblings(".z_role").val();
+  let z_psw = $(this).parents().siblings(".z_psw").val();
+  let z_login = $(this).parents().siblings(".z_login").val();
+
+  //remplissage du formulaire de mise a jour
+  $(".z_f_id_user").val(id_user);
+  $(".z_f_nom_user").val(nom_user);
+  $(".z_f_prenom_user").val(prenom_user);
+  $(".z_f_mail_user").val(mail_user);
+  $(".z_f_role_user").val(role_user);
+  $(".z_f_psw_user").val(z_psw);
+  $(".z_f_login_user").val(z_login);
  
+ });
+
+ ////envoi du formulaire de mise a jour user from admin
+ 
+   $("#z_form_user_update").submit(function (e) { 
+     event.preventDefault();
+     let zone_infos = $(".zone_infos");
+     let donnees = new FormData(this);
+   
+  
+     $.ajax({
+       type: "POST",
+       url: "../_partials_admin/_update_user.php",
+       data: donnees,
+       processData: false,
+       contentType: false,
+     })
+       .done(function (response) {
+         zone_infos.html(response);
+         setTimeout(() => {
+           location.reload();
+         }, 2000);
+       })
+       .fail(function () {
+         console.log("error");
+       });
+   });
+
+   //delete user by admin
+
+   //on recupere l'id du user a deleter
+   $(".btn_delete_user").click(function (e) {
+     let id_user = $(this).parents().siblings(".z_id_user").val();
+     $(".User_del_id").val(id_user);
+    
+   });
+
+$(".supp_user_by_admin").click(function (e) {
+  e.preventDefault();
+  let id_user = $(this).siblings(".User_del_id").val();
+       let space_response = $(".space_response");
+       $.ajax({
+         type: "POST",
+         url: "../_partials_admin/_delete_user.php",
+         data: {
+           id_user: id_user,
+         },
+       })
+         .done(function (response) {
+           space_response.html(response);
+           setTimeout(() => {
+             location.reload();
+           }, 2000);
+         })
+         .fail(function () {
+           console.log("error");
+         });
+
+});
+    
+
+
 });
