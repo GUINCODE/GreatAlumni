@@ -312,8 +312,7 @@ $(document).ready(function () {
     let profil = $(this).find("img").attr("src");
     let userInfos = $(this).find(".namOfUserTo").val();
     rempli_zone_echange(id_expeditaire, userInfos, profil);
-      $(".refresh_message").removeClass("hideurClass");
-   
+    $(".refresh_message").removeClass("hideurClass");
 
     $.ajax({
       type: "POST",
@@ -330,12 +329,12 @@ $(document).ready(function () {
         console.log("error");
       });
     load_discussion(id_userConnecter, id_expeditaire);
-     $("html,body,.fil_sms_echange").animate(
-       {
-         scrollTop: "1000000000",
-       },
-       100
-     );
+    $("html,body,.fil_sms_echange").animate(
+      {
+        scrollTop: "1000000000",
+      },
+      100
+    );
   });
   // event click sur un utlisateur X
   $(".autherUser").click(function (e) {
@@ -344,51 +343,47 @@ $(document).ready(function () {
     let userLog = $(this).find(".identifant_userConnecter").val();
     let profil = $(this).find("img").attr("src");
     let infos_user_select = $(this).find(".name_user").text();
-  // affiche le boutton actualiser
-  $(".refresh_message").removeClass('hideurClass')
+    // affiche le boutton actualiser
+    $(".refresh_message").removeClass("hideurClass");
     rempli_zone_echange(user_dest, infos_user_select, profil);
-    
+
     load_discussion(userLog, user_dest);
-     $(".list_users_All").toggleClass("hideurClass");
-     $(".fa-eye-slash").toggleClass("hideurClass");
-     $(".fa-eye").toggleClass("hideurClass");
-     $(".masquer").toggleClass("hideurClass");
-     $(".afficher").toggleClass("hideurClass");
-     
-      $("html,body,.fil_sms_echange").animate(
-        {
-          scrollTop: "1000000000",
-        },
-        100
-      );
+    $(".list_users_All").toggleClass("hideurClass");
+    $(".fa-eye-slash").toggleClass("hideurClass");
+    $(".fa-eye").toggleClass("hideurClass");
+    $(".masquer").toggleClass("hideurClass");
+    $(".afficher").toggleClass("hideurClass");
+
+    $("html,body,.fil_sms_echange").animate(
+      {
+        scrollTop: "1000000000",
+      },
+      100
+    );
   });
-//raffraichir le fil de discussion
-$(".refresh_message").click(function (e) {
-let id_user_select = $(".id_user_select").val();
-let userLogin = $(".user_log_identifiant").val();
-load_discussion(userLogin, id_user_select);
-$('.refres_txt').toggleClass('hideurClass');
-$(this).toggleClass('hideurClass');
+  //raffraichir le fil de discussion
+  $(".refresh_message").click(function (e) {
+    let id_user_select = $(".id_user_select").val();
+    let userLogin = $(".user_log_identifiant").val();
+    load_discussion(userLogin, id_user_select);
+    $(".refres_txt").toggleClass("hideurClass");
+    $(this).toggleClass("hideurClass");
 
-setTimeout(() => {
-$(".refres_txt").toggleClass("hideurClass");
-$(this).toggleClass("hideurClass");
-}, 7000);
+    setTimeout(() => {
+      $(".refres_txt").toggleClass("hideurClass");
+      $(this).toggleClass("hideurClass");
+    }, 7000);
 
- $("html,body,.fil_sms_echange").animate(
-   {
-     scrollTop: "1000000000",
-   },
-   100
- );
-
-
-});
+    $("html,body,.fil_sms_echange").animate(
+      {
+        scrollTop: "1000000000",
+      },
+      100
+    );
+  });
   // methode pour remplir la zone d'echange
 
   function rempli_zone_echange(user_dest, infos_user_select, profil) {
-
-
     ///on rempli le to: User infos
     $(".id_user_select").val(user_dest);
     $(".infos_user_select").text(infos_user_select);
@@ -411,8 +406,6 @@ $(this).toggleClass("hideurClass");
       .fail(function () {
         console.log("error");
       });
-    
-   
   }
 
   //// envoyer un message a un utilisateur
@@ -421,7 +414,9 @@ $(this).toggleClass("hideurClass");
     let id_userConnecter = $(".user_log_identifiant").val();
     let id_destinataire = $(".id_user_select").val();
     if (!id_destinataire) {
-      alert("aucun destinataire selectionner !!!\nselectionnez-en un pour l'envoyer un message");
+      alert(
+        "aucun destinataire selectionner !!!\nselectionnez-en un pour l'envoyer un message"
+      );
     } else {
       if (
         !valeurSaisi ||
@@ -430,17 +425,16 @@ $(this).toggleClass("hideurClass");
         valeurSaisi == "   " ||
         valeurSaisi == "    " ||
         valeurSaisi == "     " ||
-        valeurSaisi == "      "||
-        valeurSaisi == "       "||
-        valeurSaisi == "        "||
-        valeurSaisi == "         "||
-        valeurSaisi == "          "||
-        valeurSaisi == "           "||
+        valeurSaisi == "      " ||
+        valeurSaisi == "       " ||
+        valeurSaisi == "        " ||
+        valeurSaisi == "         " ||
+        valeurSaisi == "          " ||
+        valeurSaisi == "           " ||
         valeurSaisi == "           "
       ) {
         alert("message vide");
       } else {
-    
         $(".debutConversassion").addClass("hideurClass");
         $(".fil_sms_echange").append(
           '<li class="backgroundSecondPlan  sms_envoyer ml-auto mr-1 p-2 mt-4 rounded text-wrap ">' +
@@ -467,95 +461,166 @@ $(this).toggleClass("hideurClass");
           });
       }
     }
-     $("html,body,.fil_sms_echange").animate(
-       {
-         scrollTop: "1000000000",
-       },
-       100
-     );
+    $("html,body,.fil_sms_echange").animate(
+      {
+        scrollTop: "1000000000",
+      },
+      100
+    );
   });
 
- // les requte depuis la page admin
+  // les requte depuis la page admin
 
- //edit user
- $('.btn_edit_user').click(function (e) { 
-  let id_user = $(this).parents().siblings(".z_id_user").val();
-  let nom_user = $(this).parents().siblings(".z_nom").val();
-  let prenom_user = $(this).parents().siblings(".z_prenom").val();
-  let mail_user = $(this).parents().siblings(".z_mail").val();
-  let role_user = $(this).parents().siblings(".z_role").val();
-  let z_psw = $(this).parents().siblings(".z_psw").val();
-  let z_login = $(this).parents().siblings(".z_login").val();
+  //edit user
+  $(".btn_edit_user").click(function (e) {
+    let id_user = $(this).parents().siblings(".z_id_user").val();
+    let nom_user = $(this).parents().siblings(".z_nom").val();
+    let prenom_user = $(this).parents().siblings(".z_prenom").val();
+    let mail_user = $(this).parents().siblings(".z_mail").val();
+    let role_user = $(this).parents().siblings(".z_role").val();
+    let z_psw = $(this).parents().siblings(".z_psw").val();
+    let z_login = $(this).parents().siblings(".z_login").val();
 
-  //remplissage du formulaire de mise a jour
-  $(".z_f_id_user").val(id_user);
-  $(".z_f_nom_user").val(nom_user);
-  $(".z_f_prenom_user").val(prenom_user);
-  $(".z_f_mail_user").val(mail_user);
-  $(".z_f_role_user").val(role_user);
-  $(".z_f_psw_user").val(z_psw);
-  $(".z_f_login_user").val(z_login);
- 
- });
+    //remplissage du formulaire de mise a jour
+    $(".z_f_id_user").val(id_user);
+    $(".z_f_nom_user").val(nom_user);
+    $(".z_f_prenom_user").val(prenom_user);
+    $(".z_f_mail_user").val(mail_user);
+    $(".z_f_role_user").val(role_user);
+    $(".z_f_psw_user").val(z_psw);
+    $(".z_f_login_user").val(z_login);
+  });
 
- ////envoi du formulaire de mise a jour user from admin
- 
-   $("#z_form_user_update").submit(function (e) { 
-     event.preventDefault();
-     let zone_infos = $(".zone_infos");
-     let donnees = new FormData(this);
-   
+  ////envoi du formulaire de mise a jour user from admin
+
+  $("#z_form_user_update").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".zone_infos");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_admin/_update_user.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+
+  //delete user by admin
+
+  //on recupere l'id du user a deleter
+  $(".btn_delete_user").click(function (e) {
+    let id_user = $(this).parents().siblings(".z_id_user").val();
+    $(".User_del_id").val(id_user);
+  });
+
+  $(".supp_user_by_admin").click(function (e) {
+    e.preventDefault();
+    let id_user = $(this).siblings(".User_del_id").val();
+    let space_response = $(".space_response");
+    $.ajax({
+      type: "POST",
+      url: "../_partials_admin/_delete_user.php",
+      data: {
+        id_user: id_user,
+      },
+    })
+      .done(function (response) {
+        space_response.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+
+  // update events by admin
+  $(".btn_edit_ev").click(function (e) {
+    e.preventDefault();
+    //on recuper les infos de l'evenement pour remplir le champs du formulaire update d'evenement
+
+    let id_eve = $(this).parents().siblings(".z_id_ev").val();
+    let titre_eve = $(this).parents().siblings(".z_titre_ev").val();
+    let sub_titre_eve = $(this).parents().siblings(".z_sub_titre_ev").val();
+    let desc_eve = $(this).parents().siblings(".z_descriptions_ev").val();
+    let image_eve = $(this).parents().siblings(".z_image_path_ev").val();
+    let date_eve = $(this).parents().siblings(".z_dates_ev").val();
+    //remplissage du formulaire de mise a jour
+
+    $(".id_eve_update").val(id_eve);
+    $(".titre_eve_update").val(titre_eve);
+    $(".sous_titre_eve_update").val(sub_titre_eve);
+    $(".date_eve_update").val(date_eve);
+    $(".desc_eve_update").val(desc_eve);
+    //  $(".medias_eve_update").val(image_eve);
+  });
+  $("#form_events_update").submit(function (e) {
+    e.preventDefault();
+    let zone_infos_ev = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_admin/_update_eve.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos_ev.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+  //  suppression d'evenement par admin
+  //on recupere l'id du user a deleter
+  $(".btn_delete_ev").click(function (e) {
+    let z_id_ev = $(this).parents().siblings(".z_id_ev").val();
+    let z_image_path_ev = $(this).parents().siblings(".z_image_path_ev").val();
+    //on rempli les deux champs pour supprimer l'evenement et l'image associer
+    $(".eve_del_id").val(z_id_ev);
+    $(".eve_del_media").val(z_image_path_ev);
+  });
+  // validation de suppression par admin
+  $(".supp_eve_by_admin").click(function (e) {
+    e.preventDefault();
+
+    let id_evenement = $(this).siblings(".eve_del_id").val();
+    let media_eve = $(this).siblings(".eve_del_media").val();
+    let space_response = $(".space_response");
+    $.ajax({
+      type: "POST",
+      url: "../_partials_admin/_delete_eve.php",
+      data: {
+        id_evenement: id_evenement,
+        media_eve: media_eve,
+      },
+    })
+      .done(function (response) {
+        space_response.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
   
-     $.ajax({
-       type: "POST",
-       url: "../_partials_admin/_update_user.php",
-       data: donnees,
-       processData: false,
-       contentType: false,
-     })
-       .done(function (response) {
-         zone_infos.html(response);
-         setTimeout(() => {
-           location.reload();
-         }, 2000);
-       })
-       .fail(function () {
-         console.log("error");
-       });
-   });
-
-   //delete user by admin
-
-   //on recupere l'id du user a deleter
-   $(".btn_delete_user").click(function (e) {
-     let id_user = $(this).parents().siblings(".z_id_user").val();
-     $(".User_del_id").val(id_user);
-    
-   });
-
-$(".supp_user_by_admin").click(function (e) {
-  e.preventDefault();
-  let id_user = $(this).siblings(".User_del_id").val();
-       let space_response = $(".space_response");
-       $.ajax({
-         type: "POST",
-         url: "../_partials_admin/_delete_user.php",
-         data: {
-           id_user: id_user,
-         },
-       })
-         .done(function (response) {
-           space_response.html(response);
-           setTimeout(() => {
-             location.reload();
-           }, 2000);
-         })
-         .fail(function () {
-           console.log("error");
-         });
-
-});
-    
-
-
 });

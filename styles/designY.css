@@ -6,6 +6,11 @@ body {
     background: #13204d !important;
 }
 
+.annulerBTN_Z:hover {
+    background: #13204d !important;
+    color: white;
+}
+
 .backgroundSecondPlan {
     background: #3d809d !important;
 }
@@ -647,7 +652,12 @@ nav {
     border-radius: 0 70px 0 0 !important;
 }
 
-.content_user_space {
+.content_user_space_admin {
+    margin-left: 210px;
+    overflow: auto;
+}
+
+.content_event_space_admin {
     margin-left: 210px;
     overflow: auto;
 }
@@ -683,6 +693,8 @@ nav {
     letter-spacing: 0.2px;
     transition: .4s;
     border-left: 14px solid #13204d;
+    border-top-left-radius: 20% !important;
+    border-bottom-left-radius: 20% !important;
 }
 
 tbody {
@@ -698,6 +710,16 @@ tbody {
 
 .btn_delete_user:hover {
     color: #8b1010;
+    transform: scale(1.2);
+}
+
+.delele_btn_all:hover {
+    color: #8b1010;
+    transform: scale(1.2);
+}
+
+.update_btn_all:hover {
+    color: #071035;
     transform: scale(1.2);
 }
 

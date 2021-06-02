@@ -44,7 +44,7 @@
                 <span class="p-1   admin-items admin_item_post" type="button"><i class="fas fa-tools mr-2" style="font-size:25px; "></i> POSTS</span>
                 <!-- </div> -->
             </div>
-            <div class="w-100  content_user_space">
+            <div class="w-100  content_user_space_admin hideurClass">
                 <div class="d-flex  w-100 ">
                     <h3 class="text-center ml-5">Géstion des utilisateur</h3>
                     <span style="font-size:22px; " class="ml-auto bg-success rounded p-1 text-light mb-1  z_new_user" type="button">New User <i class="fas fa-user-plus"></i></span>
@@ -81,7 +81,7 @@
                             }
                         ?>
                             <tr class=" p-0 text-center">
-                                <th><img class=" img_fromUser mr-1" src="<?= $profil; ?>" alt="<?= $nom; ?>" /></th>
+                                <td><img class=" img_fromUser " src="<?= $profil; ?>" alt="<?= $nom; ?>" /></td>
                                 <td><?= $nom ?></td>
                                 <td><?= $prenom ?></td>
                                 <td><?= $mail ?></td>
@@ -110,14 +110,75 @@
                 </table>
             </div>
 
+            <div class="w-100  content_user_space_admin">
+
+                <h3 class="text-center ml-5">Géstion des evenements</h3>
+                <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
+                    <thead class="backgroundSecondPlan text-light text-center  ">
+                        <tr class="p-5 text-center">
+                            <th class="p-3">ID</th>
+                            <th class="p-3">IMAGE</th>
+                            <th class="p-3">TITRE</th>
+                            <th class="p-3">SOUS TITRE</th>
+                            <th class="p-3">DATE</th>
+                            <th class="p-3">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                        $stmt = $db->prepare("SELECT * FROM `evenements`   ORDER BY dates ASC");
+                        $stmt->execute();
+                        $users_list = $stmt->fetchAll();
+                        foreach ($users_list as $row => $colonne) {
+
+                            $id = $colonne["id"];
+                            $titre = $colonne["titre"];
+                            $sub_titre = $colonne["sub_titre"];
+                            $descriptions = $colonne["descriptions"];
+                            $image_path = $colonne["image_path"];
+                            $dates = $colonne["dates"];
+
+                        ?>
+                            <tr class=" p-0 text-center">
+                                <td><?= $id ?></td>
+                                <td><img src="<?= $image_path ?>" class="img-fluid rounded" alt="<?= $titre ?> " style="width:100px" /> </td>
+                                <td><?= $titre ?></td>
+                                <td><?= $sub_titre ?></td>
+                                <td><?= $dates ?></td>
+                                <td class="d-flex justify-content-center align-items-center pt-2 flex-row">
+                                    <i class=" mr-3 fas fa-calendar-minus btn_edit_ev update_btn_all" style="font-size:30px; " type="button" data-toggle="modal" data-target="#static_update_event"></i>
+                                    <i class="fas fa-trash-alt btn_delete_ev delele_btn_all" style="font-size:30px; " type="button" data-toggle="modal" data-target="#deleteEVenemt_modal"></i>
+                                </td>
+                                <input type="hidden" value="<?= $id; ?>" class="z_id_ev" />
+                                <input type="hidden" value="<?= $titre; ?>" class="z_titre_ev" />
+                                <input type="hidden" value="<?= $sub_titre; ?>" class="z_sub_titre_ev" />
+                                <input type="hidden" value="<?= $descriptions; ?>" class="z_descriptions_ev" />
+                                <input type="hidden" value="<?= $image_path; ?>" class="z_image_path_ev" />
+                                <input type="hidden" value="<?= $dates; ?>" class="z_dates_ev" />
+
+
+                            </tr>
+                        <?php
+                        }
+                        ?>
+
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 
 
 
 
-
+    <!-- ************************************** -->
     <!-- les modales Admin -->
+    <!-- *************************************** -->
+
+
     <!-- Modal UPDATE USERS INFOS -->
     <div class="modal fade" id="staticBackdrop_Z" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" style="max-width: 50%;" role="document">
@@ -181,10 +242,10 @@
                 <div class=" d-flex justify-content-center align-items-center w-50"></div>
                 <div class="modal-body zone_infos">
                     <div class=" space_response">
-                        <h4> <i class="fas fa-exclamation-triangle mr-4" style="color:red; font-size:30px"></i>Attention</h4>
+                        <h4> <i class="fas fa-exclamation-triangle mr-4" style="color: rgb(255, 208, 0); font-size:30px"></i>Attention</h4>
                         <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cet utlisateur:</strong>
                         <div class="d-flex w-100 align-items-center  mt-5">
-                            <button class="btn btn-outline-primary btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
+                            <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
                             <button class="btn btn-outline-danger  btn-sm rounded ml-auto  supp_user_by_admin  mr-4">SUPPRIMER</button>
                             <input type="hidden" value="" class="User_del_id" />
                         </div>
@@ -197,8 +258,86 @@
 
     </div>
 
+    <!-- Update evenement -->
+
+    <div class="modal fade   " id="static_update_event" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 60%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title" id="staticBackdropLabel2">Mise à jour d'évenement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+                    <form method="POST" enctype="multipart/form-data" id="form_events_update">
+                        <div class="form-group ">
+                            <label>Titre <b class="text-muted">(*)</b></label>
+                            <input type="text" class="form-control form-control-sm title_eve rounded titre_eve_update " placeholder="Titre" name="titre_eve_update" id="titre_eve_update" onkeyup="this.value=this.value.toUpperCase()" required>
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Sous Titre <b class="text-muted">(*)</b></label>
+
+                            <textarea class="form-control rounded sous_titre_eve_update" name="sous_titre_eve_update" rows="2" placeholder="Ecivez un petit resumé de l'évenement..." required onkeyup="this.value=this.value.toUpperCase()" id="sous_titre_eve_update" maxlength="430"></textarea><br>
+
+                        </div>
+                        <div class="form-group">
+                            <label> Date de l'évenement <b class="text-muted">(*)</b> </label>
+                            <input type="date" class="form-control form-control-sm date_Events rounded date_eve_update" name="date_eve_update" id="date_eve_update" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description <b class="text-muted">(*)</b></label>
+                            <textarea class="form-control rounded desc_eve_update" name="desc_eve_update" rows="5" id="desc_eve_update" placeholder="Décrivez l'événement.." required></textarea>
+                        </div>
+
+                        <input type="hidden" class="id_eve_update" name="id_eve_update" id="id_eve_update">
 
 
+                        <div class="mt-1 border-top mb-2"></div>
+                        <div class="form-group d-flex mx-3 ">
+                            <button class="btn btn-outline-dark btn-sm rounded" data-dismiss="modal">ANNULER</button>
+                            <input type="submit" value="Publier" class="btn btn-outline-success btn-sm rounded ml-auto btn-publie-post " />
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- DELETE EVENEMENT  -->
+    <div class="modal fade" id="deleteEVenemt_modal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 50%;" role="document">
+            <div class="modal-content rounded shadow-lg mt-5">
+
+                <div class="modal-header bg-danger rounded-top">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION D'éVéNEMENT</h5>
+                    <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 40px;">&times;</span>
+                    </button>
+                </div>
+                <div class=" d-flex justify-content-center align-items-center w-50"></div>
+                <div class="modal-body zone_infos">
+                    <div class=" space_response">
+                        <h4> <i class="fas fa-exclamation-triangle mr-4" style="color: rgb(255, 208, 0); font-size:30px"></i>Attention</h4>
+                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cet événement:</strong>
+                        <div class="d-flex w-100 align-items-center  mt-5">
+                            <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
+                            <button class="btn btn-outline-danger  btn-sm rounded ml-auto  supp_eve_by_admin  mr-4">SUPPRIMER</button>
+                            <input type="hidden" value="" class="eve_del_id" />
+                            <input type="hidden" value="" class="eve_del_media" />
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
 
 
@@ -230,7 +369,7 @@
     <script src="../script/jQueryScript.js"></script>
     <!-- -----cdn AOS--- -->
     <script>
-     
+
     </script>
 
 </body>
