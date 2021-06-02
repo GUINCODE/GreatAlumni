@@ -622,5 +622,59 @@ $(document).ready(function () {
         console.log("error");
       });
   });
-  
+
+  //suppression de post
+  $(".btn_delete_post").click(function (e) {
+    let z_id_post = $(this).parents().siblings(".z_id_post").val();
+    let z_image_path_post = $(this).parents().siblings(".z_media_post").val();
+
+    //on rempli les deux champs pour supprimer l'evenement et l'image associer
+    $(".post_del_id").val(z_id_post);
+    $(".post_del_media").val(z_image_path_post);
+  });
+  //validation de la suppression du post
+  $(".supp_post_by_admin").click(function (e) {
+    e.preventDefault();
+    let id_post = $(".post_del_id").val();
+    let mediaPost = $(".post_del_media").val();
+
+    let space_response = $(".space_response");
+    $.ajax({
+      type: "POST",
+      url: "../_partials_admin/_delete_post.php",
+      data: {
+        id_post: id_post,
+        mediaPost: mediaPost,
+      },
+    })
+      .done(function (response) {
+        space_response.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+
+  // changement de l'tem-active
+  $(".admin-items").click(function (e) {
+    $(".admin-items").removeClass("item_active");
+    $(this).addClass("item_active");
+  });
+
+  //changement du content gestion
+  $(".admin_item_user").click(function (e) {
+    $(".togglerALL").addClass("hideurClass");
+    $(".content_user_space_admin").removeClass("hideurClass");
+  });
+  $(".admin_item_event").click(function (e) {
+    $(".togglerALL").addClass("hideurClass");
+    $(".content_events_space_admin").removeClass("hideurClass");
+  });
+  $(".admin_item_post").click(function (e) {
+    $(".togglerALL").addClass("hideurClass");
+    $(".content_posts_space_admin").removeClass("hideurClass");
+  });
 });

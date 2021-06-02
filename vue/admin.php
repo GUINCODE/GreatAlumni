@@ -44,7 +44,8 @@
                 <span class="p-1   admin-items admin_item_post" type="button"><i class="fas fa-tools mr-2" style="font-size:25px; "></i> POSTS</span>
                 <!-- </div> -->
             </div>
-            <div class="w-100  content_user_space_admin hideurClass">
+
+            <div class="w-100  content_user_space_admin togglerALL ">
                 <div class="d-flex  w-100 ">
                     <h3 class="text-center ml-5">Géstion des utilisateur</h3>
                     <span style="font-size:22px; " class="ml-auto bg-success rounded p-1 text-light mb-1  z_new_user" type="button">New User <i class="fas fa-user-plus"></i></span>
@@ -110,7 +111,7 @@
                 </table>
             </div>
 
-            <div class="w-100  content_user_space_admin">
+            <div class="w-100  content_events_space_admin  togglerALL hideurClass">
 
                 <h3 class="text-center ml-5">Géstion des evenements</h3>
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
@@ -167,6 +168,79 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="w-100  content_posts_space_admin  togglerALL hideurClass ">
+
+                <h3 class="text-center ml-5">Géstion des articles</h3>
+                <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
+                    <thead class="backgroundSecondPlan text-light text-center  ">
+                        <tr class="p-5 text-center">
+                            <th class="p-3">IMAGE</th>
+                            <th class="p-3">TITRE</th>
+                            <th class="p-3">POST</th>
+                            <th class="p-3">DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                        $stmt = $db->prepare("SELECT * FROM `article`   ORDER BY date DESC");
+                        $stmt->execute();
+                        $users_list = $stmt->fetchAll();
+                        foreach ($users_list as $row => $colonne) {
+
+                            $id = $colonne["id"];
+                            $titre = $colonne["titre"];
+                            $media = $colonne["media"];
+                            $post = $colonne["texts"];
+                            if (is_null($media) or empty($media)) {
+                                $image = "<span class='text-muted'> sans image </span>";
+                            } else {
+                                $image = "<img src='$media'  alt='$id'  style='width:100px' /> ";
+                            }
+                            if (is_null($titre) or empty($titre)) {
+                                $title = "<span class='text-muted'> sans titre </span>";
+                            } else {
+                                $title = $titre;
+                            }
+                            if (is_null($post) or empty($post)) {
+                                $detail_post = "<span class='text-muted'>sans text  </span>";
+                            } else {
+                                if (strlen($post) > 200) {
+
+                                    $text_reduit = substr($post, 0, 200);
+                                    $detail_post = $text_reduit . "...";
+                                } else {
+                                    $detail_post = $post;
+                                }
+                            }
+
+                        ?>
+                            <tr class=" p-0 text-center">
+                                <td><?= $image; ?></td>
+                                <td><?= $title; ?></td>
+                                <td><?= $detail_post; ?></td>
+
+                                <td class=" pt-2 ">
+                                    <i class="fas fa-trash-alt btn_delete_post delele_btn_all" style="font-size:30px; " type="button" data-toggle="modal" data-target="#deletePOST_modal"></i>
+                                </td>
+                                <input type="hidden" value="<?= $id; ?>" class="z_id_post" />
+                                <input type="hidden" value="<?= $media; ?>" class="z_media_post" />
+
+
+
+
+
+                            </tr>
+                        <?php
+                        }
+                        ?>
+
+
+                    </tbody>
+                </table>
+            </div>
+
 
         </div>
     </div>
@@ -341,7 +415,36 @@
 
 
 
+    <!-- DELETE POST  -->
+    <div class="modal fade" id="deletePOST_modal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 50%;" role="document">
+            <div class="modal-content rounded shadow-lg mt-5">
 
+                <div class="modal-header bg-danger rounded-top">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION De POST</h5>
+                    <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 40px;">&times;</span>
+                    </button>
+                </div>
+                <div class=" d-flex justify-content-center align-items-center w-50"></div>
+                <div class="modal-body zone_infos">
+                    <div class=" space_response">
+                        <h4> <i class="fas fa-exclamation-triangle mr-4" style="color: rgb(255, 208, 0); font-size:30px"></i>Attention</h4>
+                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement ce post:</strong>
+                        <div class="d-flex w-100 align-items-center  mt-5">
+                            <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
+                            <button class="btn btn-outline-danger  btn-sm rounded ml-auto  supp_post_by_admin  mr-4">SUPPRIMER</button>
+                            <input type="hidden" value="" class="post_del_id" />
+                            <input type="hidden" value="" class="post_del_media" />
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
 
 
@@ -369,7 +472,12 @@
     <script src="../script/jQueryScript.js"></script>
     <!-- -----cdn AOS--- -->
     <script>
-
+        // $(".supp_post_by_admin").click(function(e) {
+        //     e.preventDefault();
+        //     let id_post = $(".post_del_id").val();
+        //     let mediaPost = $(".post_del_media").val();
+        //     alert("detecter");
+        // });
     </script>
 
 </body>

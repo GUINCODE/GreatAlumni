@@ -652,7 +652,13 @@ nav {
     border-radius: 0 70px 0 0 !important;
 }
 
-.content_user_space_admin {
+.content_user_space_admin, .content_posts_space_admin, .content_events_space_admin {
+    transition: .3s ease-in-out;
+    margin-left: 210px;
+    overflow: auto;
+}
+
+/* .content_events_space_admin {
     margin-left: 210px;
     overflow: auto;
 }
@@ -660,7 +666,7 @@ nav {
 .content_event_space_admin {
     margin-left: 210px;
     overflow: auto;
-}
+} */
 
 .admin-items {
     transition: .3s ease-in-out;
@@ -693,8 +699,7 @@ nav {
     letter-spacing: 0.2px;
     transition: .4s;
     border-left: 14px solid #13204d;
-    border-top-left-radius: 20% !important;
-    border-bottom-left-radius: 20% !important;
+
 }
 
 tbody {
