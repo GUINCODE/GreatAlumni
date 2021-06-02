@@ -677,4 +677,28 @@ $(document).ready(function () {
     $(".togglerALL").addClass("hideurClass");
     $(".content_posts_space_admin").removeClass("hideurClass");
   });
+  
+    // Ajout de nouveau membre par admin 
+      $("#add_member_form").submit(function (e) {
+        e.preventDefault();
+        let zone_infos = $(".space_response_eve_admin");
+        let donnees = new FormData(this);
+ 
+        $.ajax({
+          type: "POST",
+          url: "../_partials_admin/_add_new_member.php",
+          data: donnees,
+          processData: false,
+          contentType: false,
+        })
+          .done(function (response) {
+            zone_infos.html(response);
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          })
+          .fail(function () {
+            console.log("error");
+          });
+      });
 });

@@ -28,41 +28,10 @@
     ?>
 
 
-    <div class="row ">
-        <div class="col-3  ">
-
-            <div class="mt-3  ">
-
-                <?php
-                include_once('../_partials_actualite/_carousel_evenement.php');
-                ?>
-            </div>
-
-
-        </div>
-        <div class="col-6 ">
-            <!-- -----fil_article--- -->
-            <div class="mt-3 ">
-                <?php
-                include_once('../_partials_actualite/_fil_article.php');
-                ?>
-            </div>
-            <!-- --end fil_article--- -->
-        </div>
-        <div class="col-3 ">
-            <?php
-            include_once('../_partials_actualite/_partages.php');
-            ?>
-        </div>
-
-    </div>
 
 
 
-
-
-
- <?php
+    <?php
     include_once('../partials/footer.php');
     ?>
 

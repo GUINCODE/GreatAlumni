@@ -7,7 +7,7 @@ $post = $_POST['post'];
 if ($media == "" && $post == "") {
 ?>
 <div class="alert alert-danger  alert-dismissible fade show w-75 mx-auto" role="alert">
-    les champs <strong> Image </strong> et <strong> Post </strong>, me peuvent pas etre vides tous les deux.
+    les champs <strong> Image </strong> et <strong> Post </strong>, ne peuvent pas etre vides tous les deux.
     merci de renseigner les deux, ou l'un d'eux !!!!
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>

@@ -48,7 +48,7 @@
             <div class="w-100  content_user_space_admin togglerALL ">
                 <div class="d-flex  w-100 ">
                     <h3 class="text-center ml-5">Géstion des utilisateur</h3>
-                    <span style="font-size:22px; " class="ml-auto bg-success rounded p-1 text-light mb-1  z_new_user" type="button">New User <i class="fas fa-user-plus"></i></span>
+                    <span style="font-size:22px; " class="ml-auto bg-success rounded p-1 text-light mb-1  z_new_user" type="button" data-toggle="modal" data-target="#modal_new_memeber">New Member <i class="fas fa-user-plus"></i></span>
                 </div>
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
                     <thead class="backgroundSecondPlan text-light text-center  ">
@@ -74,9 +74,9 @@
                             $prenom = $colonne["Prenom"];
                             $mail = $colonne["Mail"];
                             $profil = $colonne["Photo"];
-                            $role = $colonne["Type"];
+                            $role = $colonne["Typee"];
                             $password = $colonne["Mdp"];
-                            $login = $colonne["Login"];
+                            $login = $colonne["Loginn"];
                             if (is_null($profil) or empty($profil)) {
                                 $profil = "../images/medias_users/profil_par_defaut.jpg";
                             }
@@ -196,7 +196,7 @@
                             if (is_null($media) or empty($media)) {
                                 $image = "<span class='text-muted'> sans image </span>";
                             } else {
-                                $image = "<img src='$media'  alt='$id'  style='width:100px' /> ";
+                                $image = "<img src='$media'  alt='non disponible'  style='width:100px' /> ";
                             }
                             if (is_null($titre) or empty($titre)) {
                                 $title = "<span class='text-muted'> sans titre </span>";
@@ -446,9 +446,80 @@
 
     </div>
 
+    <!-- creation de nouveaux membre  -->
+
+    <div class="modal fade   " id="modal_new_memeber" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 60%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Ajout de nouveaux membres</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+                 
+                    <form class="rounded  w-100 " id="add_member_form">
+
+                        <div class="form-row w-100 mt-3 ">
+                            <div class="col ">
+                                <input type="text" class="form-control" placeholder="Nom" name="nom" required>
+                            </div>
+                            <div class="col ">
+                                <input type="text" class="form-control" placeholder="Prenom" name="prenom" required>
+                            </div>
+                        </div>
+                        <div class="form-row w-100 mt-3 ">
+                            <div class="col ">
+                                <input type="email" class="form-control" placeholder="Mail" name="mail" required>
+                            </div>
+                            <div class="col ">
+                                <input type="text" class="form-control" placeholder="Login" name="login" required>
+                            </div>
+                        </div>
+                        <div class="form-row w-100 mt-3 ">
+                            <div class="col ">
+                                <input type="text" class="form-control" placeholder="Password" name="mdp" required>
+                            </div>
+                            <div class="col ">
+                                <input type="number" class="form-control" placeholder=" Annee de promotion" name="annee" required>
+                            </div>
+
+                        </div>
+                        <div class="form-row w-50 mx-auto mt-3 ">
+                            <div class="col d-flex  justify-content-center align-items-center">
+                                <label class="text-muted mr-2 "> Role: </label>
+                                <select class="form-control " name="type">
+                                    <option value="standard">Standard</option>
+                                    <option value="admin" class="text-warning">Admin</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                </div>
+
+                <div class="w-100  border border-top mt-3 shadow bg-dark">
+                    <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                        <input type="reset" class="btn btn-warning  Mbouton btn-sm " value="Reprendre">
+                        <input type="submit" class="btn btn-outline-success  btn-sm ml-auto" value="Sauvegarder">
+
+                    </div>
+                </div>
+
+
+            </div>
 
 
 
+            </form>
+
+        </div>
+
+    </div>
+    </div>
+    </div>
 
 
 
