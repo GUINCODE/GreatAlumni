@@ -5,6 +5,7 @@ $prenom = $_POST['prenom'];
 $mail = $_POST['mail'];
 $annee = $_POST['annee'];
 $loginn = $_POST['login'];
+
 $mdp = $_POST['mdp'];
 $typee = $_POST['type'];
 // $nom = "bobob";
@@ -16,8 +17,13 @@ $typee = $_POST['type'];
 // $typee = "standard";
 
 
-
-$stmt = $db->prepare("INSERT INTO utilisateur (Nom,Prenom,Mail,Mdp,Annee_promotion,Loginn,Typee)
+$stmt = $db->prepare("SELECT * FROM `utilisateur`  where  Mail=:mail LIMIT 1");
+$stmt->bindParam(':mail', $mail);
+$stmt->execute();
+if($users = $stmt->fetch()){
+  echo "existe";
+}else{
+   $stmt = $db->prepare("INSERT INTO utilisateur (Nom,Prenom,Mail,Mdp,Annee_promotion,Loginn,Typee)
   VALUES (:nom, :prenom, :mail, :mdp, :annee, :loginn, :typee )");
 $stmt->bindParam(':nom', $nom);
 $stmt->bindParam(':prenom', $prenom);
@@ -32,6 +38,9 @@ if ($stmt->execute()) {
 } else {
     echo "<h2 class='text-center text-danger mt-5'> Impossible de réaliser l'opération</h2>";
 }
+}
+
+
 
 
 ?>

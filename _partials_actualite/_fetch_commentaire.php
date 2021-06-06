@@ -18,9 +18,13 @@ if ($stmt->execute()) {
         $prenom = $ligne["Prenom"];
         $nom = $ligne["Nom"];
         $profil = $ligne["Photo"];
-        if (is_null($profil) or empty($profil)) {
-            $profil = "../images/medias_users/userLogin.png";
-        }
+        $type = $ligne["Typee"];
+      
+    if ($type == "admin" && (is_null($profil) or empty($profil))) {
+        $profil = "../images/medias_users/user_admin_default_profil.png";
+    } else if ($type != "admin" && (is_null($profil) or empty($profil))) {
+        $profil = "../images/medias_users/userLogin.png";
+    }
 ?>
         <div class=" d-flex mb-1  ">
             <img src="<?= $profil ?>" alt="<?= $prenom ?>" class="img-fluid  img_user_commentaeur mr-1" />

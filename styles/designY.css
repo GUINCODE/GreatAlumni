@@ -276,6 +276,12 @@ ul {
     /* filter: brightness(100%) !important; */
 }
 
+.logOut:hover a {
+    color: azure !important;
+    background: rgb(173, 10, 10) !important;
+    /* filter: brightness(100%) !important; */
+}
+
 textarea, .title_eve {
     background: #6a6a6e !important;
     font-size: 20px !important;
@@ -658,7 +664,6 @@ nav {
     overflow: auto;
 }
 
-
 .admin-items {
     transition: .3s ease-in-out;
     width: 100% !important;
@@ -690,7 +695,6 @@ nav {
     letter-spacing: 0.2px;
     transition: .4s;
     border-left: 14px solid #13204d;
-
 }
 
 tbody {
@@ -719,7 +723,24 @@ tbody {
     transform: scale(1.2);
 }
 
+._btn_all:hover {
+    color: #071035;
+    transform: scale(1.2);
+}
+
 .z_new_user:hover {
     transform: scale(1.01);
     filter: brightness(60%);
+}
+
+/* design login page  */
+
+.contien_login_page {
+    margin-top: 5rem !important;
+    margin-bottom: auto !important ;
+}
+.section_connexion {
+    padding: 4rem !important;
+    background: #175744 !important;
+    width: 40rem !important;
 }

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <!-- -----cdn fontawsone----  -->
     <script src="https://kit.fontawesome.com/94935e316c.js" crossorigin="anonymous"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link rel="stylesheet" href="../styles/designY.css">
     <style>
         /* .entete {
@@ -271,15 +272,16 @@
                         <input type="hidden" value="" class="z_f_id_user" name="z_f_id_user">
                         <div class="form-group">
                             <label>Nom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_nom_user" value="" id="" class="form-control form-control-sm z_f_nom_user " placeholder="">
+                            <input type="text" name="z_f_nom_user" value="" id="" class=" text-center form-control form-control-sm z_f_nom_user " placeholder="">
                             <label>Prenom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_prenom_user" id="" class="form-control form-control-sm z_f_prenom_user" placeholder="">
+                            <input type="text" name="z_f_prenom_user" id="" class=" text-center form-control form-control-sm z_f_prenom_user" placeholder="">
                             <label>Mail <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_mail_user" id="" class="form-control form-control-sm z_f_mail_user " placeholder="">
-                            <label>Password <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_psw_user" id="" class="form-control form-control-sm z_f_psw_user " placeholder="">
+                            <input type="text" name="z_f_mail_user" id="" class=" text-center form-control form-control-sm z_f_mail_user " placeholder="">
                             <label>Login <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_login_user" id="" class="form-control form-control-sm z_f_login_user " placeholder="">
+                            <input type="text" name="z_f_login_user" id="" class=" text-center form-control form-control-sm z_f_login_user " placeholder="">
+
+                            <label>Password <b class="text-muted"></b></label>
+                            <input type="text" name="z_f_psw_user" id="" class=" text-center form-control form-control-sm z_f_psw_user " placeholder="">
 
 
                         </div>
@@ -459,32 +461,37 @@
                 </div>
 
                 <div class="modal-body space_response_eve_admin">
-                 
-                    <form class="rounded  w-100 " id="add_member_form">
 
+                    <form class="rounded  w-100 " id="add_member_form">
+                        <div class="zoneAlerte"></div>
                         <div class="form-row w-100 mt-3 ">
                             <div class="col ">
                                 <input type="text" class="form-control" placeholder="Nom" name="nom" required>
                             </div>
                             <div class="col ">
-                                <input type="text" class="form-control" placeholder="Prenom" name="prenom" required>
+                                <input type="text" class="form-control prenomW" placeholder="Prenom" name="prenom" required>
                             </div>
                         </div>
                         <div class="form-row w-100 mt-3 ">
                             <div class="col ">
-                                <input type="email" class="form-control" placeholder="Mail" name="mail" required>
-                            </div>
-                            <div class="col ">
-                                <input type="text" class="form-control" placeholder="Login" name="login" required>
-                            </div>
-                        </div>
-                        <div class="form-row w-100 mt-3 ">
-                            <div class="col ">
-                                <input type="text" class="form-control" placeholder="Password" name="mdp" required>
+                                <input type="email" class="form-control mailW" placeholder="Mail" name="mail" required>
                             </div>
                             <div class="col ">
                                 <input type="number" class="form-control" placeholder=" Annee de promotion" name="annee" required>
                             </div>
+
+                        </div>
+                        <div class="form-row w-100 mt-3 ">
+                            <div class="col  d-flex align-items-center">
+                                <input type="text" class="form-control mr-1 loginW" placeholder="Login" name="login" required>
+                                <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i>
+                            </div>
+                            <div class="col d-flex align-items-center">
+                                <input type="text" class="form-control mr-1 passwordW " placeholder="Password" name="mdp" required>
+                                <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i>
+
+                            </div>
+
 
                         </div>
                         <div class="form-row w-50 mx-auto mt-3 ">
@@ -543,12 +550,7 @@
     <script src="../script/jQueryScript.js"></script>
     <!-- -----cdn AOS--- -->
     <script>
-        // $(".supp_post_by_admin").click(function(e) {
-        //     e.preventDefault();
-        //     let id_post = $(".post_del_id").val();
-        //     let mediaPost = $(".post_del_media").val();
-        //     alert("detecter");
-        // });
+
     </script>
 
 </body>

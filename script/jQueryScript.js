@@ -677,28 +677,177 @@ $(document).ready(function () {
     $(".togglerALL").addClass("hideurClass");
     $(".content_posts_space_admin").removeClass("hideurClass");
   });
-  
-    // Ajout de nouveau membre par admin 
-      $("#add_member_form").submit(function (e) {
-        e.preventDefault();
-        let zone_infos = $(".space_response_eve_admin");
-        let donnees = new FormData(this);
+
+  // Ajout de nouveau membre par admin
+
+    $("input").focus(function (e) {
+      $(this).removeClass("text-danger border-danger");
+    });
+
+  $("#add_member_form").submit(function (e) {
+    e.preventDefault();
+     let log = $(".loginW").val();
+     let password = $(".passwordW").val();
+     let prenom = $(".prenomW").val();
+     let mail = $(".mailW").val();
  
-        $.ajax({
-          type: "POST",
-          url: "../_partials_admin/_add_new_member.php",
-          data: donnees,
-          processData: false,
-          contentType: false,
-        })
-          .done(function (response) {
-            zone_infos.html(response);
+    let zoneAlerte = $(".zoneAlerte");
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+    $(".mailW").focus(function (e) {
+   
+    });
+    $.ajax({
+      type: "POST",
+      url: "../_partials_admin/_add_new_member.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        if (response == "existe") {
+          $(".mailW").addClass("text-danger border-danger");
+          zoneAlerte.html("<span class='text-center text-danger mt-5'> Cet addresse mail est associer a un autre compte </span>" );
+        } else {
+           sendEmail(log, password, prenom, mail);
+          zone_infos.html(response);
             setTimeout(() => {
               location.reload();
             }, 2000);
-          })
-          .fail(function () {
-            console.log("error");
-          });
+        }
+      
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
       });
+  });
+
+  /***  Generation de login et de mot de passe*/
+  function generate(l) {
+    if (typeof l === "undefined") {
+      var l = 10;
+    }
+    /* c : chaîne de caractères alphanumérique */
+    var c = "abcdefghijknopqrstuvwxyzACDEFGHJKLMNPQRSTUVWXYZ12345679",
+      n = c.length,
+      /* p : chaîne de caractères spéciaux */
+      p = "!@#$+-*&_",
+      o = p.length,
+      r = "",
+      n = c.length,
+      /* s : determine la position du caractère spécial dans le mdp */
+      s = Math.floor(Math.random() * (p.length - 1));
+
+    for (var i = 0; i < l; ++i) {
+      if (s == i) {
+        /* on insère à la position donnée un caractère spécial aléatoire */
+        r += p.charAt(Math.floor(Math.random() * o));
+      } else {
+        /* on insère un caractère alphanumérique aléatoire */
+        r += c.charAt(Math.floor(Math.random() * n));
+      }
+    }
+    return r;
+  }
+
+  /* évènement click sur un element de class "generate" > appelle la fonction generate() */
+
+$('.generate').click(function (e) { 
+  e.preventDefault();
+  $(this).parent().children("input").val(generate()).attr("type", "text");
+});
+
+ /*  requete d'envoi de mail de aux memebre pour la confirmation de creation de compte*/
+   //fonction d'envoi de mail
+  function sendEmail(login, password, prenom,mail) {
+    Email.send({
+      Host: "smtp.gmail.com",
+      Username: "greacomplus@gmail.com",
+      Password: "greatcomplus@2021",
+      To: ` ${mail}`,
+      From: "greacomplus@gmail.com",
+      Subject: "Confirmation de creation de compte GREATALUMNI",
+      Body: ` Bonjour <b>${prenom}</b>, vous trouverez ci-dessous vos information de connexion  !!<br/>
+    <span style="color:Indigo">Login:</span> ${login} <br/> 
+    <span style="color:Indigo">Password: </span> ${password} <br/> <br/>
+    Pour se Connecter cliquez sur: http://localhost/GreatAlumni_V3/ <br/>
+    <h1 style="color:DarkGoldenRod"> Attention :</h1>
+    Vous etes le seul destinataire de ce message, alors pour<span style="color:red"> la securierié de votre compte</span> 
+    Veuillez à ne pas communiquez vos identifications de connexion à un tiers.
+<br/>  <br/> 
+   <b>Ce ci est un message automatique merci de ne pas repondre !!!</b>  <br/><br/> 
+    Si vous avez de probleme de connexion veuillez contacter l'administrateur:
+    <br/> <br/><strong>tel: 06 05 60 21 30</strong><br/><b>e-mail: admin@greatalumni.com</b>
+    <br/> <br/> <br/>
+   <span style=" font-size:80px; color:Navy; font-family: Georgia, serif; text-shadow: 1px 1px 2px yellow; margin-left:110px"> 
+     GREATCOM+
+  </span> 
+  <br/><span style="color:white; background:black; font-size:15px; margin-left:190px; padding-top:10px; padding-bottom:10px">ENSITECH - ALUMNI - PLATEFORME </span>`,
+    }).then((message) => console.log("mail sent successfully"));
+  }
+
+
+  // Connexion de l'utlisateur
+        $(".loginUser").click(function (e) {
+          e.preventDefault();
+          // // alert("detecter")
+          let email = $(".champsEmail").val();
+          let psw = $(".champsPsw").val();
+          // if ($('.email_vide').is(":visible")) {
+
+          // }
+          if (email == "") {
+            $(".email_vide").removeClass("hideurClass");
+            $(".champsEmail").addClass("border border-danger");
+            setTimeout(() => {
+              $(".email_vide").addClass("hideurClass");
+              $(".champsEmail").removeClass("border border-danger");
+            }, 6000);
+          } else if (psw == "") {
+            $(".psw_vide").removeClass("hideurClass");
+            $(".champsPsw").addClass("border border-danger");
+            setTimeout(() => {
+              $(".psw_vide").addClass("hideurClass");
+              $(".champsPsw").removeClass("border border-danger");
+            }, 6000);
+          }
+          if (email != "" && psw != "") {
+            $.ajax({
+              type: "POST",
+              url: "./partials/_loginUser.php",
+              data: {
+                email: email,
+                psw: psw,
+              },
+            })
+              .done(function (response) {
+             if(response==0){
+               $(".infosErreur").html( "<br><span class='text-danger'> Login ou Mot de passe incorect</span>"  );
+                $(".champsPsw").addClass("border border-danger text-danger");
+                  $(".champsEmail").addClass("border border-danger text-danger");
+              setTimeout(() => {
+                $(".infosErreur").html("");
+                // $(".champsPsw").removeClass("border border-danger text-danger");
+                // $(".champsEmail").removeClass("border border-danger text-danger");
+                $(".champsPsw").val("");
+               }, 3000);
+             } else{
+              location.replace("http://localhost/GreatAlumni_V3/vue/actualite.php");
+               console.log(response);
+
+             }
+
+               
+              })
+              .fail(function () {
+                console.log("error");
+              });
+
+         
+          }
+        });
+
 });

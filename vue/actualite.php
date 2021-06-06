@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,7 +25,8 @@
 
 <body>
     <?php
-    include_once('../partials/header.php')
+    include_once('../partials/header.php');
+           
     ?>
 
 

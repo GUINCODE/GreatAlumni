@@ -28,8 +28,8 @@
             <div>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="btn btn-outline-danger btn-sm rounded " href="/GreatAlumni/index.php">Deconnexion</a>
-                    </li>
+                        <a class="btn btn-outline-danger btn-sm rounded " href="../partials/_logOut_user.php">Deconnexion</a>
+
                 </ul>
             </div>
 

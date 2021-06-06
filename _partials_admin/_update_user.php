@@ -8,7 +8,7 @@
     $z_f_login_user=$_POST["z_f_login_user"];
     $z_f_psw_user=$_POST["z_f_psw_user"];
 
-    $stmt = $db->prepare("UPDATE `utilisateur` SET `Nom` = :z_f_nom_user,`Prenom` = :z_f_prenom_user, `Mail`=:z_f_mail_user,  `Login` = :z_f_login_user,   `Mdp` = :z_f_psw_user, `Type`=:z_f_role_user  WHERE `id`=:z_f_id_user ");
+    $stmt = $db->prepare("UPDATE `utilisateur` SET `Nom` = :z_f_nom_user,`Prenom` = :z_f_prenom_user, `Mail`=:z_f_mail_user,  `Loginn` = :z_f_login_user,   `Mdp` = :z_f_psw_user, `Typee`=:z_f_role_user  WHERE `id`=:z_f_id_user ");
     $stmt->bindParam(':z_f_id_user', $z_f_id_user);
     $stmt->bindParam(':z_f_nom_user', $z_f_nom_user);
     $stmt->bindParam(':z_f_prenom_user', $z_f_prenom_user);
