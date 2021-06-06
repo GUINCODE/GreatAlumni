@@ -34,11 +34,11 @@
                     <small class="text-danger psw_vide hideurClass">champs vide</small>
                 </div>
 
-                <input type="submit" name="loginUser" value="Login" class="loginUser btn btn-outline-success btn-sm px-5 py-2  Mbouton rounded" />
+                <button class="loginUser btn btn-outline-success btn-sm  py-2  Mbouton rounded d-flex justify-content-center align-items-center" style="font-size:15px"><i class="fas fa-spinner mr-2 smoll_fresh hideurClass" style="font-size:20px"></i>login </button>
             </form>
             <div class="infosErreur"></div>
             <div class=" border-top mt-5 ">
-                <span type="button" class="mt-3  boxeShadower text-dark p-2  bg-light rounded Mbouton d-flex justify-content-center align-items-center"><img src="./images/logos/google2.png"  class="img-fluid mr-2" style="width:30px"/></i>Se connecter avec google</span>
+                <span type="button" class="mt-3  boxeShadower text-dark p-2  bg-light rounded Mbouton d-flex justify-content-center align-items-center"><img src="./images/logos/google2.png" class="img-fluid mr-2" style="width:30px" /></i>Se connecter avec google</span>
             </div>
 
 

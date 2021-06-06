@@ -794,25 +794,28 @@ $('.generate').click(function (e) {
         $(".loginUser").click(function (e) {
           e.preventDefault();
           // // alert("detecter")
+          $(".champsEmail").focus(function (e) {
+            $(".email_vide").addClass("hideurClass");
+               $(".infosErreur").html("");
+          });
+         $(".champsPsw").focus(function (e) {
+           $(".psw_vide").addClass("hideurClass");
+            $(".infosErreur").html("");
+
+         });
+
           let email = $(".champsEmail").val();
           let psw = $(".champsPsw").val();
-          // if ($('.email_vide').is(":visible")) {
-
-          // }
+       
           if (email == "") {
             $(".email_vide").removeClass("hideurClass");
             $(".champsEmail").addClass("border border-danger");
-            setTimeout(() => {
-              $(".email_vide").addClass("hideurClass");
-              $(".champsEmail").removeClass("border border-danger");
-            }, 6000);
+         
           } else if (psw == "") {
             $(".psw_vide").removeClass("hideurClass");
             $(".champsPsw").addClass("border border-danger");
-            setTimeout(() => {
-              $(".psw_vide").addClass("hideurClass");
-              $(".champsPsw").removeClass("border border-danger");
-            }, 6000);
+           
+        
           }
           if (email != "" && psw != "") {
             $.ajax({
@@ -828,15 +831,16 @@ $('.generate').click(function (e) {
                $(".infosErreur").html( "<br><span class='text-danger'> Login ou Mot de passe incorect</span>"  );
                 $(".champsPsw").addClass("border border-danger text-danger");
                   $(".champsEmail").addClass("border border-danger text-danger");
-              setTimeout(() => {
-                $(".infosErreur").html("");
-                // $(".champsPsw").removeClass("border border-danger text-danger");
-                // $(".champsEmail").removeClass("border border-danger text-danger");
-                $(".champsPsw").val("");
-               }, 3000);
+            
              } else{
-              location.replace("http://localhost/GreatAlumni_V3/vue/actualite.php");
-               console.log(response);
+             
+               $(".fa-spinner").removeClass("hideurClass");
+               setTimeout(() => {
+                  location.replace(
+                    "http://localhost/GreatAlumni_V3/vue/actualite.php"
+                  );
+               }, 1500);
+
 
              }
 
