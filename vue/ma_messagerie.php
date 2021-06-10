@@ -35,7 +35,7 @@
             <div class="les_sms_recus  shadow-lg p-2 rounded  d-flex flex-column mt-2">
                 <?php
 
-                $stmt = $db->prepare("SELECT   *  FROM `messagerie` WHERE `id_destinataire` = :id_utlisateur_connecter   GROUP BY id_expeditaire  ORDER BY dates ASC ");
+                $stmt = $db->prepare("SELECT   *  FROM `messagerie` WHERE `id_destinataire` = :id_utlisateur_connecter   GROUP BY id_expeditaire  ORDER BY dates DESC ");
                 $stmt->bindParam(':id_utlisateur_connecter', $id_user_conecter);
                 $stmt->execute();
                 $liste_sms_recus = $stmt->fetchAll();
@@ -107,16 +107,16 @@
         </div>
         <div class="zone_echange  py-3 ml-4 w-100 ">
             <div class="authers_users  rounded">
-                <span class=" badge-secondary rounded p-2 all_user w-100 d-flex justify-content-center align-items-center" type="button">
+                <span class=" badge-secondary rounded p-2 all_user w-100 d-flex justify-content-center align-items-center " type="button">
                     <i class="fas fa-eye mr-2" style="font-size: 22px;"></i>
                     <i class="fas fa-eye-slash mr-2 hideurClass" style="font-size: 22px;"></i>
-                    <span class="afficher">Afficher les utilisateurs </span> 
+                    <span class="afficher">Afficher les utilisateurs </span>
                     <span class="masquer hideurClass">Masquer les utilisateurs </i></span>
 
                 </span>
-                <div class="list_users_All  hideurClass d-flex flex-column justify-content-center align-items-center  px-2 pt-5 pb-3">
-                    <input type="search" placeholder="rechercher" class="searcheUser" id="myInput" />
-                    <div class="d-flex flex-column justify-content-center align-items-center  px-2 pt-1 pb-3 " id="card">
+                <div class="list_users_All  hideurClass d-flex flex-column justify-content-center align-items-center  px-2 pt-1 pb-3">
+                    <input type="search" placeholder="rechercher" class="searcheUser " id="myInput" />
+                    <div class="d-flex flex-column justify-content-center align-items-center  laliste " id="myList">
                         <?php
 
                         $stmt = $db->prepare("SELECT * FROM `utilisateur` WHERE `id` != :id_utlisateur_connecter  ORDER BY `Prenom` ASC");
@@ -138,7 +138,7 @@
                                 <input type="hidden" value="<?= $id_authe_user; ?>" class="id_autre_user" />
                                 <input type="hidden" value="<?= $id_user_conecter; ?>" class="identifant_userConnecter" />
                                 <img class=" img_fromUser mr-1" src="<?= $profil; ?>" alt="<?= $nom; ?>" />
-                                <span class=" text-light name_user">
+                                <span class=" text-light name_user ">
                                     <?= $prenom . " " . $nom; ?>
                                 </span>
                             </div>
@@ -199,9 +199,18 @@
     </script>
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
-    <script>
 
+    <script>
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("autherUser").filter(function() {
+                $(this).toggle($(this).children(".name_user").text().toLowerCase().indexOf(value) > -1)
+            });
+
+        });
     </script>
+
+
     <!-- -----cdn AOS--- -->
 
 </body>

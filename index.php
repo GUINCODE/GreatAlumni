@@ -20,35 +20,38 @@
 </head>
 
 <body>
-    <div class="container d-flex  contien_login_page">
-        <div class="section_wellcom mr-2 mt-5">
-            <img src="./images/logos/greatComLogo.png" alt="..." class="img-fluid mb-2" style=" width: 30rem;" /><br />
-            <span style=" font-size:20px;"> la communauté des etudiants actuels et anciens sur la meme plateforme d'echange et de partage</span>
-        </div>
-        <div class=" section_connexion boxeShadower rounded d-flex flex-column">
-            <form method="post">
-                <div class="form-group   d-flex flex-column ">
-                    <input type="text" placeholder="login or e-mail" class="form-control champsEmail rounded" name="email" />
-                    <small class="text-danger email_vide  hideurClass">champs vide</small>
-                    <input type="password" placeholder="password" class="form-control mt-3 champsPsw rounded" name="psw" />
-                    <small class="text-danger psw_vide hideurClass">champs vide</small>
+    <div class="loginPageBody">
+
+
+        <div class="container d-flex  contien_login_page">
+            <div class="section_wellcom mr-4 ">
+                <img src="./images/logos/logo3.png" alt="..." class="img-fluid mb-2 ml-5" style=" width: 30rem;" /><br />
+                <span style=" font-size:30px;"> Plateforme d'echange et de partage des etudiants actuels et anciens de <strong>GREATCOM+ </strong></span>
+            </div>
+            <div class=" section_connexion boxeShadower rounded d-flex flex-column">
+                <form method="post">
+                    <div class="form-group   d-flex flex-column ">
+                        <input type="text" placeholder="login or e-mail" class="form-control champsEmail rounded" name="email" />
+                        <small class="text-danger email_vide  hideurClass">champs vide *</small>
+                        <input type="password" placeholder="password" class="form-control mt-3 champsPsw rounded" name="psw" />
+                        <small class="text-danger psw_vide hideurClass">champs vide *</small>
+                    </div>
+
+                    <button class="loginUser btn btn-outline-success btn-sm  py-2  Mbouton rounded d-flex justify-content-center align-items-center" style="font-size:15px"><i class="fas fa-spinner mr-2 smoll_fresh hideurClass" style="font-size:20px"></i>login </button>
+                </form>
+                <div class="infosErreur"></div>
+                <div class=" border-top mt-5 ">
+                    <span type="button" class="mt-3  boxeShadower text-dark p-1  bg-light rounded Mbouton d-flex justify-content-center align-items-center"><img src="./images/logos/google2.png" class="img-fluid mr-2" style="width:30px" /></i>Login with google</span>
                 </div>
 
-                <button class="loginUser btn btn-outline-success btn-sm  py-2  Mbouton rounded d-flex justify-content-center align-items-center" style="font-size:15px"><i class="fas fa-spinner mr-2 smoll_fresh hideurClass" style="font-size:20px"></i>login </button>
-            </form>
-            <div class="infosErreur"></div>
-            <div class=" border-top mt-5 ">
-                <span type="button" class="mt-3  boxeShadower text-dark p-2  bg-light rounded Mbouton d-flex justify-content-center align-items-center"><img src="./images/logos/google2.png" class="img-fluid mr-2" style="width:30px" /></i>Se connecter avec google</span>
+
+
             </div>
 
 
 
         </div>
-
-
-
     </div>
-
 
 
 

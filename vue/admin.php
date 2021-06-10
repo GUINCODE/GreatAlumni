@@ -51,6 +51,7 @@
                     <h3 class="text-center ml-5">Géstion des utilisateur</h3>
                     <span style="font-size:22px; " class="ml-auto bg-success rounded p-1 text-light mb-1  z_new_user" type="button" data-toggle="modal" data-target="#modal_new_memeber">New Member <i class="fas fa-user-plus"></i></span>
                 </div>
+                <input type="search" placeholder="rechercher" class=" form-control w-50 text-center mb-2 shadow-lg border boder-dark  mx-auto rounded-top h1  " id="chercheAdminUser" />
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
                     <thead class="backgroundSecondPlan text-light text-center  ">
                         <tr class="p-5 text-center">
@@ -62,7 +63,7 @@
                             <th class="p-3">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
 
                         <?php
                         $stmt = $db->prepare("SELECT * FROM `utilisateur`   ORDER BY Nom ASC, Prenom ASC");
@@ -115,6 +116,7 @@
             <div class="w-100  content_events_space_admin  togglerALL hideurClass">
 
                 <h3 class="text-center ml-5">Géstion des evenements</h3>
+                <input type="search" placeholder="rechercher" class=" form-control w-50 text-center mb-2 shadow-lg border boder-dark  mx-auto rounded-top h1  " id="chercheAdminEve" />
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
                     <thead class="backgroundSecondPlan text-light text-center  ">
                         <tr class="p-5 text-center">
@@ -126,7 +128,7 @@
                             <th class="p-3">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tableEve">
 
                         <?php
                         $stmt = $db->prepare("SELECT * FROM `evenements`   ORDER BY dates ASC");
@@ -173,6 +175,7 @@
             <div class="w-100  content_posts_space_admin  togglerALL hideurClass ">
 
                 <h3 class="text-center ml-5">Géstion des articles</h3>
+                <input type="search" placeholder="rechercher" class=" form-control w-50 text-center mb-2 shadow-lg border boder-dark  mx-auto rounded-top h1  " id="chercheAdminPost" />
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
                     <thead class="backgroundSecondPlan text-light text-center  ">
                         <tr class="p-5 text-center">
@@ -182,7 +185,7 @@
                             <th class="p-3">DELETE</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tablePost">
 
                         <?php
                         $stmt = $db->prepare("SELECT * FROM `article`   ORDER BY date DESC");
@@ -550,7 +553,24 @@
     <script src="../script/jQueryScript.js"></script>
     <!-- -----cdn AOS--- -->
     <script>
-
+        $("#chercheAdminUser").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $("#chercheAdminPost").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#tablePost tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $("#chercheAdminEve").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#tableEve tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
     </script>
 
 </body>

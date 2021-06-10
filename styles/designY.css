@@ -509,23 +509,28 @@ nav {
 }
 
 .list_users_All {
-    overflow: auto;
-    max-height: 20rem;
     /* border: 3px solid red; */
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     transition: .9s ease-in-out;
 }
 
+.laliste {
+    padding-top: 28rem !important;
+    /* border:1rem solid red !important; */
+    overflow: auto;
+    max-height: 15rem !important;
+    padding-bottom: 5rem;
+}
+
 .list_users_All>div>div {
     font-size: 12px;
     font-weight: bold;
-    color: #030718 !important;
+    color: red !important;
     background: #696a6e94;
     width: 100%;
 }
 
-.list_users_All>div>div:hover {
-    transform: scale(1.02);
+.autherUser:hover {
     filter: brightness(70%);
 }
 
@@ -553,8 +558,6 @@ nav {
 }
 
 .searcheUser {
-    margin-top: 6rem !important;
-    padding: 2px !important;
     line-height: 28px;
     border-radius: 12px;
     padding-left: 2px !important;
@@ -735,12 +738,31 @@ tbody {
 
 /* design login page  */
 
-.contien_login_page {
-    margin-top: 5rem !important;
-    margin-bottom: auto !important ;
+.loginPageBody {
+    margin-top: 0px !important;
+    background-image: url(../images/logos/alumni-network2.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
 }
+
+.section_wellcom {
+    margin-top: 7rem !important;
+    /* margin-bottom: auto !important; */
+}
+
+.section_wellcom>span {
+    color: #13204d;
+    padding: 2px;
+    background: rgba(245, 245, 245, 0.459);
+    text-align: center;
+    width: 40rem;
+    display:block
+}
+
 .section_connexion {
+    margin-top: 7rem !important;
     padding: 4rem !important;
-    background: #175744 !important;
-    width: 40rem !important;
+    background: #0c4646f8 !important;
+    width: 30rem !important;
 }

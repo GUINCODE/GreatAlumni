@@ -338,6 +338,9 @@ $(document).ready(function () {
   });
   // event click sur un utlisateur X
   $(".autherUser").click(function (e) {
+   
+  //  console.log($(this).children(".name_user").text().toLowerCase());
+  
     $(this).removeClass("textBol");
     let user_dest = $(this).find(".id_autre_user").val();
     let userLog = $(this).find(".identifant_userConnecter").val();
@@ -797,10 +800,12 @@ $('.generate').click(function (e) {
           $(".champsEmail").focus(function (e) {
             $(".email_vide").addClass("hideurClass");
                $(".infosErreur").html("");
+               $(this).removeClass("is-invalid border border-danger");
           });
          $(".champsPsw").focus(function (e) {
            $(".psw_vide").addClass("hideurClass");
             $(".infosErreur").html("");
+             $(this).removeClass("is-invalid border border-danger");
 
          });
 
@@ -809,11 +814,10 @@ $('.generate').click(function (e) {
        
           if (email == "") {
             $(".email_vide").removeClass("hideurClass");
-            $(".champsEmail").addClass("border border-danger");
-         
+            $(".champsEmail").addClass("is-invalid border border-danger");
           } else if (psw == "") {
             $(".psw_vide").removeClass("hideurClass");
-            $(".champsPsw").addClass("border border-danger");
+            $(".champsPsw").addClass("is-invalid border border-danger");
            
         
           }
