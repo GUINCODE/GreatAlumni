@@ -28,7 +28,7 @@
 
     ?>
     <h2 class="text-center ">Annuaire des anciens </h2>
-    <input type="search" placeholder="rechercher un membre" class=" form-control w-75 text-center mb-2 shadow-lg border-bottom boder-dark  mx-auto  bg-light  " id="" />
+    <input type="search" placeholder="rechercher un membre" class=" form-control w-75 text-center mb-2 shadow-lg border-bottom boder-dark  mx-auto  bg-light  " id="myInput" />
     <div class="ml-5 mt-3 d-flex justify-content-center align-items-center">
         <div class="mr-5" id="tri1">
             <label for="cars">Trier par: </label>
@@ -58,7 +58,7 @@
         </div>
 
     </div>
-    <div class="row annuaire_conten mx-5 my-3 overflow-auto h-100">
+    <div class="row annuaire_conten mx-5 my-3 overflow-auto h-100" id="annuaire_conten">
         <?php
         $stmt = $db->prepare("SELECT * FROM `utilisateur` WHERE `id` != :id_utlisateur_connecter  ");
         $stmt->bindParam(':id_utlisateur_connecter', $id_user_conecter);
@@ -89,10 +89,10 @@
                 <p class="text-fluid d-flex flex-column">
                     <span>Campus: <strong><?= $campus ?></strong></span>
                     <span>Promotion: <strong><?= $promotion ?></strong></span>
-                    <span>Profession: <strong><?= $profession?></strong></span>
+                    <span>Profession: <strong><?= $profession ?></strong></span>
                 </p>
                 <a href="profli_consulter.php?id_user_consulter=<?= $id_authe_user ?>" class="btn btn-outline-info btn-sm btn-sm  d-flex w-50 justify-content-center align-items-center mx-auto shadow rounded Mbouton "> voir le profil</a>
-       
+
             </div>
 
 
@@ -117,15 +117,43 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-        // if ($('#check_tri').is(':checked')) {
-        //     alert("jQuery c'est super");
-        // }
         $('#check_tri').change(function(e) {
             e.preventDefault();
             $('#tri1').toggleClass("hideurClass");
             $('#tri2').toggleClass("hideurClass");
         });
+        // $("#myInput").on("keyup", function() {
+        //     var value = $(this).val().toLowerCase();
+        //     $("#annuaire_conten").filter(function() {
+        //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        //     });
+
+        // });
+        $("#myInput").keyup(function() {
+
+            // Retrieve the input field text and reset the count to zero
+            var filter = $(this).val(),
+                count = 0;
+
+            // Loop through the comment list
+            $('#annuaire_conten div').each(function() {
+
+
+                // If the list item does not contain the text phrase fade it out
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).hide(); // MY CHANGE
+
+                    // Show the list item if the phrase matches and increase the count by 1
+                } else {
+                    $(this).show(); // MY CHANGE
+                    count++;
+                }
+
+            });
+
+        });
     </script>
+
 
 </body>
 
