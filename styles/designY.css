@@ -20,6 +20,11 @@ body {
     border-radius: 50%;
 }
 
+.UserProfil_qrs {
+    max-width: 70px !important;
+    border-radius: 50%;
+}
+
 .profil-commente {
     max-width: 35px !important;
     border-radius: 50%;
@@ -757,7 +762,7 @@ tbody {
     background: rgba(245, 245, 245, 0.459);
     text-align: center;
     width: 40rem;
-    display:block
+    display: block
 }
 
 .section_connexion {
@@ -765,4 +770,10 @@ tbody {
     padding: 4rem !important;
     background: #0c4646f8 !important;
     width: 30rem !important;
+}
+
+/* design annuaire */
+
+.memberAnnuaire {
+    background: #3d809d34 !important;
 }

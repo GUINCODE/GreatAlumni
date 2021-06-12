@@ -72,7 +72,7 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
 
 </div>
 <ul class="sub_btn_profi rounded">
-    <li type="button" class="addArticle" data-toggle="modal" data-target="#staticBackdrop"><i class="far fa-edit mr-1"></i>Nouvel article </li>
+    <li type="button" class="addArticle" data-toggle="modal" data-target="#staticBackdrop"><i class="far fa-edit mr-1"></i>Publier un Post </li>
       <?= $venementASK;?>
     <li type="button"><i class="far fa-comments mr-1"></i> Acceder au forum</li>
     <li type="button"><a href="ma_messagerie.php"><i class="fas fa-sms mr-1"></i>Ma messagerie</a></li>

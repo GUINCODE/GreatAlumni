@@ -709,8 +709,8 @@ $(document).ready(function () {
     })
       .done(function (response) {
         if (response == "existe") {
-          $(".mailW").addClass("text-danger border-danger");
-          zoneAlerte.html("<span class='text-center text-danger mt-5'> Cet addresse mail est associer a un autre compte </span>" );
+          $(".mailW").addClass(" is-invalid text-danger border-danger ");
+          zoneAlerte.html("<span class='text-center text-danger mt-5'> Cet adresse mail est associer a un autre compte </span>" );
         } else {
            sendEmail(log, password, prenom, mail);
           zone_infos.html(response);
@@ -726,6 +726,11 @@ $(document).ready(function () {
         }, 2000);
         console.log("error");
       });
+  });
+  $(".mailW").keyup(function (e) {
+    let zoneAlerte = $(".zoneAlerte");
+    $(this).removeClass("is-invalid text-danger border-danger");
+   zoneAlerte.html("");
   });
 
   /***  Generation de login et de mot de passe*/
@@ -857,5 +862,6 @@ $('.generate').click(function (e) {
          
           }
         });
+        
 
 });

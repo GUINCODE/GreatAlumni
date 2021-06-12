@@ -12,7 +12,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link  text-light" href="/GreatAlumni/vue/v_annuaire.php">Annuaire</a>
+                    <a class="nav-link  text-light" href="annuaire.php">Annuaire</a>
                 </li>
 
                 <li class="nav-item">
