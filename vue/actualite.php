@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,7 +25,7 @@
 <body>
     <?php
     include_once('../partials/header.php');
-           
+
     ?>
 
 
@@ -64,7 +63,7 @@
 
 
 
- <?php
+    <?php
     include_once('../partials/footer.php');
     ?>
 
@@ -72,7 +71,9 @@
     </script>
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
-    <!-- -----cdn AOS--- -->
+    <script>
+     
+    </script>
 
 </body>
 

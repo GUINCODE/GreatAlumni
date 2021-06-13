@@ -114,6 +114,7 @@ input:focus, select:focus, textarea:focus, button:focus {
 }
 
 .entete_article {
+    position: relative;
     background: #3d809d !important;
     color: aliceblue;
     font-weight: bold;
@@ -832,7 +833,11 @@ tbody {
 /* design page profil user consulter */
 
 .textColorBlue {
-   color: #13204d
+    color: #13204d
+}
+
+.dot_report:hover {
+    color: #13204d
 }
 
 .colsult_user_profil {
@@ -840,11 +845,29 @@ tbody {
     max-height: 10rem !important;
     border-radius: 50%;
     border: 5px solid #13204d;
-    /* border: 5px solid #3d809d; */
     padding: 0px !important;
 }
 
 .image_user_consulter {
     border: 7px solid #3d809d;
-    /* border: 5px solid #13204d; */
+}
+
+/* report */
+
+.reportBlock {
+    background: #13204d !important;
+    color: white !important;
+    transition: .5s ease-in-out;
+    position: absolute;
+    top: 2.3rem;
+    left: 30rem;
+}
+
+.reportBlock span:hover {
+    color: #e6101ad7 !important;
+    background: white !important;
+}
+
+.reportBlock span {
+    transition: .3s ease-in-out;
 }

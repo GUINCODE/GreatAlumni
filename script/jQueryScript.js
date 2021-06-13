@@ -933,4 +933,69 @@ $("#myInput").keyup(function () {
           } 
         });
 
+        // report user and post  
+
+       $(".dot_report").click(function (e) {
+       
+         let reportBlock = $(this).siblings(".reportBlock");
+         reportBlock.toggleClass("hideurClass");
+       });
+       $(".reportPost").click(function (e) {
+         let id_article = $(this).siblings(".id_article").val();
+         let id_auteur_post = $(this).siblings(".id_auteur_post").val();
+         let id_signaleur = $(".id_user_log").val();
+
+         let BoxpostSignaler= $(this).siblings(".postSignaler");
+         let  enCours1= $(this);
+
+         $.ajax({
+           type: "POST",
+           url: "../_partials_actualite/_report_post.php",
+           data: {
+             id_article: id_article,
+             id_auteur_post: id_auteur_post,
+             id_signaleur: id_signaleur,
+           },
+         })
+           .done(function (response) {
+             if (response === "ok") {
+               BoxpostSignaler.removeClass("hideurClass");
+              enCours1.addClass("hideurClass");
+             
+             } else {
+               console.log(response);
+             }
+           })
+           .fail(function () {
+             console.log("error");
+           });
+       });
+       $(".reportUser").click(function (e) {
+         
+         let id_auteur_post = $(this).siblings(".id_auteur_post").val();
+         let id_signaleur = $(".id_user_log").val();
+          let userSignaler = $(this).siblings(".userSignaler");
+          let enCours = $(this);
+        
+  $.ajax({
+    type: "POST",
+    url: "../_partials_actualite/_report_user.php",
+    data: {
+      id_auteur_post: id_auteur_post,
+      id_signaleur: id_signaleur,
+    },
+  })
+    .done(function (response) {
+      if (response === "ok") {
+        userSignaler.removeClass("hideurClass");
+        enCours.addClass("hideurClass");
+      } else {
+        console.log(response);
+      }
+    })
+    .fail(function () {
+      console.log("error");
+    });
+
+       });
 });

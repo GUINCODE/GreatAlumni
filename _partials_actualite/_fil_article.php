@@ -70,6 +70,46 @@ if (!$test) {
                 <a href="#">
                     <h6 class="name-posted ml-2  text-light"><?php echo " $nom  $prenom "; ?></h6>
                 </a>
+                <span class="ml-auto mr-3 dot_report" type="button"><i class="fas fa-ellipsis-v " style="font-size:25px"></i></span>
+                <?php
+
+                //    verifie si l'utilusateur connecter a deja signaler l'auteur du post 
+                $sqlX = "SELECT * FROM `report_user` WHERE `id_signaleur` = $id_user_conecter  AND `id_signaler`=$id_user";
+                $resultX = $db->query($sqlX);
+                $boolReportUser = $resultX->rowCount();
+                if ($boolReportUser > 0) {
+
+                    $btn_signal_utilisateur = "<span class=' hideurClass p-1 rounded reportUser' type='button'><i class='fas fa-flag mr-1'></i>Signaler l'auteur</span>
+                    <span class='p-1 rounded text-danger   userSignaler'> Auteur signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                } else {
+                   
+                        $btn_signal_utilisateur = "<span class='  p-1 rounded reportUser' type='button'><i class='fas fa-flag mr-1'></i>Signaler l'auteur</span>
+                    <span class='p-1 rounded text-danger  hideurClass userSignaler'> Auteur signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                }
+
+                //      verifie si l'utilusateur connecter a deja signaler ce post 
+                $sqlY = "SELECT * FROM `report_post` WHERE `id_signaleur` = $id_user_conecter  AND `id_post`=$id_article";
+                $resultY = $db->query($sqlY);
+                $boolReportPost = $resultY->rowCount();
+                if ($boolReportPost > 0) {
+                    $btn_signal_post = " <span class='hideurClass p-1 rounded reportPost ' type='button'><i class='fas fa-flag mr-1'></i>Signaler ce POST</span>
+                    <span class='p-1 rounded text-danger  postSignaler'> Post signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                } else {
+                    $btn_signal_post = " <span class=' p-1 rounded reportPost ' type='button'><i class='fas fa-flag mr-1'></i>Signaler ce POST</span>
+                    <span class='p-1 rounded text-danger hideurClass postSignaler'> Post signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                }
+              
+
+                ?>
+                <input type="hidden" value="<?= $id_article; ?>" class="id_article" />
+                <ul class="hideurClass reportBlock d-flex flex-column border p-1 rounded">
+                    <input type="hidden" value="<?= $id_article; ?>" class="id_article" />
+                    <input type="hidden" value="<?= $id_user; ?>" class="id_auteur_post" />
+
+                    <?= $btn_signal_utilisateur ?>
+                    <?= $btn_signal_post ?>
+
+                </ul>
             </div>
             <div class="card-body">
                 <h6 class="titre_article"><?php echo " $titre "; ?></h6>
