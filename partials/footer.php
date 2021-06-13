@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse  text-light" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link  text-light" href="actualite.php">Atualite & partage</a>
+                    <a class="nav-link  text-light" href="actualite.php">Actualite & partage</a>
                 </li>
 
                 <li class="nav-item">

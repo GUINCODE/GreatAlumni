@@ -240,8 +240,8 @@ ul {
 }
 
 .btn_user_profil>i {
-    margin-top: 17px;
-    margin-left: -6px;
+    margin-top: -40px;
+    margin-left: 42px !important;
     font-size: 20px;
     color: #d7d8dd;
     filter: brightness(80%);
@@ -267,7 +267,7 @@ ul {
 
 .btn_user_profil:hover i {
     /* transform: scale(1.2); */
-    margin-top: 30px !important;
+    margin-top: -38px !important;
 }
 
 .sub_btn_profi>li {
@@ -776,4 +776,75 @@ tbody {
 
 .memberAnnuaire {
     background: #3d809d34 !important;
+    /* transition: 3s ease-in-out; */
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* design page profil user consulter */
+
+.textColorBlue {
+   color: #13204d
+}
+
+.colsult_user_profil {
+    max-width: 10rem !important;
+    max-height: 10rem !important;
+    border-radius: 50%;
+    border: 5px solid #13204d;
+    /* border: 5px solid #3d809d; */
+    padding: 0px !important;
+}
+
+.image_user_consulter {
+    border: 7px solid #3d809d;
+    /* border: 5px solid #13204d; */
 }

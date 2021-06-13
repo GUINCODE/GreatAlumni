@@ -28,39 +28,43 @@
 
     ?>
     <h2 class="text-center ">Annuaire des anciens </h2>
-    <input type="search" placeholder="rechercher un membre" class=" form-control w-75 text-center mb-2 shadow-lg border-bottom boder-dark  mx-auto  bg-light  " id="myInput" />
+    <div class="container d-flex justify-content-center align-items-center ml-auto">
+        <div class="  ml-5 d-flex justify-content-center align-items-center mb-2 w-100 ml-auto pl-5 ">
+            <input type="search" placeholder="saisir le nom, le prenom, la promotion, le campus, la profession..." class="ml-5 form-control  text-center  shadow-lg border-bottom boder-dark  rounded  bg-light " id="myInput">
+            <i class="fas fa-search w-25" style="font-size:27px"></i>
+        </div>
+    </div>
+
     <div class="ml-5 mt-3 d-flex justify-content-center align-items-center">
         <div class="mr-5" id="tri1">
             <label for="cars">Trier par: </label>
 
-            <select name="cars" id="cars">
-                <option value="volvo" class="disabled">aucun</option>
-                <option value="saab">Nom</option>
-                <option value="opel">Promotion</option>
+            <select id="tri_By">
+                <option value="aucun">aucun</option>
+                <option value="nom">Nom</option>
+                <option value="prenom">Prenom</option>
+                <option value="promotion">Promotion</option>
 
             </select>
-            <span class="text-warning">DESC</span>
+            <span class="text-warning">ASC</span>
         </div>
-        <span class="text-muted  mr-5">ou par campus: <input type="checkbox" id="check_tri" name="vehicle1" value="Bike"></span>
-        <div class="d-flex justify-content-center align-items-center hideurClass" id="tri2">
-            <div class="mr-5 d-flex flex-column justify-content-center align-items-center">
-                <input type="radio" id="male" name="gender" value="male" class="mr-1">
-                <label for="male">Campus 1</label>
-            </div>
-            <div class="mr-5 d-flex flex-column justify-content-center align-items-center">
-                <input type="radio" id="male" name="gender" value="male" class="mr-1">
-                <label for="male">Campus 2</label>
-            </div>
-            <div class=" d-flex flex-column justify-content-center align-items-center">
-                <input type="radio" id="male" name="gender" value="male" class="mr-1">
-                <label for="male">Campus 3</label>
-            </div>
+        <div class="ml-5" id="tri1">
+            <label for="cars">Afficher par campus: </label>
+
+            <select name="" id="show_by_campus">
+                <option value="all_campus">All</option>
+                <option value="campus1">Campus 1</option>
+                <option value="campus2">Campus 2</option>
+                <option value="campus3">Campus 3</option>
+
+            </select>
+
         </div>
 
     </div>
     <div class="row annuaire_conten mx-5 my-3 overflow-auto h-100" id="annuaire_conten">
         <?php
-        $stmt = $db->prepare("SELECT * FROM `utilisateur` WHERE `id` != :id_utlisateur_connecter  ");
+        $stmt = $db->prepare("SELECT * FROM `utilisateur` ");
         $stmt->bindParam(':id_utlisateur_connecter', $id_user_conecter);
         $stmt->execute();
         $users_list = $stmt->fetchAll();
@@ -117,41 +121,8 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-        $('#check_tri').change(function(e) {
-            e.preventDefault();
-            $('#tri1').toggleClass("hideurClass");
-            $('#tri2').toggleClass("hideurClass");
-        });
-        // $("#myInput").on("keyup", function() {
-        //     var value = $(this).val().toLowerCase();
-        //     $("#annuaire_conten").filter(function() {
-        //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        //     });
-
-        // });
-        $("#myInput").keyup(function() {
-
-            // Retrieve the input field text and reset the count to zero
-            var filter = $(this).val(),
-                count = 0;
-
-            // Loop through the comment list
-            $('#annuaire_conten div').each(function() {
 
 
-                // If the list item does not contain the text phrase fade it out
-                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                    $(this).hide(); // MY CHANGE
-
-                    // Show the list item if the phrase matches and increase the count by 1
-                } else {
-                    $(this).show(); // MY CHANGE
-                    count++;
-                }
-
-            });
-
-        });
     </script>
 
 

@@ -8,20 +8,23 @@ include_once("connectBDD.php");
 $id_user_conecter = $_SESSION['id'];
 $role_user_conecter = $_SESSION['type_user'];
 $profil_user_connect = $_SESSION['profil_user'];
+$name_user_connect = $_SESSION['name_user'];
 
 // echo $role_user_conecter;
 if ($role_user_conecter == "admin") {
     $adminASK = "<li type='button' class='text-warning'><a href='admin.php' class='text-warning'><i class='fas fa-users-cog mr-1'></i>ADMIN </a></li>";
-    
-    $venementASK=" <li type='button' class='addEvenement' data-toggle='modal' data-target='#staticBackdrop2'><i class='far fa-calendar-plus mr-1'></i>Nouvel evenement</li> ";
+
+    $venementASK = " <li type='button' class='addEvenement' data-toggle='modal' data-target='#staticBackdrop2'><i class='far fa-calendar-plus mr-1'></i>Nouvel evenement</li> ";
 } else {
     $adminASK = "";
-     $venementASK="";
+    $venementASK = "";
 }
 if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($profil_user_connect))) {
-    $profil_user_connect = " <img src='../images/medias_users/user_admin_default_profil.png' class=' img-fluid profil-post' alt='...'>";
+    $profil_user_connect = "../images/medias_users/user_admin_default_profil.png";
 } else if ($role_user_conecter != "admin" && (is_null($profil_user_connect) or empty($profil_user_connect))) {
-    $profil_user_connect = " <img src='../images/medias_users/userLogin.png' class=' img-fluid profil-post' alt='...'>";
+    $profil_user_connect = "../images/medias_users/userLogin.png";
+} else {
+    //   $profil_user_connect =substr($profil_user_connect, 2);
 }
 
 
@@ -62,8 +65,10 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
 
             </ul>
         </li>
-        <div class="btn_user_profil my-auto ml-auto  d-flex justify-content-center align-items-center mr-5" type="button">
-            <?= $profil_user_connect; ?>
+        <div class="btn_user_profil my-auto ml-auto  d-flex  flex-column justify-content-center align-items-center mr-5" type="button">
+            
+            <img src=" <?= $profil_user_connect; ?>" class=' img-fluid profil-post' alt='...'>
+            <span class="text-light mt-1"> <?= $name_user_connect?></span>
             <i class="fas fa-arrow-circle-down"></i>
         </div>
     </ul>
@@ -73,7 +78,7 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
 </div>
 <ul class="sub_btn_profi rounded">
     <li type="button" class="addArticle" data-toggle="modal" data-target="#staticBackdrop"><i class="far fa-edit mr-1"></i>Publier un Post </li>
-      <?= $venementASK;?>
+    <?= $venementASK; ?>
     <li type="button"><i class="far fa-comments mr-1"></i> Acceder au forum</li>
     <li type="button"><a href="ma_messagerie.php"><i class="fas fa-sms mr-1"></i>Ma messagerie</a></li>
     <li type="button" class="addFeedback" data-toggle="modal" data-target="#staticBackdrop3"><i class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>

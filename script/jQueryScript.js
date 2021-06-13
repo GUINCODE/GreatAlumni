@@ -862,6 +862,75 @@ $('.generate').click(function (e) {
          
           }
         });
-        
+      
+        //tri dans annuaire
+       $("#tri_By").change(function (e) {
+         e.preventDefault();
+         let choix= $(this).val();
+         if(choix=="nom"){
+            $(".annuaire_conten").load("../_partials_annuaire/_tri_by_nom.php");
+         } else if(choix=="prenom"){
+            $(".annuaire_conten").load("../_partials_annuaire/_tri_by_prenom.php");
+         }
+         else if(choix=="promotion"){
+            $(".annuaire_conten").load("../_partials_annuaire/_tri_by_promotion.php");
+         }
+          else{
+            $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
+
+
+         }
+
+         
+       });
+       ////
+
+// chercher un membre 
+$("#myInput").keyup(function () {
+  // Retrieve the input field text and reset the count to zero
+  var filter = $(this).val(),
+    count = 0;
+
+  // Loop through the comment list
+  $("#annuaire_conten div").each(function () {
+    // If the list item does not contain the text phrase fade it out
+    if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+      $(this).hide(); // MY CHANGE
+
+      // Show the list item if the phrase matches and increase the count by 1
+    } else {
+      $(this).show(); // MY CHANGE
+      count++;
+    }
+  });
+});
+
+      // ////
+
+      //  filtrer par campus
+        $("#show_by_campus").change(function (e) {
+          // Retrieve the input field text and reset the count to zero
+          let filter = $(this).val();
+            if(filter == "all_campus") {
+             $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
+                  } 
+           else{
+            count = 0;
+
+          // Loop through the comment list
+          $("#annuaire_conten div").each(function () {
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+              $(this).hide(); // MY CHANGE
+
+              // Show the list item if the phrase matches and increase the count by 1
+            } else {
+              $(this).show(); // MY CHANGE
+              count++;
+            }
+          });
+          console.log(filter);
+          } 
+        });
 
 });

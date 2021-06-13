@@ -116,7 +116,7 @@
                 </span>
                 <div class="list_users_All  hideurClass d-flex flex-column justify-content-center align-items-center  px-2 pt-1 pb-3">
                     <input type="search" placeholder="rechercher" class="searcheUser " id="myInput" />
-                    <div class="d-flex flex-column justify-content-center align-items-center  laliste " id="myList">
+                    <div class="d-flex flex-column justify-content-center align-items-center  laliste " id="contentUserBox">
                         <?php
 
                         $stmt = $db->prepare("SELECT * FROM `utilisateur` WHERE `id` != :id_utlisateur_connecter  ORDER BY `Prenom` ASC");
@@ -135,12 +135,13 @@
 
                         ?>
                             <div class=" autherUser d-flex justify-content-start align-items-center p-1  rounded mt-1 media " type="button">
-                                <input type="hidden" value="<?= $id_authe_user; ?>" class="id_autre_user" />
-                                <input type="hidden" value="<?= $id_user_conecter; ?>" class="identifant_userConnecter" />
+
                                 <img class=" img_fromUser mr-1" src="<?= $profil; ?>" alt="<?= $nom; ?>" />
                                 <span class=" text-light name_user ">
                                     <?= $prenom . " " . $nom; ?>
                                 </span>
+                                <input type="hidden" value="<?= $id_authe_user; ?>" class="id_autre_user" />
+                                <input type="hidden" value="<?= $id_user_conecter; ?>" class="identifant_userConnecter" />
                             </div>
 
                         <?php
@@ -199,12 +200,33 @@
     </script>
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
-
     <script>
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("autherUser").filter(function() {
-                $(this).toggle($(this).children(".name_user").text().toLowerCase().indexOf(value) > -1)
+        // $('#check_tri').change(function(e) {
+        //     e.preventDefault();
+        //     $('#tri1').toggleClass("hideurClass");
+        //     $('#tri2').toggleClass("hideurClass");
+        // });
+
+        $("#myInput").keyup(function() {
+
+            // Retrieve the input field text and reset the count to zero
+            var filter = $(this).val(),
+                count = 0;
+
+            // Loop through the comment list
+            $('#contentUserBox div').each(function() {
+
+
+                // If the list item does not contain the text phrase fade it out
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).hide(); // MY CHANGE
+
+                    // Show the list item if the phrase matches and increase the count by 1
+                } else {
+                    $(this).show(); // MY CHANGE
+                    count++;
+                }
+
             });
 
         });
