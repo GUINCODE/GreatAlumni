@@ -118,6 +118,7 @@ input:focus, select:focus, textarea:focus, button:focus {
     background: #3d809d !important;
     color: aliceblue;
     font-weight: bold;
+    height: 3.2rem !important;
 }
 
 .border-munted {

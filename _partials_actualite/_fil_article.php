@@ -79,12 +79,12 @@ if (!$test) {
                 $boolReportUser = $resultX->rowCount();
                 if ($boolReportUser > 0) {
 
-                    $btn_signal_utilisateur = "<span class=' hideurClass p-1 rounded reportUser' type='button'><i class='fas fa-flag mr-1'></i>Signaler l'auteur</span>
-                    <span class='p-1 rounded text-danger   userSignaler'> Auteur signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                    $btn_signal_utilisateur = "<span class=' hideurClass p-1 rounded reportUser' type='button' ><i class='fas fa-flag mr-1'></i>Signaler l'auteur</span>
+                    <label class='p-1 rounded text-danger   userSignaler'> Auteur signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></label> ";
                 } else {
                    
                         $btn_signal_utilisateur = "<span class='  p-1 rounded reportUser' type='button'><i class='fas fa-flag mr-1'></i>Signaler l'auteur</span>
-                    <span class='p-1 rounded text-danger  hideurClass userSignaler'> Auteur signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                    <label class='p-1 rounded text-danger  hideurClass userSignaler'> Auteur signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></label> ";
                 }
 
                 //      verifie si l'utilusateur connecter a deja signaler ce post 
@@ -93,10 +93,10 @@ if (!$test) {
                 $boolReportPost = $resultY->rowCount();
                 if ($boolReportPost > 0) {
                     $btn_signal_post = " <span class='hideurClass p-1 rounded reportPost ' type='button'><i class='fas fa-flag mr-1'></i>Signaler ce POST</span>
-                    <span class='p-1 rounded text-danger  postSignaler'> Post signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                    <label class='p-1 rounded text-danger  postSignaler'> Post signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></label> ";
                 } else {
                     $btn_signal_post = " <span class=' p-1 rounded reportPost ' type='button'><i class='fas fa-flag mr-1'></i>Signaler ce POST</span>
-                    <span class='p-1 rounded text-danger hideurClass postSignaler'> Post signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></span> ";
+                    <label class='p-1 rounded text-danger hideurClass postSignaler'> Post signalé <i class='fas fa-flag-checkered' style='color:yellow'></i></label> ";
                 }
               
 

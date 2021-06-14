@@ -60,6 +60,7 @@
                             <th class="p-3">Prenom</th>
                             <th class="p-3">Mail</th>
                             <th class="p-3">Role</th>
+                            <th class="p-3">Report <i class='fas fa-flag-checkered ml-1' style=' font-size:30px'></i></th>
                             <th class="p-3">Actions</th>
                         </tr>
                     </thead>
@@ -79,8 +80,21 @@
                             $role = $colonne["Typee"];
                             $password = $colonne["Mdp"];
                             $login = $colonne["Loginn"];
+                            // ----compter le nombre de report d'un utilisateur---
+                            $sql3 = "SELECT * FROM `report_user` WHERE `id_signaler` = $id_user    ";
+                            $result3 = $db->query($sql3);
+                            $nomreReport = $result3->rowCount();
+
+
                             if (is_null($profil) or empty($profil)) {
                                 $profil = "../images/medias_users/profil_par_defaut.jpg";
+                            }
+                            if ($nomreReport == 0) {
+                                $nomreReportP = "<span class='text-muted'>auncun </span>";
+                            } else   if ($nomreReport > 0 && $nomreReport <= 5) {
+                                $nomreReportP = "<span class='text-warning'><i class='fas fa-flag-checkered mr-1' style=' font-size:20px'></i> $nomreReport  </i></span>";
+                            } else {
+                                $nomreReportP = "<span class='text-danger'><i class='fas fa-flag-checkered mr-1' style=' font-size:20px'></i>$nomreReport </span>";
                             }
                         ?>
                             <tr class=" p-0 text-center">
@@ -89,6 +103,8 @@
                                 <td><?= $prenom ?></td>
                                 <td><?= $mail ?></td>
                                 <td><?= $role ?></td>
+                                <td><?= $nomreReportP ?></td>
+
                                 <td class="d-flex justify-content-center align-items-center pt-2 flex-row">
                                     <i class=" mr-3 fas fa-user-edit btn_edit_user" style="font-size:30px; " type="button" data-toggle="modal" data-target="#staticBackdrop_Z"></i>
                                     <i class="fas fa-trash-alt btn_delete_user" style="font-size:30px; " type="button" data-toggle="modal" data-target="#staticBackdrop_D"></i>
@@ -182,6 +198,7 @@
                             <th class="p-3">IMAGE</th>
                             <th class="p-3">TITRE</th>
                             <th class="p-3">POST</th>
+                            <th class="p-3">REPORT <i class='fas fa-flag-checkered ml-1' style=' font-size:30px'></i></th>
                             <th class="p-3">DELETE</th>
                         </tr>
                     </thead>
@@ -218,12 +235,25 @@
                                     $detail_post = $post;
                                 }
                             }
+                            // ----compter le nombre de report d'un post---
+                            $sql3 = "SELECT * FROM `report_post` WHERE `id_post` = $id    ";
+                            $result3 = $db->query($sql3);
+                            $nomreReport = $result3->rowCount();
+                        
+                            if ($nomreReport == 0) {
+                                $nomreReportP = "<span class='text-muted'>auncun </span>";
+                            } else   if ($nomreReport > 0 && $nomreReport <= 2) {
+                                $nomreReportP = "<span class='text-warning'><i class='fas fa-flag-checkered mr-1' style=' font-size:20px'></i> $nomreReport  </i></span>";
+                            } else {
+                                $nomreReportP = "<span class='text-danger'><i class='fas fa-flag-checkered mr-1' style=' font-size:20px'></i>$nomreReport </span>";
+                            }
 
                         ?>
                             <tr class=" p-0 text-center">
                                 <td><?= $image; ?></td>
                                 <td><?= $title; ?></td>
                                 <td><?= $detail_post; ?></td>
+                                <td><?= $nomreReportP ?></td>
 
                                 <td class=" pt-2 ">
                                     <i class="fas fa-trash-alt btn_delete_post delele_btn_all" style="font-size:30px; " type="button" data-toggle="modal" data-target="#deletePOST_modal"></i>
