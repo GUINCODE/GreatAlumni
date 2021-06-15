@@ -7,8 +7,16 @@ if (!isset($_SESSION['id'])) {
 include_once("connectBDD.php");
 $id_user_conecter = $_SESSION['id'];
 $role_user_conecter = $_SESSION['type_user'];
-$profil_user_connect = $_SESSION['profil_user'];
-$name_user_connect = $_SESSION['name_user'];
+
+
+                                                $stmt = $db->prepare("SELECT * FROM `utilisateur` where `id`= :id_utlisateur ");
+                                                $stmt->bindParam(':id_utlisateur', $id_user_conecter);
+                                                $stmt->execute();
+                                                $colonne = $stmt->fetch();
+
+                                                $name_user_connect = $colonne['Nom'];
+                                                $profil_user_connect = $colonne['Photo'];
+                                              
 
 // echo $role_user_conecter;
 if ($role_user_conecter == "admin") {
@@ -66,9 +74,9 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
             </ul>
         </li>
         <div class="btn_user_profil my-auto ml-auto  d-flex  flex-column justify-content-center align-items-center mr-5" type="button">
-            
+
             <img src=" <?= $profil_user_connect; ?>" class=' img-fluid profil-post' alt='...'>
-            <span class="text-light mt-1"> <?= $name_user_connect?></span>
+            <span class="text-light mt-1"> <?= $name_user_connect ?></span>
             <i class="fas fa-arrow-circle-down"></i>
         </div>
     </ul>
@@ -82,7 +90,7 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
     <li type="button"><i class="far fa-comments mr-1"></i> Acceder au forum</li>
     <li type="button"><a href="ma_messagerie.php"><i class="fas fa-sms mr-1"></i>Ma messagerie</a></li>
     <li type="button" class="addFeedback" data-toggle="modal" data-target="#staticBackdrop3"><i class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>
-    <li type="button"><i class="fas fa-user mr-1"></i>Mon profil</li>
+    <li type="button"><a href="profil.php"><i class="fas fa-user mr-1"></i>Mon profil</a></li>
     <?php echo $adminASK; ?>
 
     <li type="button" class="logOut text-danger"><a href="../partials/_logOut_user.php" class="logOut text-danger"><i class="fas fa-sign-out-alt mr-1 "> </i>Se deconnecter </a></li>

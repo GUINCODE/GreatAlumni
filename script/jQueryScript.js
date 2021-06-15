@@ -338,9 +338,8 @@ $(document).ready(function () {
   });
   // event click sur un utlisateur X
   $(".autherUser").click(function (e) {
-   
-  //  console.log($(this).children(".name_user").text().toLowerCase());
-  
+    //  console.log($(this).children(".name_user").text().toLowerCase());
+
     $(this).removeClass("textBol");
     let user_dest = $(this).find(".id_autre_user").val();
     let userLog = $(this).find(".identifant_userConnecter").val();
@@ -683,23 +682,21 @@ $(document).ready(function () {
 
   // Ajout de nouveau membre par admin
 
-    $("input").focus(function (e) {
-      $(this).removeClass("text-danger border-danger");
-    });
+  $("input").focus(function (e) {
+    $(this).removeClass("text-danger border-danger");
+  });
 
   $("#add_member_form").submit(function (e) {
     e.preventDefault();
-     let log = $(".loginW").val();
-     let password = $(".passwordW").val();
-     let prenom = $(".prenomW").val();
-     let mail = $(".mailW").val();
- 
+    let log = $(".loginW").val();
+    let password = $(".passwordW").val();
+    let prenom = $(".prenomW").val();
+    let mail = $(".mailW").val();
+
     let zoneAlerte = $(".zoneAlerte");
     let zone_infos = $(".space_response_eve_admin");
     let donnees = new FormData(this);
-    $(".mailW").focus(function (e) {
-   
-    });
+    $(".mailW").focus(function (e) {});
     $.ajax({
       type: "POST",
       url: "../_partials_admin/_add_new_member.php",
@@ -710,15 +707,16 @@ $(document).ready(function () {
       .done(function (response) {
         if (response == "existe") {
           $(".mailW").addClass(" is-invalid text-danger border-danger ");
-          zoneAlerte.html("<span class='text-center text-danger mt-5'> Cet adresse mail est associer a un autre compte </span>" );
+          zoneAlerte.html(
+            "<span class='text-center text-danger mt-5'> Cet adresse mail est associer a un autre compte </span>"
+          );
         } else {
-           sendEmail(log, password, prenom, mail);
+          sendEmail(log, password, prenom, mail);
           zone_infos.html(response);
-            setTimeout(() => {
-              location.reload();
-            }, 2000);
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
         }
-      
       })
       .fail(function () {
         setTimeout(() => {
@@ -730,7 +728,7 @@ $(document).ready(function () {
   $(".mailW").keyup(function (e) {
     let zoneAlerte = $(".zoneAlerte");
     $(this).removeClass("is-invalid text-danger border-danger");
-   zoneAlerte.html("");
+    zoneAlerte.html("");
   });
 
   /***  Generation de login et de mot de passe*/
@@ -763,14 +761,14 @@ $(document).ready(function () {
 
   /* évènement click sur un element de class "generate" > appelle la fonction generate() */
 
-$('.generate').click(function (e) { 
-  e.preventDefault();
-  $(this).parent().children("input").val(generate()).attr("type", "text");
-});
+  $(".generate").click(function (e) {
+    e.preventDefault();
+    $(this).parent().children("input").val(generate()).attr("type", "text");
+  });
 
- /*  requete d'envoi de mail de aux memebre pour la confirmation de creation de compte*/
-   //fonction d'envoi de mail
-  function sendEmail(login, password, prenom,mail) {
+  /*  requete d'envoi de mail de aux memebre pour la confirmation de creation de compte*/
+  //fonction d'envoi de mail
+  function sendEmail(login, password, prenom, mail) {
     Email.send({
       Host: "smtp.gmail.com",
       Username: "greacomplus@gmail.com",
@@ -797,205 +795,347 @@ $('.generate').click(function (e) {
     }).then((message) => console.log("mail sent successfully"));
   }
 
-
   // Connexion de l'utlisateur
-        $(".loginUser").click(function (e) {
-          e.preventDefault();
-          // // alert("detecter")
-          $(".champsEmail").focus(function (e) {
-            $(".email_vide").addClass("hideurClass");
-               $(".infosErreur").html("");
-               $(this).removeClass("is-invalid border border-danger");
-          });
-         $(".champsPsw").focus(function (e) {
-           $(".psw_vide").addClass("hideurClass");
-            $(".infosErreur").html("");
-             $(this).removeClass("is-invalid border border-danger");
-
-         });
-
-          let email = $(".champsEmail").val();
-          let psw = $(".champsPsw").val();
-       
-          if (email == "") {
-            $(".email_vide").removeClass("hideurClass");
-            $(".champsEmail").addClass("is-invalid border border-danger");
-          } else if (psw == "") {
-            $(".psw_vide").removeClass("hideurClass");
-            $(".champsPsw").addClass("is-invalid border border-danger");
-           
-        
-          }
-          if (email != "" && psw != "") {
-            $.ajax({
-              type: "POST",
-              url: "./partials/_loginUser.php",
-              data: {
-                email: email,
-                psw: psw,
-              },
-            })
-              .done(function (response) {
-             if(response==0){
-               $(".infosErreur").html( "<br><span class='text-danger'> Login ou Mot de passe incorect</span>"  );
-                $(".champsPsw").addClass("border border-danger text-danger");
-                  $(".champsEmail").addClass("border border-danger text-danger");
-            
-             } else{
-             
-               $(".fa-spinner").removeClass("hideurClass");
-               setTimeout(() => {
-                  location.replace(
-                    "http://localhost/GreatAlumni_V3/vue/actualite.php"
-                  );
-               }, 1500);
-
-
-             }
-
-               
-              })
-              .fail(function () {
-                console.log("error");
-              });
-
-         
-          }
-        });
-      
-        //tri dans annuaire
-       $("#tri_By").change(function (e) {
-         e.preventDefault();
-         let choix= $(this).val();
-         if(choix=="nom"){
-            $(".annuaire_conten").load("../_partials_annuaire/_tri_by_nom.php");
-         } else if(choix=="prenom"){
-            $(".annuaire_conten").load("../_partials_annuaire/_tri_by_prenom.php");
-         }
-         else if(choix=="promotion"){
-            $(".annuaire_conten").load("../_partials_annuaire/_tri_by_promotion.php");
-         }
-          else{
-            $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
-
-
-         }
-
-         
-       });
-       ////
-
-// chercher un membre 
-$("#myInput").keyup(function () {
-  // Retrieve the input field text and reset the count to zero
-  var filter = $(this).val(),
-    count = 0;
-
-  // Loop through the comment list
-  $("#annuaire_conten div").each(function () {
-    // If the list item does not contain the text phrase fade it out
-    if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-      $(this).hide(); // MY CHANGE
-
-      // Show the list item if the phrase matches and increase the count by 1
-    } else {
-      $(this).show(); // MY CHANGE
-      count++;
-    }
-  });
-});
-
-      // ////
-
-      //  filtrer par campus
-        $("#show_by_campus").change(function (e) {
-          // Retrieve the input field text and reset the count to zero
-          let filter = $(this).val();
-            if(filter == "all_campus") {
-             $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
-                  } 
-           else{
-            count = 0;
-
-          // Loop through the comment list
-          $("#annuaire_conten div").each(function () {
-            // If the list item does not contain the text phrase fade it out
-            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-              $(this).hide(); // MY CHANGE
-
-              // Show the list item if the phrase matches and increase the count by 1
-            } else {
-              $(this).show(); // MY CHANGE
-              count++;
-            }
-          });
-          console.log(filter);
-          } 
-        });
-
-        // report user and post  
-
-       $(".dot_report").click(function (e) {
-       
-         let reportBlock = $(this).siblings(".reportBlock");
-         reportBlock.toggleClass("hideurClass");
-       });
-       $(".reportPost").click(function (e) {
-         let id_article = $(this).siblings(".id_article").val();
-         let id_auteur_post = $(this).siblings(".id_auteur_post").val();
-         let id_signaleur = $(".id_user_log").val();
-
-         let BoxpostSignaler= $(this).siblings(".postSignaler");
-         let  enCours1= $(this);
-
-         $.ajax({
-           type: "POST",
-           url: "../_partials_actualite/_report_post.php",
-           data: {
-             id_article: id_article,
-             id_auteur_post: id_auteur_post,
-             id_signaleur: id_signaleur,
-           },
-         })
-           .done(function (response) {
-             if (response === "ok") {
-               BoxpostSignaler.removeClass("hideurClass");
-              enCours1.addClass("hideurClass");
-             
-             } else {
-               console.log(response);
-             }
-           })
-           .fail(function () {
-             console.log("error");
-           });
-       });
-       $(".reportUser").click(function (e) {
-         
-         let id_auteur_post = $(this).siblings(".id_auteur_post").val();
-         let id_signaleur = $(".id_user_log").val();
-          let userSignaler = $(this).siblings(".userSignaler");
-          let enCours = $(this);
-        
-  $.ajax({
-    type: "POST",
-    url: "../_partials_actualite/_report_user.php",
-    data: {
-      id_auteur_post: id_auteur_post,
-      id_signaleur: id_signaleur,
-    },
-  })
-    .done(function (response) {
-      if (response === "ok") {
-        userSignaler.removeClass("hideurClass");
-        enCours.addClass("hideurClass");
-      } else {
-        console.log(response);
-      }
-    })
-    .fail(function () {
-      console.log("error");
+  $(".loginUser").click(function (e) {
+    e.preventDefault();
+    // // alert("detecter")
+    $(".champsEmail").focus(function (e) {
+      $(".email_vide").addClass("hideurClass");
+      $(".infosErreur").html("");
+      $(this).removeClass("is-invalid border border-danger");
+    });
+    $(".champsPsw").focus(function (e) {
+      $(".psw_vide").addClass("hideurClass");
+      $(".infosErreur").html("");
+      $(this).removeClass("is-invalid border border-danger");
     });
 
-       });
+    let email = $(".champsEmail").val();
+    let psw = $(".champsPsw").val();
+
+    if (email == "") {
+      $(".email_vide").removeClass("hideurClass");
+      $(".champsEmail").addClass("is-invalid border border-danger");
+    } else if (psw == "") {
+      $(".psw_vide").removeClass("hideurClass");
+      $(".champsPsw").addClass("is-invalid border border-danger");
+    }
+    if (email != "" && psw != "") {
+      $.ajax({
+        type: "POST",
+        url: "./partials/_loginUser.php",
+        data: {
+          email: email,
+          psw: psw,
+        },
+      })
+        .done(function (response) {
+          if (response == 0) {
+            $(".infosErreur").html(
+              "<br><span class='text-danger'> Login ou Mot de passe incorect</span>"
+            );
+            $(".champsPsw").addClass("border border-danger text-danger");
+            $(".champsEmail").addClass("border border-danger text-danger");
+          } else {
+            $(".fa-spinner").removeClass("hideurClass");
+            setTimeout(() => {
+              location.replace(
+                "http://localhost/GreatAlumni_V3/vue/actualite.php"
+              );
+            }, 1500);
+          }
+        })
+        .fail(function () {
+          console.log("error");
+        });
+    }
+  });
+
+  //tri dans annuaire
+  $("#tri_By").change(function (e) {
+    e.preventDefault();
+    let choix = $(this).val();
+    if (choix == "nom") {
+      $(".annuaire_conten").load("../_partials_annuaire/_tri_by_nom.php");
+    } else if (choix == "prenom") {
+      $(".annuaire_conten").load("../_partials_annuaire/_tri_by_prenom.php");
+    } else if (choix == "promotion") {
+      $(".annuaire_conten").load("../_partials_annuaire/_tri_by_promotion.php");
+    } else {
+      $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
+    }
+  });
+  ////
+
+  // chercher un membre
+  $("#myInput").keyup(function () {
+    // Retrieve the input field text and reset the count to zero
+    var filter = $(this).val(),
+      count = 0;
+
+    // Loop through the comment list
+    $("#annuaire_conten div").each(function () {
+      // If the list item does not contain the text phrase fade it out
+      if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+        $(this).hide(); // MY CHANGE
+
+        // Show the list item if the phrase matches and increase the count by 1
+      } else {
+        $(this).show(); // MY CHANGE
+        count++;
+      }
+    });
+  });
+
+  // ////
+
+  //  filtrer par campus
+  $("#show_by_campus").change(function (e) {
+    // Retrieve the input field text and reset the count to zero
+    let filter = $(this).val();
+    if (filter == "all_campus") {
+      $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
+    } else {
+      count = 0;
+
+      // Loop through the comment list
+      $("#annuaire_conten div").each(function () {
+        // If the list item does not contain the text phrase fade it out
+        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+          $(this).hide(); // MY CHANGE
+
+          // Show the list item if the phrase matches and increase the count by 1
+        } else {
+          $(this).show(); // MY CHANGE
+          count++;
+        }
+      });
+      console.log(filter);
+    }
+  });
+
+  // report user and post
+
+  $(".dot_report").click(function (e) {
+    let reportBlock = $(this).siblings(".reportBlock");
+    reportBlock.toggleClass("hideurClass");
+  });
+  $(".reportPost").click(function (e) {
+    let id_article = $(this).siblings(".id_article").val();
+    let id_auteur_post = $(this).siblings(".id_auteur_post").val();
+    let id_signaleur = $(".id_user_log").val();
+
+    let BoxpostSignaler = $(this).siblings(".postSignaler");
+    let enCours1 = $(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_report_post.php",
+      data: {
+        id_article: id_article,
+        id_auteur_post: id_auteur_post,
+        id_signaleur: id_signaleur,
+      },
+    })
+      .done(function (response) {
+        if (response === "ok") {
+          BoxpostSignaler.removeClass("hideurClass");
+          enCours1.addClass("hideurClass");
+        } else {
+          console.log(response);
+        }
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+  $(".reportUser").click(function (e) {
+    let id_auteur_post = $(this).siblings(".id_auteur_post").val();
+    let id_signaleur = $(".id_user_log").val();
+    let userSignaler = $(this).siblings(".userSignaler");
+    let enCours = $(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_report_user.php",
+      data: {
+        id_auteur_post: id_auteur_post,
+        id_signaleur: id_signaleur,
+      },
+    })
+      .done(function (response) {
+        if (response === "ok") {
+          userSignaler.removeClass("hideurClass");
+          enCours.addClass("hideurClass");
+        } else {
+          console.log(response);
+        }
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+  // page profil user connecter
+  $(".btn_formation_user").click(function (e) {
+    $(".boutonAllBlue").removeClass("item_active_Profil");
+    $(this).addClass("item_active_Profil");
+    $(".communeClass").addClass("hideurClass");
+    $(".MesFormations").removeClass("hideurClass");
+  });
+  $(".btn_experience_user").click(function (e) {
+    $(".boutonAllBlue").removeClass("item_active_Profil");
+    $(this).addClass("item_active_Profil");
+    $(".communeClass").addClass("hideurClass");
+    $(".MesExperiences").removeClass("hideurClass");
+  });
+  $(".btn_hobbie_user").click(function (e) {
+    $(".boutonAllBlue").removeClass("item_active_Profil");
+    $(this).addClass("item_active_Profil");
+    $(".communeClass").addClass("hideurClass");
+    $(".MesHobbies").removeClass("hideurClass");
+  });
+
+  $("#btn_mofier_user_infos").click(function (e) {
+    e.preventDefault();
+    let nom = $("#nom").val();
+    let prenom = $("#prenom").val();
+    let campus = $("#campus").val();
+    let profession = $("#profession").val();
+    let departement = $("#departement").val();
+    let mail = $("#mail").val();
+    let promotion = $("#promotion").val();
+    let password = $("#password").val();
+    let login = $("#login").val();
+
+    $(".nomUser").val(nom);
+    $(".prenomUser").val(prenom);
+    $(".mailUser").val(mail);
+    $(".promotionUser").val(promotion);
+    $(".loginW").val(login);
+    $(".passwordW").val(password);
+    $(".campus").val(campus);
+    $(".departement").val(departement);
+    $(".professionUser").val(profession);
+  });
+
+  //validation de la mise a jour des infos de l'utlisateur connecter
+  $("#updateUserLogin_formulaire").submit(function (e) {
+    e.preventDefault();
+    let zoneAlerte = $(".zoneAlerte");
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_update_user_connecter.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        if (response == "existe") {
+          $(".mailW").addClass(" is-invalid text-danger border-danger ");
+          zone_infos.html(
+            "<span class='text-center text-danger mt-5'> Cet adresse mail est associer a un autre compte </span>"
+          );
+        } else {
+          zone_infos.html(response);
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+        }
+      })
+      .fail(function () {
+        // setTimeout(() => {
+        //   location.reload();
+        // }, 2000);
+        console.log("error");
+      });
+  });
+  $(".update_citation").click(function (e) {
+    e.preventDefault();
+
+    let citation = $("#citation").val();
+    $("#myCitation").val(citation);
+  });
+  // validation de la mise a jour de la citation
+  $("#update_citation_user").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_update_user_citation.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
+  });
+  // update profil user
+  $("#update_profil_user").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_update_image_profil.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
+  });
+
+  // user connecter ajoute une nouvelle formation
+  // update profil user
+  $("#add_new_formation").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_add_new_formation.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
+  });
 });

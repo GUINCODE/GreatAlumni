@@ -22,7 +22,7 @@
                     <a class="nav-link  text-light" href="/GreatAlumni/vue/v_forum.php">Forum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-light" href="/GreatAlumni/vue/v_profil.php">Profil</a>
+                    <a class="nav-link  text-light" href="profil.php">Profil</a>
                 </li>
             </ul>
             <div>
