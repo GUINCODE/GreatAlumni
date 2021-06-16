@@ -1256,7 +1256,7 @@ $(document).ready(function () {
   });
   //soumition du formulaire update
   $("#add_update_experience").submit(function (e) {
-    e.preventDefault();
+   
      e.preventDefault();
      let zone_infos = $(".space_response_eve_admin");
      let donnees = new FormData(this);
@@ -1309,5 +1309,32 @@ $(document).ready(function () {
         .fail(function () {
           console.log("error");
         });
+    });
+
+    // ajout de new hobbie
+    $("#add_new_hobbie").submit(function (e) {
+      e.preventDefault();
+let zone_infos = $(".space_response_eve_admin");
+let donnees = new FormData(this);
+
+$.ajax({
+  type: "POST",
+  url: "../_partials_profil/_add_new_hobbie.php",
+  data: donnees,
+  processData: false,
+  contentType: false,
+})
+  .done(function (response) {
+    zone_infos.html(response);
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+  })
+  .fail(function () {
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+    console.log("error");
+  });
     });
 });

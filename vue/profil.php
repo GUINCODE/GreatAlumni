@@ -201,7 +201,7 @@
                 <div class="MesHobbies communeClass d-flex flex-column justify-content-center align-items-center pt-2 hideurClass  ">
                     <div>
                         <span class="text-muted h2 mr-5"> Mes Hobbies</span>
-                        <span class="Mbouton p-2 rounded-circle ajoutTruc"> <i class="fas fa-plus"></i></span>
+                        <span class="Mbouton p-2 rounded-circle ajoutTruc " data-toggle="modal" data-target="#modal_new_hobbie"> <i class="fas fa-plus"></i></span>
                     </div>
                     <div class="d-flex w-75 mx-auto border mt-3 p-2 ">
                         <div class="d-flex flex-column  mb-2 w-50 mx-auto ">
@@ -692,6 +692,48 @@
         </div>
     </div>
     <!-- fin modal modification experience -->
+
+    <!-- gestion hobbies -->
+    <!-- Ajout d'une nounelle hobbie  -->
+    <div class="modal fade   " id="modal_new_hobbie" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 30%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Ajout de hobbie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+
+
+                    <form class="rounded  w-100 " enctype="multipart/form-data" id="add_new_hobbie">
+                        <div class="form-row w-100 mt-3 ">
+                            <input type="hidden" value="<?= $id_user_conecter ?>" name="id" />
+                            <div class="col ">
+                                <label>Entrer le nom du hobbie</label>
+                                <input type="text" class="form-control " placeholder=" hobbie name " name="hobbie_name" required>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="w-100  border border-top mt-3 shadow bg-dark">
+                            <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                                <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
+                                </button>
+                                <input type="submit" class="btn btn-outline-success  btn-sm ml-auto rounded" value="Valider">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div> <!--  fin modal Ajout experience -->
 
 
     <?php
