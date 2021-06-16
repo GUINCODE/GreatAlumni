@@ -176,7 +176,7 @@
                                     <div class="d-flex  justify-content-center align-items-center ml-auto ">
                                         <input type="hidden" value="" />
                                         <span class="btn btn-outline-info btn-sm mr-2 rounded Mbouton btn_update_experience" data-toggle="modal" data-target="#modal_update_experience"> <i class="fas fa-pencil-alt"> </i> Modifier </span>
-                                        <span class="btn btn-outline-danger btn-sm rounded"><i class="far fa-trash-alt"></i> Supprimer </span>
+                                        <span class="btn btn-outline-danger btn-sm rounded btn_delete_experience" data-toggle="modal" data-target="#delete_experience_modal"><i class="far fa-trash-alt"></i> Supprimer </span>
                                         <input type="hidden" value="<?= $id ?>" class="id_experience" />
                                         <input type="hidden" value="<?= $date_debut ?>" class="date_debut" />
                                         <input type="hidden" value="<?= $date_fin ?>" class="date_fin" />
@@ -598,13 +598,13 @@
     </div> <!--  fin modal Ajout experience -->
 
 
-    <!-- suppression de experienec de l'utlisateur connecter -->
-    <!-- <div class="modal fade" id="delete_formation_modal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- suppression de experience de l'utlisateur connecter -->
+    <div class="modal fade" id="delete_experience_modal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" style="max-width: 50%;" role="document">
             <div class="modal-content rounded shadow-lg mt-5">
 
                 <div class="modal-header bg-danger rounded-top">
-                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION DE Formation</h5>
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION D'une éxperience</h5>
                     <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 40px;">&times;</span>
                     </button>
@@ -616,8 +616,8 @@
                         <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cette formation:</strong>
                         <div class="d-flex w-100 align-items-center  mt-5">
                             <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
-                            <button class="btn btn-outline-danger  btn-sm rounded ml-auto  valid_sup_formation  mr-4">SUPPRIMER</button>
-                            <input type="hidden" value="" class="formation_id_del" />
+                            <button class="btn btn-outline-danger  btn-sm rounded ml-auto  valid_sup_experience  mr-4">SUPPRIMER</button>
+                            <input type="hidden" value="" class="experience_id_del" />
 
                         </div>
                     </div>
@@ -627,7 +627,7 @@
             </div>
         </div>
 
-    </div> -->
+    </div>
     <!-- fin delete experinece -->
 
     <!-- Modification de experiences  -->

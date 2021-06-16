@@ -1281,4 +1281,33 @@ $(document).ready(function () {
          console.log("error");
        });
   });
+
+  // suppression d'experinece du user 
+  $(".btn_delete_experience").click(function (e) {
+    e.preventDefault();
+    let id_experience = $(this).siblings(".id_experience").val();
+    $(".experience_id_del").val(id_experience);
+    });
+  // validation de la suppression de l'experience
+    $(".valid_sup_experience").click(function (e) {
+      let id_experience_z = $(".experience_id_del").val();
+      // alert(id_formationz);
+      let space_response = $(".space_response");
+      $.ajax({
+        type: "POST",
+        url: "../_partials_profil/_delete_experience.php",
+        data: {
+          id_experience_z: id_experience_z,
+        },
+      })
+        .done(function (response) {
+          space_response.html(response);
+          setTimeout(() => {
+            location.reload();
+          }, 900);
+        })
+        .fail(function () {
+          console.log("error");
+        });
+    });
 });
