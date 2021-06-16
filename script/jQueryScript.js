@@ -1337,4 +1337,41 @@ $.ajax({
     console.log("error");
   });
     });
+
+    // mise a jour de hobbie
+      $(".btn_update_hobbie").click(function (e) {
+        e.preventDefault();
+       let id_hobbie = $(this).siblings(".id_hobbbie").val();
+       let name_hobbie = $(this).siblings(".nom_du_hobbie").val();
+      $(".id_Hobbie_pw").val(id_hobbie);
+      $(".hobbie_nameT").val(name_hobbie);
+      });
+
+    // soummission du formulaire mise a jour hobbie 
+    $("#update_hobbie").submit(function (e) {
+      e.preventDefault();
+      let zone_infos = $(".space_response_eve_admin");
+      let donnees = new FormData(this);
+
+      $.ajax({
+        type: "POST",
+        url: "../_partials_profil/_update_hobbie.php",
+        data: donnees,
+        processData: false,
+        contentType: false,
+      })
+        .done(function (response) {
+          zone_infos.html(response);
+          // setTimeout(() => {
+          //   location.reload();
+          // }, 2000);
+        })
+        .fail(function () {
+          // setTimeout(() => {
+          //   location.reload();
+          // }, 2000);
+          console.log("error");
+        });
+    });
+
 });

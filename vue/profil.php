@@ -213,14 +213,21 @@
                             $hobbies = $stmt->fetchAll();
                             if ($hobbies) {
                                 foreach ($hobbies as $row => $colonne) {
+                                    $id_hobbieReq = $colonne['id'];
                                     $hobbie = $colonne['hobbie'];
+
 
                             ?>
                                     <div class="w-100  my-2">
                                         <input type="hidden" value="" />
                                         <span class=" mr-5"><?= $hobbie ?></span>
-                                        <span class=" ml-5"><i class="fas fa-pencil-alt mr-4 ">
-                                            </i><i class="far fa-trash-alt text-danger"></i></span>
+                                        <span class=" ml-5">
+                                            <i class="fas fa-pencil-alt mr-4 btn_update_hobbie " type="button" data-toggle="modal" data-target="#modal_update_hobbie"></i>
+                                            <input type="hidden" value="<?= $id_hobbieReq ?>" class="id_hobbbie" />
+                                            <input type="hidden" value="<?= $hobbie ?>" class="nom_du_hobbie" />
+                                            <i class="far fa-trash-alt text-danger"></i></span>
+
+
                                     </div>
                             <?php
                                 }
@@ -733,7 +740,49 @@
 
             </div>
         </div>
-    </div> <!--  fin modal Ajout experience -->
+    </div> <!--  fin modal Ajout hobbie -->
+
+    <!-- modification hobbie -->
+    <div class="modal fade   " id="modal_update_hobbie" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 30%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Mise a jour hobbie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+
+
+                    <form class="rounded  w-100 " enctype="multipart/form-data" id="update_hobbie">
+                        <div class="form-row w-100 mt-3 ">
+
+                            <input type="hidden" value="" name="id" class="id_Hobbie_pw" />
+                            <div class="col ">
+                                <label>Modifier le nom du hobbie</label>
+                                <input type="text" class="form-control hobbie_nameT " placeholder=" hobbie name " name="hobbie_name" required>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="w-100  border border-top mt-3 shadow bg-dark">
+                            <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                                <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
+                                </button>
+                                <input type="submit" class="btn btn-outline-success  btn-sm ml-auto rounded" value="Valider">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- fin update hobbie  -->
 
 
     <?php
@@ -745,11 +794,7 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-        // // mise a jour d'une experience de l'utilisateur
-        // $(".btn_update_experience").click(function(e) {
-        //     e.preventDefault();
-        //     alert('detecter')
-        // });
+
     </script>
 
 </body>
