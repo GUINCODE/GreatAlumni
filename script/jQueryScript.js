@@ -1112,7 +1112,6 @@ $(document).ready(function () {
   });
 
   // user connecter ajoute une nouvelle formation
-  // update profil user
   $("#add_new_formation").submit(function (e) {
     e.preventDefault();
     let zone_infos = $(".space_response_eve_admin");
@@ -1168,4 +1167,46 @@ $(document).ready(function () {
         console.log("error");
       });
   });
+ 
+  // update formation user 
+  $(".btn_update_formation").click(function (e) {
+    e.preventDefault();
+  
+    let id_formation = $(this).siblings(".id_formation").val();
+    let annee_formation = $(this).siblings(".annee_formation").val();
+    let name_formation = $(this).siblings(".name_formation").val();
+    let ecole_formation = $(this).siblings(".ecole_formation").val();
+
+    $(".idF").val(id_formation);
+    $(".anneeF").val(annee_formation);
+    $(".nomF").val(name_formation);
+    $(".ecoleF").val(ecole_formation);
+  
+  });
+  $("#update_formation").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_update_formation.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        // setTimeout(() => {
+        //   location.reload();
+        // }, 2000);
+      })
+      .fail(function () {
+        // setTimeout(() => {
+        //   location.reload();
+        // }, 2000);
+        console.log("error");
+      });
+  });
+
 });

@@ -119,9 +119,12 @@
                                         <span><?= $annee ?> </span>
                                     </div>
                                     <div class="d-flex  justify-content-center align-items-center ml-auto mr-5">
-                                        <span class="btn btn-outline-info btn-sm mr-2 rounded Mbouton"> <i class="fas fa-pencil-alt"> </i> Modifier </span>
+                                        <span class="btn btn-outline-info btn-sm mr-2 rounded Mbouton btn_update_formation" data-toggle="modal" data-target="#modal_update_formation"> <i class="fas fa-pencil-alt"> </i> Modifier </span>
                                         <span class="btn btn-outline-danger btn-sm rounded btn_delete_formation" data-toggle="modal" data-target="#delete_formation_modal"><i class="far fa-trash-alt"></i> Supprimer </span>
                                         <input type="hidden" value="<?= $id ?>" class="id_formation" />
+                                        <input type="hidden" value="<?= $annee ?>" class="annee_formation" />
+                                        <input type="hidden" value="<?= $formation ?>" class="name_formation" />
+                                        <input type="hidden" value="<?= $etablissement ?>" class="ecole_formation" />
                                     </div>
                                 </div>
                             <?php
@@ -447,7 +450,7 @@
     </div> <!--  fin modal Ajout formation -->
 
 
-    <!-- DELETE POST  -->
+    <!-- suppression de formation de l'utlisateur connecter -->
     <div class="modal fade" id="delete_formation_modal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" style="max-width: 50%;" role="document">
             <div class="modal-content rounded shadow-lg mt-5">
@@ -477,6 +480,52 @@
         </div>
 
     </div>
+    <!-- fin delete formation -->
+
+    <!-- Modification de formation  -->
+    <div class="modal fade   " id="modal_update_formation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 50%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de formation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+
+
+                    <form class="rounded  w-100 " enctype="multipart/form-data" id="update_formation">
+                        <div class="form-row w-100 mt-3 ">
+                            <input type="hidden" value="" name="id"  class="idF"/>
+                            <div class="col-4 ">
+                                <input type="number" class="form-control anneeF" placeholder=" Année scolaire " name="annee" required>
+                            </div>
+
+                            <div class="col-8">
+                                <input type="text" class="form-control ecoleF" placeholder=" Ecole" name="ecole" required>
+                            </div>
+                        </div>
+                        <div class="form-row w-100 mt-3 ">
+                            <div class="col">
+                                <input type="text" class="form-control nomF " placeholder=" Nom complet de la formation" name="formation" required>
+                            </div>
+                        </div>
+                        <div class="w-100  border border-top mt-3 shadow bg-dark">
+                            <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                                <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
+                                </button>
+                                <input type="submit" class="btn btn-outline-success  btn-sm ml-auto rounded" value="Valider">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div> <!--  fin modal modification formation -->
 
 
 
@@ -489,7 +538,7 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-       
+
     </script>
 
 </body>
