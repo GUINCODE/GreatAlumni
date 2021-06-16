@@ -1138,16 +1138,16 @@ $(document).ready(function () {
       });
   });
 
-  // sppression de formation de user 
-    $(".btn_delete_formation").click(function (e) {
+  // sppression de formation de user
+  $(".btn_delete_formation").click(function (e) {
     e.preventDefault();
-    let id_formation=$(this).siblings(".id_formation").val();
-     $(".formation_id_del").val(id_formation);
+    let id_formation = $(this).siblings(".id_formation").val();
+    $(".formation_id_del").val(id_formation);
     //  alert(id_formation);
   });
   //validation de la suppression de formation
   $(".valid_sup_formation").click(function (e) {
-  let id_formationz= $(".formation_id_del").val();
+    let id_formationz = $(".formation_id_del").val();
     // alert(id_formationz);
     let space_response = $(".space_response");
     $.ajax({
@@ -1167,11 +1167,11 @@ $(document).ready(function () {
         console.log("error");
       });
   });
- 
-  // update formation user 
+
+  // update formation user
   $(".btn_update_formation").click(function (e) {
     e.preventDefault();
-  
+
     let id_formation = $(this).siblings(".id_formation").val();
     let annee_formation = $(this).siblings(".annee_formation").val();
     let name_formation = $(this).siblings(".name_formation").val();
@@ -1181,7 +1181,6 @@ $(document).ready(function () {
     $(".anneeF").val(annee_formation);
     $(".nomF").val(name_formation);
     $(".ecoleF").val(ecole_formation);
-  
   });
   $("#update_formation").submit(function (e) {
     e.preventDefault();
@@ -1197,16 +1196,42 @@ $(document).ready(function () {
     })
       .done(function (response) {
         zone_infos.html(response);
-        // setTimeout(() => {
-        //   location.reload();
-        // }, 2000);
+        setTimeout(() => {
+          location.reload();
+        }, 400);
       })
       .fail(function () {
         // setTimeout(() => {
         //   location.reload();
-        // }, 2000);
+        // }, 7000);
         console.log("error");
       });
   });
 
+  // user connecter ajoute une nouvelle experience
+  $("#add_new_experience").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_add_new_experience.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
+  });
 });

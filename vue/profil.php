@@ -143,12 +143,12 @@
                 <div class="MesExperiences communeClass d-flex flex-column justify-content-center align-items-center pt-2 hideurClass ">
                     <div>
                         <span class="text-muted h2 mr-5"> Mes expériences professionnelles</span>
-                        <span class="Mbouton p-2 rounded-circle ajoutTruc"> <i class="fas fa-plus"></i></span>
+                        <span class="Mbouton p-2 rounded-circle ajoutTruc" data-toggle="modal" data-target="#modal_add_experience"> <i class="fas fa-plus"></i></span>
                     </div>
                     <div class=" d-flex w-75 flex-column justify-content-center align-items-center mx-auto border mt-3 p-2">
                         <?php
                         //experienece professionnelles
-                        $stmt = $db->prepare("SELECT * FROM `parcousprofessionnel` where `id_user`= :id_utlisateur ");
+                        $stmt = $db->prepare("SELECT * FROM `parcousprofessionnel` where `id_user`= :id_utlisateur  ORDER BY  date_debut DESC");
                         $stmt->bindParam(':id_utlisateur', $id_user_conecter);
                         $stmt->execute();
                         $experience = $stmt->fetchAll();
@@ -403,7 +403,7 @@
         </div>
     </div> <!--  fin modal Modifier la photo de profil de l'utilisateur-->
 
-
+    <!-- gestion cursus -->
     <!-- Ajout d'une nounelle formation  -->
     <div class="modal fade   " id="modal_add_formation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
         <div class="modal-dialog  " style="max-width: 50%;" role="document">
@@ -498,7 +498,7 @@
 
                     <form class="rounded  w-100 " enctype="multipart/form-data" id="update_formation">
                         <div class="form-row w-100 mt-3 ">
-                            <input type="hidden" value="" name="id"  class="idF"/>
+                            <input type="hidden" value="" name="id" class="idF" />
                             <div class="col-4 ">
                                 <input type="number" class="form-control anneeF" placeholder=" Année scolaire " name="annee" required>
                             </div>
@@ -526,7 +526,147 @@
             </div>
         </div>
     </div> <!--  fin modal modification formation -->
+    <!-- fin gestion cursus -->
 
+    <!-- experieneces gestion  -->
+    <!-- Ajout d'une nounelle experince  -->
+    <div class="modal fade   " id="modal_add_experience" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 70%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Ajout d'une experience proféssionnelle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+
+
+                    <form class="rounded  w-100 " enctype="multipart/form-data" id="add_new_experience">
+                        <div class="form-row w-100 mt-3 ">
+                            <input type="hidden" value="<?= $id_user_conecter ?>" name="id" />
+                            <div class="col ">
+                                <label>Date début</label>
+                                <input type="date" class="form-control " placeholder=" Date début " name="date_debX" required>
+                            </div>
+                            <div class="col">
+                                <label>Date Fin</label>
+                                <small class="text-muted"> (NB: laisser ce champs vide si cette ectivitée est en cours...)</small>
+                                <input type="date" class="form-control " placeholder=" " name="date_finX">
+                            </div>
+                        </div>
+                        <div class="form-row mt-3  ">
+                            <div class="col ">
+                                <input type="text" class="form-control " placeholder=" Poste occupé " name="poste" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control " placeholder=" Entreprise " name="entreprise" required>
+                            </div>
+                        </div>
+                        <div class="form-row  ">
+                            <div class="col mt-3 d-flex">
+                                <label>Type d'emploi: </label>
+                                <select class="form-control  " name="type_poste" id="" required>
+                                    <option value="stage/alternance">STAGE/ALTERNANCE</option>
+                                    <option value="cdd">CDD</option>
+                                    <option value="cdi">CDI</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="w-100  border border-top mt-3 shadow bg-dark">
+                            <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                                <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
+                                </button>
+                                <input type="submit" class="btn btn-outline-success  btn-sm ml-auto rounded" value="Valider">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div> <!--  fin modal Ajout formation -->
+
+
+    <!-- suppression de experienec de l'utlisateur connecter -->
+    <!-- <div class="modal fade" id="delete_formation_modal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 50%;" role="document">
+            <div class="modal-content rounded shadow-lg mt-5">
+
+                <div class="modal-header bg-danger rounded-top">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION DE Formation</h5>
+                    <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 40px;">&times;</span>
+                    </button>
+                </div>
+                <div class=" d-flex justify-content-center align-items-center w-50"></div>
+                <div class="modal-body zone_infos">
+                    <div class=" space_response">
+                        <h4> <i class="fas fa-exclamation-triangle mr-4" style="color: rgb(255, 208, 0); font-size:30px"></i>Attention</h4>
+                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cette formation:</strong>
+                        <div class="d-flex w-100 align-items-center  mt-5">
+                            <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
+                            <button class="btn btn-outline-danger  btn-sm rounded ml-auto  valid_sup_formation  mr-4">SUPPRIMER</button>
+                            <input type="hidden" value="" class="formation_id_del" />
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div> -->
+    <!-- fin delete experinece -->
+
+    <!-- Modification de experiences  -->
+    <!-- <div class="modal fade   " id="modal_update_formation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 50%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de formation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+
+
+                    <form class="rounded  w-100 " enctype="multipart/form-data" id="update_formation">
+                        <div class="form-row w-100 mt-3 ">
+                            <input type="hidden" value="" name="id" class="idF" />
+                            <div class="col-4 ">
+                                <input type="number" class="form-control anneeF" placeholder=" Année scolaire " name="annee" required>
+                            </div>
+
+                            <div class="col-8">
+                                <input type="text" class="form-control ecoleF" placeholder=" Ecole" name="ecole" required>
+                            </div>
+                        </div>
+                        <div class="form-row w-100 mt-3 ">
+                            <div class="col">
+                                <input type="text" class="form-control nomF " placeholder=" Nom complet de la formation" name="formation" required>
+                            </div>
+                        </div>
+                        <div class="w-100  border border-top mt-3 shadow bg-dark">
+                            <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                                <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
+                                </button>
+                                <input type="submit" class="btn btn-outline-success  btn-sm ml-auto rounded" value="Valider">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>  fin modal modification experience -->
 
 
     <?php
