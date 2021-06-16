@@ -1234,4 +1234,51 @@ $(document).ready(function () {
         console.log("error");
       });
   });
+  // mise a jour d'une experience de l'utilisateur
+  $(".btn_update_experience").click(function (e) {
+ 
+    let id_experience = $(this).siblings(".id_experience").val();
+    let date_debut = $(this).siblings(".date_debut").val();
+    let date_fin = $(this).siblings(".date_fin").val();
+    let post_occupe = $(this).siblings(".post_occupe").val();
+    let type_emploi = $(this).siblings(".type_emploi").val();
+    let entreprise = $(this).siblings(".entrepriseXZ").val();
+    if(date_fin==="En cours..."){
+      date_fin="";
+    }
+   $(".id_experience").val(id_experience);
+   $(".date_debX").val(date_debut);
+   $(".date_finX").val(date_fin);
+   $(".poste").val(post_occupe);
+   $(".type_poste").val(type_emploi);
+   $(".entrepriseYZ").val(entreprise);
+
+  });
+  //soumition du formulaire update
+  $("#add_update_experience").submit(function (e) {
+    e.preventDefault();
+     e.preventDefault();
+     let zone_infos = $(".space_response_eve_admin");
+     let donnees = new FormData(this);
+
+     $.ajax({
+       type: "POST",
+       url: "../_partials_profil/_update_experience.php",
+       data: donnees,
+       processData: false,
+       contentType: false,
+     })
+       .done(function (response) {
+         zone_infos.html(response);
+         setTimeout(() => {
+           location.reload();
+         }, 2000);
+       })
+       .fail(function () {
+         setTimeout(() => {
+           location.reload();
+         }, 2000);
+         console.log("error");
+       });
+  });
 });

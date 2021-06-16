@@ -154,6 +154,7 @@
                         $experience = $stmt->fetchAll();
                         if ($experience) {
                             foreach ($experience as $row => $colonne) {
+                                $id = $colonne['id'];
                                 $date_debut = $colonne['date_debut'];
                                 $date_fin = $colonne['date_fin'];
                                 $post_occupe = $colonne['post_occupe'];
@@ -174,8 +175,14 @@
                                     </div>
                                     <div class="d-flex  justify-content-center align-items-center ml-auto ">
                                         <input type="hidden" value="" />
-                                        <span class="btn btn-outline-info btn-sm mr-2 rounded Mbouton"> <i class="fas fa-pencil-alt"> </i> Modifier </span>
+                                        <span class="btn btn-outline-info btn-sm mr-2 rounded Mbouton btn_update_experience" data-toggle="modal" data-target="#modal_update_experience"> <i class="fas fa-pencil-alt"> </i> Modifier </span>
                                         <span class="btn btn-outline-danger btn-sm rounded"><i class="far fa-trash-alt"></i> Supprimer </span>
+                                        <input type="hidden" value="<?= $id ?>" class="id_experience" />
+                                        <input type="hidden" value="<?= $date_debut ?>" class="date_debut" />
+                                        <input type="hidden" value="<?= $date_fin ?>" class="date_fin" />
+                                        <input type="hidden" value="<?= $post_occupe ?>" class="post_occupe" />
+                                        <input type="hidden" value="<?= $type_emploi ?>" class="type_emploi" />
+                                        <input type="hidden" value="<?= $entreprise ?>" class="entrepriseXZ" />
                                     </div>
 
                                 </div>
@@ -588,7 +595,7 @@
 
             </div>
         </div>
-    </div> <!--  fin modal Ajout formation -->
+    </div> <!--  fin modal Ajout experience -->
 
 
     <!-- suppression de experienec de l'utlisateur connecter -->
@@ -624,11 +631,11 @@
     <!-- fin delete experinece -->
 
     <!-- Modification de experiences  -->
-    <!-- <div class="modal fade   " id="modal_update_formation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
-        <div class="modal-dialog  " style="max-width: 50%;" role="document">
+    <div class="modal fade   " id="modal_update_experience" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 70%;" role="document">
             <div class="modal-content rounded  shadow-lg">
                 <div class="modal-header backgroundSecondPlan rounded-top">
-                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de formation</h5>
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de l'éxperience</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 50px;">&times;</span>
                     </button>
@@ -637,21 +644,38 @@
                 <div class="modal-body space_response_eve_admin">
 
 
-                    <form class="rounded  w-100 " enctype="multipart/form-data" id="update_formation">
+                    <form class="rounded  w-100 " enctype="multipart/form-data" id="add_update_experience">
                         <div class="form-row w-100 mt-3 ">
-                            <input type="hidden" value="" name="id" class="idF" />
-                            <div class="col-4 ">
-                                <input type="number" class="form-control anneeF" placeholder=" Année scolaire " name="annee" required>
-                            </div>
 
-                            <div class="col-8">
-                                <input type="text" class="form-control ecoleF" placeholder=" Ecole" name="ecole" required>
+                            <div class="col ">
+                                <label>Date début</label>
+                                <input type="hidden" value="" class="id_experience" name="id" />
+                                <input type="date" class="form-control date_debX" placeholder=" Date début " name="date_debX" required>
+                            </div>
+                            <div class="col">
+                                <label>Date Fin</label>
+                                <small class="text-muted"> (NB: laisser ce champs vide si cette ectivitée est en cours...)</small>
+                                <input type="date" class="form-control date_finX" placeholder=" " name="date_finX">
                             </div>
                         </div>
-                        <div class="form-row w-100 mt-3 ">
-                            <div class="col">
-                                <input type="text" class="form-control nomF " placeholder=" Nom complet de la formation" name="formation" required>
+                        <div class="form-row mt-3  ">
+                            <div class="col ">
+                                <input type="text" class="form-control poste" placeholder=" Poste occupé " name="poste" required>
                             </div>
+                            <div class="col">
+                                <input type="text" class="form-control entrepriseYZ" placeholder=" Entreprise " name="entreprise" required>
+                            </div>
+                        </div>
+                        <div class="form-row  ">
+                            <div class="col mt-3 d-flex">
+                                <label>Type d'emploi: </label>
+                                <select class="form-control type_poste " name="type_poste" id="" required>
+                                    <option value="stage/alternance">STAGE/ALTERNANCE</option>
+                                    <option value="cdd">CDD</option>
+                                    <option value="cdi">CDI</option>
+                                </select>
+                            </div>
+
                         </div>
                         <div class="w-100  border border-top mt-3 shadow bg-dark">
                             <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
@@ -666,7 +690,8 @@
 
             </div>
         </div>
-    </div>  fin modal modification experience -->
+    </div>
+    <!-- fin modal modification experience -->
 
 
     <?php
@@ -678,7 +703,11 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-
+        // // mise a jour d'une experience de l'utilisateur
+        // $(".btn_update_experience").click(function(e) {
+        //     e.preventDefault();
+        //     alert('detecter')
+        // });
     </script>
 
 </body>
