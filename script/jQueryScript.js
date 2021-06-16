@@ -1236,142 +1236,168 @@ $(document).ready(function () {
   });
   // mise a jour d'une experience de l'utilisateur
   $(".btn_update_experience").click(function (e) {
- 
     let id_experience = $(this).siblings(".id_experience").val();
     let date_debut = $(this).siblings(".date_debut").val();
     let date_fin = $(this).siblings(".date_fin").val();
     let post_occupe = $(this).siblings(".post_occupe").val();
     let type_emploi = $(this).siblings(".type_emploi").val();
     let entreprise = $(this).siblings(".entrepriseXZ").val();
-    if(date_fin==="En cours..."){
-      date_fin="";
+    if (date_fin === "En cours...") {
+      date_fin = "";
     }
-   $(".id_experience").val(id_experience);
-   $(".date_debX").val(date_debut);
-   $(".date_finX").val(date_fin);
-   $(".poste").val(post_occupe);
-   $(".type_poste").val(type_emploi);
-   $(".entrepriseYZ").val(entreprise);
-
+    $(".id_experience").val(id_experience);
+    $(".date_debX").val(date_debut);
+    $(".date_finX").val(date_fin);
+    $(".poste").val(post_occupe);
+    $(".type_poste").val(type_emploi);
+    $(".entrepriseYZ").val(entreprise);
   });
   //soumition du formulaire update
   $("#add_update_experience").submit(function (e) {
-   
-     e.preventDefault();
-     let zone_infos = $(".space_response_eve_admin");
-     let donnees = new FormData(this);
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
 
-     $.ajax({
-       type: "POST",
-       url: "../_partials_profil/_update_experience.php",
-       data: donnees,
-       processData: false,
-       contentType: false,
-     })
-       .done(function (response) {
-         zone_infos.html(response);
-         setTimeout(() => {
-           location.reload();
-         }, 2000);
-       })
-       .fail(function () {
-         setTimeout(() => {
-           location.reload();
-         }, 2000);
-         console.log("error");
-       });
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_update_experience.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
   });
 
-  // suppression d'experinece du user 
+  // suppression d'experinece du user
   $(".btn_delete_experience").click(function (e) {
     e.preventDefault();
     let id_experience = $(this).siblings(".id_experience").val();
     $(".experience_id_del").val(id_experience);
-    });
-  // validation de la suppression de l'experience
-    $(".valid_sup_experience").click(function (e) {
-      let id_experience_z = $(".experience_id_del").val();
-      // alert(id_formationz);
-      let space_response = $(".space_response");
-      $.ajax({
-        type: "POST",
-        url: "../_partials_profil/_delete_experience.php",
-        data: {
-          id_experience_z: id_experience_z,
-        },
-      })
-        .done(function (response) {
-          space_response.html(response);
-          setTimeout(() => {
-            location.reload();
-          }, 900);
-        })
-        .fail(function () {
-          console.log("error");
-        });
-    });
-
-    // ajout de new hobbie
-    $("#add_new_hobbie").submit(function (e) {
-      e.preventDefault();
-let zone_infos = $(".space_response_eve_admin");
-let donnees = new FormData(this);
-
-$.ajax({
-  type: "POST",
-  url: "../_partials_profil/_add_new_hobbie.php",
-  data: donnees,
-  processData: false,
-  contentType: false,
-})
-  .done(function (response) {
-    zone_infos.html(response);
-    setTimeout(() => {
-      location.reload();
-    }, 2000);
-  })
-  .fail(function () {
-    setTimeout(() => {
-      location.reload();
-    }, 2000);
-    console.log("error");
   });
-    });
-
-    // mise a jour de hobbie
-      $(".btn_update_hobbie").click(function (e) {
-        e.preventDefault();
-       let id_hobbie = $(this).siblings(".id_hobbbie").val();
-       let name_hobbie = $(this).siblings(".nom_du_hobbie").val();
-      $(".id_Hobbie_pw").val(id_hobbie);
-      $(".hobbie_nameT").val(name_hobbie);
-      });
-
-    // soummission du formulaire mise a jour hobbie 
-    $("#update_hobbie").submit(function (e) {
-      e.preventDefault();
-      let zone_infos = $(".space_response_eve_admin");
-      let donnees = new FormData(this);
-
-      $.ajax({
-        type: "POST",
-        url: "../_partials_profil/_update_hobbie.php",
-        data: donnees,
-        processData: false,
-        contentType: false,
+  // validation de la suppression de l'experience
+  $(".valid_sup_experience").click(function (e) {
+    let id_experience_z = $(".experience_id_del").val();
+    // alert(id_formationz);
+    let space_response = $(".space_response");
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_delete_experience.php",
+      data: {
+        id_experience_z: id_experience_z,
+      },
+    })
+      .done(function (response) {
+        space_response.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 900);
       })
-        .done(function (response) {
-          zone_infos.html(response);
-          // setTimeout(() => {
-          //   location.reload();
-          // }, 2000);
-        })
-        .fail(function () {
-          // setTimeout(() => {
-          //   location.reload();
-          // }, 2000);
-          console.log("error");
-        });
-    });
+      .fail(function () {
+        console.log("error");
+      });
+  });
 
+  // ajout de new hobbie
+  $("#add_new_hobbie").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_add_new_hobbie.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
+  });
+
+  // mise a jour de hobbie
+  $(".btn_update_hobbie").click(function (e) {
+    e.preventDefault();
+    let id_hobbie = $(this).siblings(".id_hobbbie").val();
+    let name_hobbie = $(this).siblings(".nom_du_hobbie").val();
+    $(".id_Hobbie_pw").val(id_hobbie);
+    $(".hobbie_nameT").val(name_hobbie);
+  });
+
+  // soummission du formulaire mise a jour hobbie
+  $("#update_hobbie").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_update_hobbie.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
+  });
+
+  // suppression de hobbie
+  $(".btn_delete_hobbie").click(function (e) {
+    e.preventDefault();
+    let id_hobbie_a_deleter = $(this).siblings(".id_hobbbie").val();
+       $(".hobie_id_del").val(id_hobbie_a_deleter);
+  });
+
+  // validation de la suppression de  hobbie
+  $(".valid_sup_hobbie").click(function (e) {
+    let hobie_id_del = $(".hobie_id_del").val();
+    // alert(id_formationz);
+    let space_response = $(".space_response");
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_delete_hobbie.php",
+      data: {
+        hobie_id_del: hobie_id_del,
+      },
+    })
+      .done(function (response) {
+        space_response.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 900);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
 });

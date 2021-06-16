@@ -225,7 +225,7 @@
                                             <i class="fas fa-pencil-alt mr-4 btn_update_hobbie " type="button" data-toggle="modal" data-target="#modal_update_hobbie"></i>
                                             <input type="hidden" value="<?= $id_hobbieReq ?>" class="id_hobbbie" />
                                             <input type="hidden" value="<?= $hobbie ?>" class="nom_du_hobbie" />
-                                            <i class="far fa-trash-alt text-danger"></i></span>
+                                            <i class="far fa-trash-alt text-danger btn_delete_hobbie" type="button" data-toggle="modal" data-target="#modal_delete_hobbie"></i></span>
 
 
                                     </div>
@@ -784,7 +784,37 @@
         </div>
     </div> <!-- fin update hobbie  -->
 
+    <!-- suppression de hobbie de l'utlisateur connecter -->
+    <div class="modal fade" id="modal_delete_hobbie" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 50%;" role="document">
+            <div class="modal-content rounded shadow-lg mt-5">
 
+                <div class="modal-header bg-danger rounded-top">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION D'une éxperience</h5>
+                    <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 40px;">&times;</span>
+                    </button>
+                </div>
+                <div class=" d-flex justify-content-center align-items-center w-50"></div>
+                <div class="modal-body zone_infos">
+                    <div class=" space_response">
+                        <h4> <i class="fas fa-exclamation-triangle mr-4" style="color: rgb(255, 208, 0); font-size:30px"></i>Attention</h4>
+                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cette formation:</strong>
+                        <div class="d-flex w-100 align-items-center  mt-5">
+                            <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
+                            <button class="btn btn-outline-danger  btn-sm rounded ml-auto  valid_sup_hobbie  mr-4">SUPPRIMER</button>
+                            <input type="hidden" value="" class="hobie_id_del" />
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- fin delete hobbie -->
     <?php
     include_once("../partials/footer.php");
     ?>
@@ -794,7 +824,7 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-
+     
     </script>
 
 </body>
