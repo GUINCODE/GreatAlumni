@@ -757,10 +757,15 @@ tbody {
 
 .loginPageBody {
     margin-top: 0px !important;
-    background-image: url(../images/logos/alumni-network2.jpg);
+    /* background-image: url(../images/cool-background.png); */
     background-size: cover;
     width: 100%;
     height: 100vh;
+    background-color: #1509aa;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%2315148f' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23151f73' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23142a58' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%2314353c' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23144021' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M100.86404857191822-49.796241769180746L71.71165332818563 34.868461607972364 213.2849060157816 36.26470278499468z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M218.82%2c525.315C272.651%2c524.461%2c316.646%2c487.067%2c343.194%2c440.23C369.326%2c394.127%2c378.267%2c337.549%2c351.01%2c292.102C324.391%2c247.719%2c270.558%2c231.62%2c218.82%2c232.855C169.491%2c234.032%2c123.169%2c256.252%2c97.123%2c298.161C69.505%2c342.599%2c62.711%2c398.167%2c87.419%2c444.286C113.464%2c492.902%2c163.674%2c526.19%2c218.82%2c525.315' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M220.568%2c785.305C277.364%2c789.052%2c331.361%2c755.174%2c358.134%2c704.945C383.535%2c657.29%2c373.5%2c599.457%2c343.594%2c554.492C316.819%2c514.235%2c268.915%2c498.442%2c220.568%2c498.113C171.511%2c497.78%2c119.032%2c510.252%2c94.613%2c552.801C70.274%2c595.21%2c87.926%2c645.661%2c111.217%2c688.655C136.053%2c734.5%2c168.541%2c781.873%2c220.568%2c785.305' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1065.255%2c457.993C1088.457%2c458.485%2c1109.669%2c444.907%2c1121.006%2c424.657C1132.089%2c404.861%2c1131.026%2c380.69%2c1119.457%2c361.175C1108.12%2c342.052%2c1087.484%2c330.925%2c1065.255%2c330.614C1042.442%2c330.295%2c1019.579%2c339.755%2c1008.364%2c359.623C997.307%2c379.211%2c1002.196%2c402.904%2c1013.457%2c422.375C1024.701%2c441.817%2c1042.801%2c457.516%2c1065.255%2c457.993' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1137.62248578343 191.63976484614355L1105.5471207725404 320.2870272680221 1266.2697482053086 223.7151298570331z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M885.175%2c645.042C916.796%2c643.737%2c947.801%2c630.416%2c962.943%2c602.625C977.538%2c575.838%2c970.939%2c543.402%2c954.586%2c517.651C939.477%2c493.86%2c913.358%2c480.251%2c885.175%2c480.166C856.832%2c480.08%2c831.188%2c493.941%2c815.033%2c517.229C795.817%2c544.931%2c779.212%2c579.982%2c795.432%2c609.538C812.02%2c639.765%2c850.724%2c646.464%2c885.175%2c645.042' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e"); */
 }
 
 .section_wellcom {
@@ -780,7 +785,7 @@ tbody {
 .section_connexion {
     margin-top: 7rem !important;
     padding: 4rem !important;
-    background: #0c4646f8 !important;
+    background: #055c5c65 !important;
     width: 30rem !important;
 }
 
