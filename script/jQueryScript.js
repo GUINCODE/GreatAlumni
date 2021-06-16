@@ -1138,4 +1138,34 @@ $(document).ready(function () {
         console.log("error");
       });
   });
+
+  // sppression de formation de user 
+    $(".btn_delete_formation").click(function (e) {
+    e.preventDefault();
+    let id_formation=$(this).siblings(".id_formation").val();
+     $(".formation_id_del").val(id_formation);
+    //  alert(id_formation);
+  });
+  //validation de la suppression de formation
+  $(".valid_sup_formation").click(function (e) {
+  let id_formationz= $(".formation_id_del").val();
+    // alert(id_formationz);
+    let space_response = $(".space_response");
+    $.ajax({
+      type: "POST",
+      url: "../_partials_profil/_delete_formation.php",
+      data: {
+        id_formationz: id_formationz,
+      },
+    })
+      .done(function (response) {
+        space_response.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 900);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
 });
