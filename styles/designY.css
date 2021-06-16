@@ -912,3 +912,19 @@ tbody {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
+
+.flex_recommanded_img {
+    color: rgb(177, 177, 31);
+    position: relative;
+    animation: mymove 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes mymove {
+    from {
+        left: 2px;
+    }
+    to {
+        right: 1px;
+    }
+}

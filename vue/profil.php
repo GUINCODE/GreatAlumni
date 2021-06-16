@@ -369,15 +369,15 @@
 
                     <form class="rounded  w-100 " enctype="multipart/form-data" id="update_profil_user">
                         <div class="form-row w-100 mt-1 d-flex justify-content-center align-items-center ">
-                            <span class="h5 text-muted mr-4"><span class="text-infos">ratio</span> image <strong>recommander: </strong>
-                                <span class="h3 text-info mr-1">1:1</span> <i class="fas fa-arrow-right" style="font-size:20px"></i>
+                            <span class="h5 text-muted mr-4 mr-auto ml-5"><span class="text-infos">ratio</span> image <strong>recommander: </strong>
+                                <span class="h3 text-info mr-1">1:1</span> <i class="fas fa-arrow-right flex_recommanded_img ml-3" style="font-size:25px"></i>
                             </span>
                             <img src="../images/recommanderImage.jpg" alt="..." style="width:450px">
 
                             </div>
 
 
-                                <div class="form-row w-100 mt-3 ">
+                                <div class="form-row w-100 mt-1 ">
                                     <input type="hidden" value="<?= $id_user_conecter ?>" name="id" />
                                     <label> Ajouter une une nouvelle photo de profil <br> <small class="text-muted"> type d'image prise en charge: (png, gif, jpg,
                                             ou
