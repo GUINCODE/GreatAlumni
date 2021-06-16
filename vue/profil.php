@@ -353,6 +353,54 @@
         </div>
     </div> <!--  fin modal update citation user -->
 
+    <!-- Modifier la photo de profil de l'utilisateur  -->
+    <div class="modal fade   " id="modal_update_profil" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog  " style="max-width: 70%;" role="document">
+            <div class="modal-content rounded  shadow-lg">
+                <div class="modal-header backgroundSecondPlan rounded-top">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de la photo de profil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body space_response_eve_admin">
+
+
+                    <form class="rounded  w-100 " enctype="multipart/form-data" id="update_profil_user">
+                        <div class="form-row w-100 mt-1 d-flex justify-content-center align-items-center ">
+                            <span class="h5 text-muted mr-4"><span class="text-infos">ratio</span> image <strong>recommander: </strong>
+                                <span class="h3 text-info mr-1">1:1</span> <i class="fas fa-arrow-right" style="font-size:20px"></i>
+                            </span>
+                            <img src="../images/recommanderImage.jpg" alt="..." style="width:450px">
+
+                            </div>
+
+
+                                <div class="form-row w-100 mt-3 ">
+                                    <input type="hidden" value="<?= $id_user_conecter ?>" name="id" />
+                                    <label> Ajouter une une nouvelle photo de profil <br> <small class="text-muted"> type d'image prise en charge: (png, gif, jpg,
+                                            ou
+                                            jpeg) </small>
+                                    </label>
+                                    <input type="file" name="media_post" accept=".jpg, .png, .gif" class="form-control form-control-sm  rounded" required>
+                                </div>
+
+                                <div class="w-100  border border-top mt-3 shadow bg-dark">
+                                    <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                                        <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
+                                        </button>
+                                        <input type="submit" class="btn btn-outline-success  btn-sm ml-auto rounded" value="Valider">
+                                    </div>
+                                </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div> <!--  fin modal Modifier la photo de profil de l'utilisateur-->
+
+
     <!-- Ajout d'une nounelle formation  -->
     <div class="modal fade   " id="modal_add_formation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
         <div class="modal-dialog  " style="max-width: 50%;" role="document">
@@ -368,7 +416,7 @@
 
 
                     <form class="rounded  w-100 " enctype="multipart/form-data" id="add_new_formation">
-                      <div class="form-row w-100 mt-3 ">
+                        <div class="form-row w-100 mt-3 ">
                             <input type="hidden" value="<?= $id_user_conecter ?>" name="id" />
                             <div class="col-4 ">
                                 <input type="number" class="form-control " placeholder=" Année scolaire " name="annee" required>
@@ -377,13 +425,13 @@
                             <div class="col-8">
                                 <input type="text" class="form-control " placeholder=" Ecole" name="ecole" required>
                             </div>
-                     </div>
+                        </div>
                         <div class="form-row w-100 mt-3 ">
-                     <div class="col">
+                            <div class="col">
                                 <input type="text" class="form-control " placeholder=" Nom complet de la formation" name="formation" required>
                             </div>
                         </div>
-                             <div class="w-100  border border-top mt-3 shadow bg-dark">
+                        <div class="w-100  border border-top mt-3 shadow bg-dark">
                             <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
                                 <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
                                 </button>
@@ -396,7 +444,7 @@
 
             </div>
         </div>
-    </div> <!--  fin modal update profil user -->
+    </div> <!--  fin modal Ajout formation -->
 
 
 
