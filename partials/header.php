@@ -43,7 +43,7 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
 
     <ul class="d-flex  w-100 p-2  justify-content-center align-items-center" id="mainNav">
 
-        <img src="../images/logos/psignePlus.png" data-toggle="modal" data-target="#staticBackdrop" type="button" alt="..." class="img-fluid btnPoster  " style="width:90px; height:90px" />
+        <img src="../images/logos/psignePlus.png" data-toggle="modal" data-target="#staticBackdrop" type="button" alt="..." class="img-fluid btnPoster  " style="width:40px; height:40px" />
         <li class="messageBtn">
             <button class="btn-head rounded" id="btn_notif_message">
                 <i class="fas fa-sms" style="font-size: 2em"></i>

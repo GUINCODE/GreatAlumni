@@ -372,7 +372,7 @@
 
     <!-- Modifier la photo de profil de l'utilisateur  -->
     <div class="modal fade   " id="modal_update_profil" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
-        <div class="modal-dialog  " style="max-width: 70%;" role="document">
+        <div class="modal-dialog  " style="max-width: 60%;" role="document">
             <div class="modal-content rounded  shadow-lg">
                 <div class="modal-header backgroundSecondPlan rounded-top">
                     <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de la photo de profil</h5>
@@ -386,7 +386,7 @@
 
                     <form class="rounded  w-100 " enctype="multipart/form-data" id="update_profil_user">
                         <div class="form-row w-100 mt-1 d-flex justify-content-center align-items-center ">
-                            <span class="h5 text-muted mr-4 mr-auto ml-5"><span class="text-infos">ratio</span> image <strong>recommander: </strong>
+                            <span class="h5 text-muted mr-3 ml-5"><span class="text-infos">ratio</span> image <strong>recommandée: </strong>
                                 <span class="h3 text-info mr-1">1:1</span> <i class="fas fa-arrow-right flex_recommanded_img ml-3" style="font-size:25px"></i>
                             </span>
                             <img src="../images/recommanderImage.jpg" alt="..." style="width:450px">

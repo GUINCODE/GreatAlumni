@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../styles/designY.css">
     </head>
 
-    <body>
+    <body id="body_forum">
         <?php
         include_once("../partials/header.php");
 
@@ -38,6 +38,13 @@
                     $id_auteur = $colonne["id_auteur"];
                     $date_creation = $colonne["date_creation"];
 
+                    if (strlen($titre) > 200) {
+                        $text_reduit = substr($titre, 0, 200);
+                        $leTitre = $text_reduit . "...";
+                    } else {
+                        $leTitre = $titre;
+                    }
+
                     // compter le nombre de personne qui ont intervenu sur ce sujet 
                     $stmt2 = $db->prepare("SELECT DISTINCT `id_repondeur` FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
                     $stmt2->bindParam(":id_sujet", $id_sujet);
@@ -56,19 +63,19 @@
                     $stmt4->bindParam(":id_repondeur", $id_user_conecter);
                     $stmt4->execute();
                     $partcipationUser = $stmt4->rowCount();
-                    if($partcipationUser >0){
+                    if ($partcipationUser > 0) {
                         $infos_participation = '<span class=" mt-1 mb-1 text-success" > <i class="fas fa-circle mr-1" ></i>Vous avez participer    </span>';
-                    } else{
-                        $infos_participation = '<span class=" mt-1 mb-1 text-danger" > <i class="fas fa-circle mr-1" ></i>Vous n\'avez  pas participer pour l\'instant    </span>';
+                    } else {
+                        $infos_participation = '<span class=" mt-1 mb-1 text-warning" > <i class="fas fa-circle mr-1" ></i>Vous n\'avez  pas participer pour l\'instant    </span>';
                     }
 
 
                 ?>
-                    <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2">
+                    <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2 bacgkroundBouge">
                         <div class="d-flex justify-content-center alignt-items-center flex-column ml-4 text-wrap">
-                            <span class="h5"><?= $titre ?> </span>
+                            <span class="h5 border border-bottom p-2"><?= $leTitre ?> </span>
+                            <span class=""> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>
                             <span class=""> <span class="text-muted">date création:</span> <?= $date_creation ?></span>
-                            <span class=""> <span class="text-muted">Categorie:</span> <?= $categorie ?></span>
                             <span> <span class="text-muted">Nombre de participant: </span> <?= $countaction ?></span>
                             <span> <span class="text-muted">Nombre de réaction: </span> <?= $nombreReaction ?></span>
                             <?= $infos_participation  ?>
@@ -145,7 +152,7 @@
                                     <select id="categorie" name="categorie" class="form-control">
                                         <option value="emploi">Emploi</option>
                                         <option value="stage">Stage</option>
-                                        <option value="juridique">Juridique</option>
+                                        <option value="juridique">Juridique </option>
                                         <option value="divers" selected>Divers</option>
                                     </select>
                                 </div>
@@ -175,9 +182,9 @@
         <script src="../script/script.js"></script>
         <script src="../script/jQueryScript.js"></script>
         <script>
-          
 
-       
+
+
         </script>
 
 
