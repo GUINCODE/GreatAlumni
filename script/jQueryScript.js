@@ -1402,120 +1402,239 @@ $(document).ready(function () {
   });
 
   // acceder au zone echange forum et son retour
-            $(".acceder_sujet").click(function(e) {
-                e.preventDefault();
-                $(this).parents(".les_sujet").toggleClass("hideurClass");
-                $(".discussion").toggleClass("hideurClass");
-                setTimeout(() => {
-                    $("html,body, .discussion").animate({
-                        scrollTop: "1000000000",
-                    }, 100);
-                }, 300);
-            });
-            $(".retour_btn_forum").click(function(e) {
-                e.preventDefault();
-                $(".les_sujet").toggleClass("hideurClass");
-                $(".discussion").toggleClass("hideurClass");
-            });
+  $(".acceder_sujet").click(function (e) {
+    e.preventDefault();
+    $(this).parents(".les_sujet").toggleClass("hideurClass");
+    $(".discussion").toggleClass("hideurClass");
+    setTimeout(() => {
+      $("html,body, .discussion").animate(
+        {
+          scrollTop: "1000000000",
+        },
+        100
+      );
+    }, 300);
+  });
+  $(".retour_btn_forum").click(function (e) {
+    e.preventDefault();
+    $(".les_sujet").toggleClass("hideurClass");
+    $(".discussion").toggleClass("hideurClass");
+  });
 
-            // load discussion sur un sujet specifique
-            $(".lireSujet").click(function(e) {
+  // load discussion sur un sujet specifique
+  $(".lireSujet").click(function (e) {
+    e.preventDefault();
+    let id_sujet = $(this).siblings(".id_sujet").val();
+    let titre_sujet = $(this).siblings(".titre_sujet").val();
+    let categorie_sujet = $(this).siblings(".categorie_sujet").val();
 
-                e.preventDefault();
-                let id_sujet = $(this).siblings(".id_sujet").val();
-                let titre_sujet = $(this).siblings(".titre_sujet").val();
-                let categorie_sujet = $(this).siblings(".categorie_sujet").val();
+    $(".titre_sujet_selected").text(titre_sujet);
+    $(".categorie_sujet_selected").text(categorie_sujet);
+    $(".id_sujet_selected").val(id_sujet);
+    let id_user_connecter = $(".id_user_log").val();
 
-                $(".titre_sujet_selected").text(titre_sujet);
-                $(".categorie_sujet_selected").text(categorie_sujet);
-                $(".id_sujet_selected").val(id_sujet);
-                let id_user_connecter = $(".id_user_log").val();
+    $.ajax({
+      type: "POST",
+      url: "../_partials_forum/_load_rep_sujet.php",
+      data: {
+        id_sujet: id_sujet,
+        id_user_connecter: id_user_connecter,
+      },
+    })
+      .done(function (response) {
+        $("#les_reactionForum").html(response);
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
 
-                $.ajax({
-                        type: "POST",
-                        url: "../_partials_forum/_load_rep_sujet.php",
-                        data: {
-                            id_sujet: id_sujet,
-                            id_user_connecter: id_user_connecter,
-                        },
-                    })
-                    .done(function(response) {
-                        $("#les_reactionForum").html(response);
-                    })
-                    .fail(function() {
-                        console.log("error");
-                    });
-            });
+  // envoi reponse utilisateur sur un sujet
+  $("#btn_repondre_sujet").click(function (e) {
+    e.preventDefault();
+    let idSujete = $(".id_sujet_selected").val();
+    let id_user_connecter = $(".id_user_log").val();
+    let champReponseSujet = $("#champSaisie_reponse").val();
+    if (champReponseSujet == "") {
+      alert("champs vide");
+    } else {
+      // alert(id_user_connecter)
+      $.ajax({
+        type: "POST",
+        url: "../_partials_forum/_repondre_sujet.php",
+        data: {
+          idSujete: idSujete,
+          id_user_connecter: id_user_connecter,
+          champReponseSujet: champReponseSujet,
+        },
+      })
+        .done(function (response) {
+          $("#champSaisie_reponse").val("");
+          $("#text_info_si_aucune_intervation").addClass("hideurClass");
+          $("#les_reactionForum").append(
+            '<li class="p-3  mt-1 border rounded  mr-auto ml-5 text-center myReactioSujet ">' +
+              '<div class="d-flex  ">' +
+              '<p class="text-wrap p-2 w-100 shadow  "> ' +
+              champReponseSujet +
+              "</p>" +
+              '<span class="text-muted ml-2 mt-5 bg-light p-1 rounded d-flex justify-content-center align-items-center ">' +
+              "Vous" +
+              '<i class="fas fa-check ml-2"></i><i class="fas fa-check "></i>' +
+              "</span>" +
+              "</div>" +
+              "</li>"
+          );
+        })
+        .fail(function () {
+          console.log("error");
+        });
+      $("html,body, .discussion").animate(
+        {
+          scrollTop: "1000000000",
+        },
+        100
+      );
+    }
+  });
 
-            // envoi reponse utilisateur sur un sujet 
-            $("#btn_repondre_sujet").click(function(e) {
-                e.preventDefault();
-                let idSujete = $(".id_sujet_selected").val();
-                let id_user_connecter = $(".id_user_log").val();
-                let champReponseSujet = $("#champSaisie_reponse").val();
-                if (champReponseSujet == "") {
-                    alert("champs vide");
-                } else {
-                    // alert(id_user_connecter)
-                    $.ajax({
-                            type: "POST",
-                            url: "../_partials_forum/_repondre_sujet.php",
-                            data: {
-                                idSujete: idSujete,
-                                id_user_connecter: id_user_connecter,
-                                champReponseSujet: champReponseSujet,
-                            },
-                        })
-                        .done(function(response) {
-                            $("#champSaisie_reponse").val("");
-                            $("#text_info_si_aucune_intervation").addClass("hideurClass")
-                            $("#les_reactionForum").append(
-                                '<li class="p-3  mt-1 border rounded  mr-auto ml-5 text-center myReactioSujet ">' +
-                                '<div class="d-flex  ">' +
-                                '<p class="text-wrap p-2 w-100 shadow  "> ' + champReponseSujet +
-                                '</p>' +
-                                '<span class="text-muted ml-2 mt-5 bg-light p-1 rounded d-flex justify-content-center align-items-center ">' +
-                                'Vous' +
-                                '<i class="fas fa-check ml-2"></i><i class="fas fa-check "></i>' +
-                                '</span>' +
-                                '</div>' +
-                                '</li>'
-                            );
+  // creer un sujet sur le forum
+  $("#creer_sujet_formulaire").submit(function (e) {
+    e.preventDefault();
+    let zone_infos = $(".space_response_eve_admin");
+    let donnees = new FormData(this);
 
-                        })
-                        .fail(function() {
-                            console.log("error");
-                        });
-                    $("html,body, .discussion").animate({
-                        scrollTop: "1000000000",
-                    }, 100);
-                };
-            });
-           
-            // creer un sujet sur le forum 
-              $("#creer_sujet_formulaire").submit(function (e) {
-                e.preventDefault();
-                let zone_infos = $(".space_response_eve_admin");
-                let donnees = new FormData(this);
+    $.ajax({
+      type: "POST",
+      url: "../_partials_forum/_creer_sujet_forum.php",
+      data: donnees,
+      processData: false,
+      contentType: false,
+    })
+      .done(function (response) {
+        zone_infos.html(response);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .fail(function () {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        console.log("error");
+      });
+  });
 
-                $.ajax({
-                  type: "POST",
-                  url: "../_partials_forum/_creer_sujet_forum.php",
-                  data: donnees,
-                  processData: false,
-                  contentType: false,
-                })
-                  .done(function (response) {
-                    zone_infos.html(response);
-                    setTimeout(() => {
-                      location.reload();
-                    }, 2000);
-                  })
-                  .fail(function () {
-                    setTimeout(() => {
-                      location.reload();
-                    }, 2000);
-                    console.log("error");
-                  });
-              });
+  //  les notifications
+  var id_user_connecter = $(".user_log_identifiant").val();
+  // recuperation de nombre message non lu
+  setInterval(() => {
+    console.log("2625");
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_fetch_msg_notif.php",
+      data: {
+        id_user_connecter: id_user_connecter,
+      },
+    })
+      .done(function (response) {
+        $(".nbrMessage").text(response);
+        //  alert("fdfdf")
+      })
+      .fail(function () {
+        console.log("error");
+      });
+
+    // recuperation de nombre evenement
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_fetch_eve_notif.php",
+      data: {
+        id_user_connecter: id_user_connecter,
+      },
+    })
+      .done(function (response) {
+        $(".nbrEvenement").text(response);
+        //  alert("fdfdf")
+      })
+      .fail(function () {
+        console.log("error");
+      });
+
+    // recuperation de nombre sujet creer
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_fetch_autre_notif.php",
+      data: {
+        id_user_connecter: id_user_connecter,
+      },
+    })
+      .done(function (response) {
+        $(".nbrSujet").text(response);
+        //  alert("fdfdf")
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  }, 1);
+
+  // rendre le message lu une fois cliquer
+  $(".notifSMS").click(function (e) {
+    e.preventDefault();
+    location.replace("http://localhost/GreatAlumni/vue/ma_messagerie.php");
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_update_statut_message.php",
+      data: {
+        id_user_connecter: id_user_connecter,
+      },
+    })
+      .done(function (response) {
+        console.log("");
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+
+  // rendre le message lu une fois cliquer
+  $(".notifEVE").click(function (e) {
+    e.preventDefault();
+    location.replace("http://localhost/GreatAlumni/vue/all_evenement.php");
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_update_statut_evenement.php",
+      data: {
+        id_user_connecter: id_user_connecter,
+      },
+    })
+      .done(function (response) {
+        console.log("");
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
+  
+  // rendre le message lu une fois cliquer
+  $(".notifAUtre").click(function (e) {
+    e.preventDefault();
+    location.replace("http://localhost/GreatAlumni/vue/forum.php");
+
+    $.ajax({
+      type: "POST",
+      url: "../_partials_actualite/_update_statut_autre.php",
+      data: {
+        id_user_connecter: id_user_connecter,
+      },
+    })
+      .done(function (response) {
+        console.log("");
+      })
+      .fail(function () {
+        console.log("error");
+      });
+  });
 });

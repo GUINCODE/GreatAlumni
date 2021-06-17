@@ -41,45 +41,29 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
 <input type="hidden" value="<?= $id_user_conecter; ?>" class="user_log_identifiant" />
 <div class="container  w-100  d-flex  entete backgroundFirstPlan rounded">
 
-    <ul class="d-flex  w-100 p-2  justify-content-center align-items-center" id="mainNav">
-
+    <div class="d-flex  w-100 p-2  justify-content-center align-items-center" id="mainNav">
         <img src="../images/logos/psignePlus.png" data-toggle="modal" data-target="#staticBackdrop" type="button" alt="..." class="img-fluid btnPoster  " style="width:40px; height:40px" />
-        <li class="messageBtn">
-            <button class="btn-head rounded" id="btn_notif_message">
-                <i class="fas fa-sms" style="font-size: 2em"></i>
-                <span class="butto_badge notif_msg text-fluid " id="notif_sms"></span>
-                <span>Messagerie</span>
-            </button>
-            <ul class="list_notification shadow  rounded fermet1" id="subMessagerie">
+        <div class="w-50 d-flex mx-auto">
+            <span class=" p-2  rounded notifUser notifSMS " type="button">
+                <img src="../images/ressourcesLogo/sms.png" alt="..." class="linkImageH img-fluid" style="width:45px" />
+                <span class="text-danger bg-light p-1 rounded-circle nbrMessage"></span>
+            </span>
+            <span class=" p-2  mx-5 rounded  notifUser notifEVE " type="button">
+                <img src="../images/ressourcesLogo/calendrier.png" alt="..." class="img-fluid linkImageH" style="width:45px" />
+                <span class="text-danger bg-light p-1 rounded-circle nbrEvenement "></span>
+            </span>
+            <span class=" p-2  rounded  notifUser notifAUtre" type="button">
+                <img src="../images/ressourcesLogo/notificationL.png" alt="..." class="img-fluid linkImageH" style="width:45px" />
+                <span class="text-danger bg-light p-1 rounded-circle nbrSujet "></span>
+            </span>
+        </div>
 
-            </ul>
-        </li>
-        <li class="btn_evenement">
-            <button class="btn-head rounded" id="btn_notif_evenement">
-                <i class="fas fa-calendar-check" style="font-size: 2em"></i>
-                <span class="butto_badge notif_evene text-fluid" id="notif_eve"></span>
-                <span>Evenement</span>
-            </button>
-            <ul class="list_notification shadow rounded fermet2" id="subEvenement">
-
-            </ul>
-        </li>
-        <li> <button class="btn-head rounded" id="btn_notif_autre">
-                <i class="fas fa-bell" style="font-size: 2em"></i>
-                <span class="butto_badge notif_autre text-fluid" id="notif_autre"></span>
-                <span>Notifications</span>
-            </button>
-            <ul class="list_notification shadow rounded fermet3" id="subAutre">
-
-            </ul>
-        </li>
         <div class="btn_user_profil my-auto ml-auto  d-flex  flex-column justify-content-center align-items-center mr-5" type="button">
-
             <img src=" <?= $profil_user_connect; ?>" class=' img-fluid profil-post' alt='...'>
             <span class="text-light mt-1"> <?= $name_user_connect ?></span>
             <i class="fas fa-arrow-circle-down"></i>
         </div>
-    </ul>
+    </div>
 
 
 
@@ -236,3 +220,26 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
         </div>
     </div>
 </div>
+
+
+<!-- modal pour repondre a un message  -->
+<!-- Ajout d'une nounelle hobbie  -->
+<div class="modal fade   " id="modal_rep_message" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+    <div class="modal-dialog  " style="max-width: 20%;" role="document">
+        <div class="modal-content rounded  shadow-lg">
+            <div class="modal-header backgroundSecondPlan rounded-top">
+                <span class="modal-title text-center" id="staticBackdropLabel2">Message récu</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body space_response_eve_admin">
+                <p>le message recu </p>
+                <input type="text" value="" placeholder="repondre" />
+                <button>send</button>
+            </div>
+
+        </div>
+    </div>
+</div> <!--  fin modal Ajout hobbie -->

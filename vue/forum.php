@@ -19,7 +19,7 @@
         include_once("../partials/header.php");
 
         ?>
-        <div class="container">
+        <div class="container ">
             <h2 class="text-center mb-5">FORUM D'ECHANGE ET DE PARTAGE</h2>
             <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
             <span class=" mb-3 btn btn-sm Mbouton d-flex btn_creer_sujet justify-content-center align-items-center mx-auto rounded  btn_creer_sujet" data-toggle="modal" data-target="#modal_creer_article"><i class="fas fa-file-alt mr-2" style="font-size:25px"></i>Creer un sujet</span>
@@ -71,7 +71,7 @@
 
 
                 ?>
-                    <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2 bacgkroundBouge">
+                    <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2 ">
                         <div class="d-flex justify-content-center alignt-items-center flex-column ml-4 text-wrap">
                             <span class="h5 border border-bottom p-2"><?= $leTitre ?> </span>
                             <span class=""> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>

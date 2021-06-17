@@ -223,11 +223,19 @@ ul {
 }
 
 .entete {
-    /* background: #13204d !important; */
-    height: 80px !important;
+    height: 87px !important;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
+.notifUser {
+    position: relative;
+}
+
+.notifUser span{
+    position: absolute;
+    top:-5px;
+    left:6px;
+} 
 .sub_btn_profi>li {
     font-size: 20px !important;
 }
