@@ -201,12 +201,7 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-        // $('#check_tri').change(function(e) {
-        //     e.preventDefault();
-        //     $('#tri1').toggleClass("hideurClass");
-        //     $('#tri2').toggleClass("hideurClass");
-        // });
-
+ 
         $("#myInput").keyup(function() {
 
             // Retrieve the input field text and reset the count to zero

@@ -933,3 +933,77 @@ tbody {
         right: 1px;
     }
 }
+
+/* design forum  */
+
+.btn_creer_sujet, .retour_btn_forum {
+    max-width: fit-content;
+}
+
+.les_sujet, .discussion {
+    /* transition: 3s ease-in-out; */
+    animation: fadeIn 1s;
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.user_profil_reagi {
+    max-width: 50px !important;
+    max-height: 50px !important;
+    border-radius: 50% !important;
+}
+
+.reagitSujetF {
+    background: #8689963d !important;
+}
+
+.myReactioSujet {
+    background: #0c9c543d !important;
+}

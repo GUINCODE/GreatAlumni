@@ -1375,7 +1375,7 @@ $(document).ready(function () {
   $(".btn_delete_hobbie").click(function (e) {
     e.preventDefault();
     let id_hobbie_a_deleter = $(this).siblings(".id_hobbbie").val();
-       $(".hobie_id_del").val(id_hobbie_a_deleter);
+    $(".hobie_id_del").val(id_hobbie_a_deleter);
   });
 
   // validation de la suppression de  hobbie
@@ -1400,4 +1400,39 @@ $(document).ready(function () {
         console.log("error");
       });
   });
+
+  // // acceder au zone echange forum et son retour
+  // $(".acceder_sujet").click(function (e) {
+  //   e.preventDefault();
+  //   $(this).parents(".les_sujet").toggleClass("hideurClass");
+  //   $(".discussion").toggleClass("hideurClass");
+  // });
+  // $(".retour_btn_forum").click(function (e) {
+  //   e.preventDefault();
+  //   $(".les_sujet").toggleClass("hideurClass");
+  //   $(".discussion").toggleClass("hideurClass");
+  // });
+
+  // // load discussion sur un sujet specifique
+  // $(".lireSujet").click(function (e) {
+  //   e.preventDefault();
+  //   let id_sujet = $(this).siblings(".id_sujet").val();
+  //   alert(id_sujet);
+  // });
+
+  // function load_sujet_rep(id_sujet) {
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "../_partials_forum/_load_rep_sujet.php",
+  //     data: {
+  //       id_sujet: id_sujet,
+  //     },
+  //   })
+  //     .done(function (response) {
+  //       $("#").html(response);
+  //     })
+  //     .fail(function () {
+  //       console.log("error");
+  //     });
+  // }
 });

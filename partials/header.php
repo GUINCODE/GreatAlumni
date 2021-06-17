@@ -9,14 +9,14 @@ $id_user_conecter = $_SESSION['id'];
 $role_user_conecter = $_SESSION['type_user'];
 
 
-                                                $stmt = $db->prepare("SELECT * FROM `utilisateur` where `id`= :id_utlisateur ");
-                                                $stmt->bindParam(':id_utlisateur', $id_user_conecter);
-                                                $stmt->execute();
-                                                $colonne = $stmt->fetch();
+$stmt = $db->prepare("SELECT * FROM `utilisateur` where `id`= :id_utlisateur ");
+$stmt->bindParam(':id_utlisateur', $id_user_conecter);
+$stmt->execute();
+$colonne = $stmt->fetch();
 
-                                                $name_user_connect = $colonne['Nom'];
-                                                $profil_user_connect = $colonne['Photo'];
-                                              
+$name_user_connect = $colonne['Nom'];
+$profil_user_connect = $colonne['Photo'];
+
 
 // echo $role_user_conecter;
 if ($role_user_conecter == "admin") {
@@ -87,7 +87,7 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
 <ul class="sub_btn_profi rounded">
     <li type="button" class="addArticle" data-toggle="modal" data-target="#staticBackdrop"><i class="far fa-edit mr-1"></i>Publier un Post </li>
     <?= $venementASK; ?>
-    <li type="button"><i class="far fa-comments mr-1"></i> Acceder au forum</li>
+    <li type="button"><a href="forum.php"><i class="far fa-comments mr-1"></i> Acceder au forum</a></li>
     <li type="button"><a href="ma_messagerie.php"><i class="fas fa-sms mr-1"></i>Ma messagerie</a></li>
     <li type="button" class="addFeedback" data-toggle="modal" data-target="#staticBackdrop3"><i class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>
     <li type="button"><a href="profil.php"><i class="fas fa-user mr-1"></i>Mon profil</a></li>

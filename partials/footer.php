@@ -19,7 +19,7 @@
                     <a class="nav-link  text-light" href="ma_messagerie.php">Messagerie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-light" href="/GreatAlumni/vue/v_forum.php">Forum</a>
+                    <a class="nav-link  text-light" href="forum.php">Forum</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  text-light" href="profil.php">Profil</a>
