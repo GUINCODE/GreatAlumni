@@ -22,7 +22,7 @@
         <div class="container">
             <h2 class="text-center mb-5">FORUM D'ECHANGE ET DE PARTAGE</h2>
             <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
-            <span class=" mb-3 btn btn-sm Mbouton d-flex btn_creer_sujet justify-content-center align-items-center mx-auto rounded "><i class="fas fa-file-alt mr-2" style="font-size:25px"></i>Creer un sujet</span>
+            <span class=" mb-3 btn btn-sm Mbouton d-flex btn_creer_sujet justify-content-center align-items-center mx-auto rounded  btn_creer_sujet" data-toggle="modal" data-target="#modal_creer_article"><i class="fas fa-file-alt mr-2" style="font-size:25px"></i>Creer un sujet</span>
             <div class="w-100 border les_sujet  ">
                 <span class="text-muted bg-lignt p-3"> les sujets déja abordés</span>
                 <?php
@@ -36,17 +36,42 @@
                     $titre = $colonne["titre"];
                     $categorie = $colonne["categorie"];
                     $id_auteur = $colonne["id_auteur"];
+                    $date_creation = $colonne["date_creation"];
 
+                    // compter le nombre de personne qui ont intervenu sur ce sujet 
                     $stmt2 = $db->prepare("SELECT DISTINCT `id_repondeur` FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
                     $stmt2->bindParam(":id_sujet", $id_sujet);
                     $stmt2->execute();
                     $countaction = $stmt2->rowCount();
+
+                    // compter le nomre d'intervation sur ce sujet
+                    $stmt3 = $db->prepare("SELECT  * FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
+                    $stmt3->bindParam(":id_sujet", $id_sujet);
+                    $stmt3->execute();
+                    $nombreReaction = $stmt3->rowCount();
+
+                    // verifier si l'utilisateur connecter a participer ou non
+                    $stmt4 = $db->prepare("SELECT  * FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet AND `id_repondeur`=:id_repondeur");
+                    $stmt4->bindParam(":id_sujet", $id_sujet);
+                    $stmt4->bindParam(":id_repondeur", $id_user_conecter);
+                    $stmt4->execute();
+                    $partcipationUser = $stmt4->rowCount();
+                    if($partcipationUser >0){
+                        $infos_participation = '<span class=" mt-1 mb-1 text-success" > <i class="fas fa-circle mr-1" ></i>Vous avez participer    </span>';
+                    } else{
+                        $infos_participation = '<span class=" mt-1 mb-1 text-danger" > <i class="fas fa-circle mr-1" ></i>Vous n\'avez  pas participer pour l\'instant    </span>';
+                    }
+
+
                 ?>
                     <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2">
                         <div class="d-flex justify-content-center alignt-items-center flex-column ml-4 text-wrap">
                             <span class="h5"><?= $titre ?> </span>
+                            <span class=""> <span class="text-muted">date création:</span> <?= $date_creation ?></span>
                             <span class=""> <span class="text-muted">Categorie:</span> <?= $categorie ?></span>
                             <span> <span class="text-muted">Nombre de participant: </span> <?= $countaction ?></span>
+                            <span> <span class="text-muted">Nombre de réaction: </span> <?= $nombreReaction ?></span>
+                            <?= $infos_participation  ?>
                         </div>
                         <input type="hidden" value="<?= $id_sujet ?>" class="id_sujet" />
                         <input type="hidden" value="<?= $titre ?>" class="titre_sujet" />
@@ -91,7 +116,54 @@
         </div>
 
 
+        <!-- Ajout d'une nounelle formation  -->
+        <div class="modal fade   " id="modal_creer_article" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+            <div class="modal-dialog  " style="max-width: 50%;" role="document">
+                <div class="modal-content rounded  shadow-lg">
+                    <div class="modal-header backgroundSecondPlan rounded-top">
+                        <h5 class="modal-title text-center" id="staticBackdropLabel2">Creation de Sujet</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="font-size: 50px;">&times;</span>
+                        </button>
+                    </div>
 
+                    <div class="modal-body space_response_eve_admin">
+
+
+                        <form class="rounded  w-100 " enctype="multipart/form-data" id="creer_sujet_formulaire">
+                            <div class="form-row w-100 mt-3 ">
+                                <input type="hidden" value="<?= $id_user_conecter ?>" name="id" />
+                                <div class="col ">
+                                    <textarea rows="3" name="sujet" cols="4" class="form-control" placeholder="saisir le sujet ici ...." required></textarea>
+                                </div>
+
+
+                            </div>
+                            <div class="form-row w-50 d-flex justify-content-center align-items-center  mt-3 ">
+                                <label> Catégorie</label>
+                                <div class="col">
+                                    <select id="categorie" name="categorie" class="form-control">
+                                        <option value="emploi">Emploi</option>
+                                        <option value="stage">Stage</option>
+                                        <option value="juridique">Juridique</option>
+                                        <option value="divers" selected>Divers</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-100  border border-top mt-3 shadow bg-dark">
+                                <div class="form-group  w-50  pt-3 d-flex mx-auto  ">
+                                    <button type="button" data-dismiss="modal" class="btn btn-sm btn-outline-info rounded"> Annuler
+                                    </button>
+                                    <input type="submit" class="btn btn-outline-success  btn-sm ml-auto rounded" value="Valider">
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div> <!--  fin modal Ajout formation -->
 
 
         <?php
@@ -103,7 +175,9 @@
         <script src="../script/script.js"></script>
         <script src="../script/jQueryScript.js"></script>
         <script>
-           
+          
+
+       
         </script>
 
 
