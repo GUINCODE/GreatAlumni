@@ -1007,3 +1007,21 @@ tbody {
 .myReactioSujet {
     background: #0c9c543d !important;
 }
+
+.rep_sujet:hover {
+    color: #071035;
+    transform: scale(1.2);
+}
+
+.btbt {
+    padding: 5px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50px;
+    background: rgba(79, 135, 199, 0.637);
+}
+
+.textareaRepSujet{
+    background:rgba(255, 255, 255, 0.473) !important;
+    color:rgb(3, 3, 34) !important;
+}

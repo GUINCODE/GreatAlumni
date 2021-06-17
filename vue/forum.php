@@ -76,6 +76,11 @@
                 <small class=" my-3 text-muted d-flex justify-content-center">les intervations sur ce sujet</small>
                 <ul class="mt-2 d-flex flex-column justify-conter-center align-items-center" id="les_reactionForum">
                 </ul>
+                <!-- champs input pour reagir a sujet donné  -->
+                <div class="w-75 d-flex justify-conter-center align-items-center mx-auto mt-3 shadow p-2 rounded">
+                    <textarea autofocus placeholder="dites quelques chose..." cols="5" rows="2" class="rounded form-control textareaRepSujet" id="champSaisie_reponse"></textarea>
+                    <span type="button" class="ml-1 btbt d-flex justify-conter-center align-items-center " style="font-size:30px" id="btn_repondre_sujet"><i class="far fa-paper-plane rep_sujet"></i></send>
+                </div>
             </div>
 
 
@@ -98,45 +103,7 @@
         <script src="../script/script.js"></script>
         <script src="../script/jQueryScript.js"></script>
         <script>
-            // acceder au zone echange forum et son retour
-            $(".acceder_sujet").click(function(e) {
-                e.preventDefault();
-                $(this).parents(".les_sujet").toggleClass("hideurClass");
-                $(".discussion").toggleClass("hideurClass");
-            });
-            $(".retour_btn_forum").click(function(e) {
-                e.preventDefault();
-                $(".les_sujet").toggleClass("hideurClass");
-                $(".discussion").toggleClass("hideurClass");
-            });
-
-            // load discussion sur un sujet specifique
-            $(".lireSujet").click(function(e) {
-                e.preventDefault();
-                let id_sujet = $(this).siblings(".id_sujet").val();
-                let titre_sujet = $(this).siblings(".titre_sujet").val();
-                let categorie_sujet = $(this).siblings(".categorie_sujet").val();
-
-                $(".titre_sujet_selected").text(titre_sujet);
-                $(".categorie_sujet_selected").text(categorie_sujet);
-                $(".id_sujet_selected").val(id_sujet);
-                let id_user_connecter = $(".id_user_log").val();
-
-                $.ajax({
-                        type: "POST",
-                        url: "../_partials_forum/_load_rep_sujet.php",
-                        data: {
-                            id_sujet: id_sujet,
-                            id_user_connecter: id_user_connecter,
-                        },
-                    })
-                    .done(function(response) {
-                        $("#les_reactionForum").html(response);
-                    })
-                    .fail(function() {
-                        console.log("error");
-                    });
-            });
+           
         </script>
 
 

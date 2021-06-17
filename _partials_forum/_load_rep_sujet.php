@@ -27,13 +27,13 @@ if ($reponses) {
 
         if ($id_repondeur != $id_user_connecter) {
 ?>
-            <li class="p-3 mt-1 reagitSujetF border rounded w-50 mr-auto">
+            <li class="p-3 mt-1 reagitSujetF border rounded  mr-auto">
                 <div class="d-flex flex-column">
                     <div class="d-flex  align-items-center">
                         <div class="user_profil_reagi">
                             <img src="<?= $profil  ?>" alt="..." class="img-fluid circle-rounded user_profil_reagi" />
                         </div>
-                        <span class="ml-2"><?= $prenom . " " . $nom ?> </span>
+                        <span class="ml-2 font-weight-bold"><?= $prenom . " " . $nom ?> </span>
                     </div>
                     <p class="text-wrap p-2 w-100 shadow">
                         <?= $reponse ?>
@@ -44,17 +44,20 @@ if ($reponses) {
         <?php
         } else {
         ?>
-            <li class="p-3  mt-1 border rounded w-50 ml-auto text-center myReactioSujet">
-                <p class="text-wrap p-2 w-100 shadow ">
-                    <?= $reponse ?>
-                </p>
+            <li class="p-3  mt-1 border rounded  mr-auto ml-5 text-center myReactioSujet ">
+                <div class="d-flex  ">
+                    <p class="text-wrap p-2 w-100 shadow  ">
+                        <?= $reponse ?>
+                    </p>
+                    <span class="text-muted ml-2 mt-5 bg-light p-1 rounded d-flex justify-content-center align-items-center "> Vous <i class="fas fa-check ml-2"></i><i class="fas fa-check "></i> </span>
+                </div>
             </li>
     <?php
         }
     }
 } else {
     ?>
-    <small class=" my-3 text-muted d-flex justify-content-center">aucunne intervation sur ce sujet</small>
+    <small class=" my-3 text-muted d-flex justify-content-center" id="text_info_si_aucune_intervation">aucunne intervation sur ce sujet</small>
 
 <?php
 }
