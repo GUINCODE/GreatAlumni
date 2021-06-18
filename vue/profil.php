@@ -372,7 +372,7 @@
 
     <!-- Modifier la photo de profil de l'utilisateur  -->
     <div class="modal fade   " id="modal_update_profil" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
-        <div class="modal-dialog  " style="max-width: 60%;" role="document">
+        <div class="modal-dialog  " style="max-width: 70%;" role="document">
             <div class="modal-content rounded  shadow-lg">
                 <div class="modal-header backgroundSecondPlan rounded-top">
                     <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de la photo de profil</h5>
