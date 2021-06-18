@@ -45,15 +45,15 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
         <img src="../images/logos/addPOST.png" data-toggle="modal" data-target="#staticBackdrop" type="button" alt="..." class="img-fluid btnPoster  " style="width:40px; height:40px" />
         <div class="w-50 d-flex lesIconDeHeader ">
             <span class=" p-2  rounded notifUser notifSMS " type="button">
-                <img src="../images/ressourcesLogo/sms.png" alt="..." class="linkImageH img-fluid" style="width:30px" />
+                <img src="../images/ressourcesLogo/sms.png" alt="..." class="linkImageH img-fluid" style="width:35px" />
                 <span class="text-light bg-danger p-1 rounded-circle nbrMessage spaceNbreMessage"></span>
             </span>
             <span class=" p-2  mx-5 rounded  notifUser notifEVE " type="button">
-                <img src="../images/ressourcesLogo/calendrier.png" alt="..." class="img-fluid linkImageH" style="width:30px" />
+                <img src="../images/ressourcesLogo/calendrier.png" alt="..." class="img-fluid linkImageH" style="width:35px" />
                 <span class="text-light bg-danger p-1 rounded-circle nbrEvenement spaceNbreEVE "></span>
             </span>
             <span class=" p-2  rounded  notifUser notifAUtre " type="button">
-                <img src="../images/ressourcesLogo/notificationL.png" alt="..." class="img-fluid linkImageH" style="width:30px" />
+                <img src="../images/ressourcesLogo/notificationL.png" alt="..." class="img-fluid linkImageH" style="width:35px" />
                 <span class="text-light bg-danger p-1 rounded-circle nbrSujet spaceNbreAUTRE"></span>
             </span>
         </div>
