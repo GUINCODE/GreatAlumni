@@ -6,13 +6,13 @@ body {
     background: #13204d !important;
 }
 
+.backgroundSecondPlan {
+    background: #3d809d !important;
+}
+
 .annulerBTN_Z:hover {
     background: #13204d !important;
     color: white;
-}
-
-.backgroundSecondPlan {
-    background: #3d809d !important;
 }
 
 .profil-post {
@@ -227,15 +227,20 @@ ul {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
+.lesIconDeHeader {
+    margin-left: 20% !important;
+}
+
 .notifUser {
     position: relative;
 }
 
-.notifUser span{
+.notifUser span {
     position: absolute;
-    top:-5px;
-    left:6px;
-} 
+    top: -5px;
+    left: 6px;
+}
+
 .sub_btn_profi>li {
     font-size: 20px !important;
 }

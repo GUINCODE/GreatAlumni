@@ -1,6 +1,6 @@
 <?php
 include_once('../partials/connectBDD.php');
-
+$id_userlogin_eve = $_POST['id_userlogin_eve'];
 $titre_eve = $_POST['titre_eve'];
 $sous_titre = $_POST['sous_titre_eve'];
 $date_eve = $_POST['date_eve'];
@@ -67,6 +67,24 @@ if ($media == "" && $titre_eve == "") {
     </button>
 </div>
 <?php
+    $stmtp = $db->prepare("SELECT * FROM `utilisateur`  where `id` !=:id_user_auteur");
+    $stmtp->bindParam(':id_user_auteur', $id_userlogin_eve);
+    $stmtp->execute();
+    $users_list = $stmtp->fetchAll();
+    foreach ($users_list as $row => $colonne) {
+        $id_authe_user = $colonne['id'];
+
+        $notif = "notif eve";
+        $type = "evenement";
+
+        $stmt5 = $db->prepare("INSERT INTO notifications (resume, type, id_user ) VALUES (:notif, :type ,:id_user)");
+        $stmt5->bindParam(':notif', $notif);
+        $stmt5->bindParam(':type', $type);
+        $stmt5->bindParam(':id_user', $id_authe_user);
+        $stmt5->execute();
+    }
+
+
                 } else {
                 ?>
 <div class="alert alert-warning  alert-dismissible fade show w-75 mx-auto" role="alert">

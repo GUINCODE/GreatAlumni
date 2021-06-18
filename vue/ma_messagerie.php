@@ -173,7 +173,11 @@
 
             <div class="form-group w-75 d-flex flex-row justify-content-center align-items-center    mx-auto">
                 <textarea class="form-control rounded message_rep" name="" autofocus rows="1" id="" placeholder="votre message.." required></textarea>
-                <span type="button" class="btn_envoyer_message  "> <i class="far fa-paper-plane  faIconsBnt btn_env_sms "></i></span>
+                <span type="button" class="btn_envoyer_message  ">
+                    
+                    <img src="../images/ressourcesLogo/sendMessageIcn.png" alt="..." class="img-fluid linkImageH" style="width:45px" />
+
+                </span>
 
             </div>
 
@@ -201,30 +205,8 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
- 
-        $("#myInput").keyup(function() {
-
-            // Retrieve the input field text and reset the count to zero
-            var filter = $(this).val(),
-                count = 0;
-
-            // Loop through the comment list
-            $('#contentUserBox div').each(function() {
 
 
-                // If the list item does not contain the text phrase fade it out
-                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                    $(this).hide(); // MY CHANGE
-
-                    // Show the list item if the phrase matches and increase the count by 1
-                } else {
-                    $(this).show(); // MY CHANGE
-                    count++;
-                }
-
-            });
-
-        });
     </script>
 
 

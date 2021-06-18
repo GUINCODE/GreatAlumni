@@ -42,19 +42,19 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
 <div class="container  w-100  d-flex  entete backgroundFirstPlan rounded">
 
     <div class="d-flex  w-100 p-2  justify-content-center align-items-center" id="mainNav">
-        <img src="../images/logos/psignePlus.png" data-toggle="modal" data-target="#staticBackdrop" type="button" alt="..." class="img-fluid btnPoster  " style="width:40px; height:40px" />
-        <div class="w-50 d-flex mx-auto">
+        <img src="../images/logos/addPOST.png" data-toggle="modal" data-target="#staticBackdrop" type="button" alt="..." class="img-fluid btnPoster  " style="width:40px; height:40px" />
+        <div class="w-50 d-flex lesIconDeHeader ">
             <span class=" p-2  rounded notifUser notifSMS " type="button">
-                <img src="../images/ressourcesLogo/sms.png" alt="..." class="linkImageH img-fluid" style="width:45px" />
-                <span class="text-danger bg-light p-1 rounded-circle nbrMessage"></span>
+                <img src="../images/ressourcesLogo/sms.png" alt="..." class="linkImageH img-fluid" style="width:30px" />
+                <span class="text-light bg-danger p-1 rounded-circle nbrMessage spaceNbreMessage"></span>
             </span>
             <span class=" p-2  mx-5 rounded  notifUser notifEVE " type="button">
-                <img src="../images/ressourcesLogo/calendrier.png" alt="..." class="img-fluid linkImageH" style="width:45px" />
-                <span class="text-danger bg-light p-1 rounded-circle nbrEvenement "></span>
+                <img src="../images/ressourcesLogo/calendrier.png" alt="..." class="img-fluid linkImageH" style="width:30px" />
+                <span class="text-light bg-danger p-1 rounded-circle nbrEvenement spaceNbreEVE "></span>
             </span>
-            <span class=" p-2  rounded  notifUser notifAUtre" type="button">
-                <img src="../images/ressourcesLogo/notificationL.png" alt="..." class="img-fluid linkImageH" style="width:45px" />
-                <span class="text-danger bg-light p-1 rounded-circle nbrSujet "></span>
+            <span class=" p-2  rounded  notifUser notifAUtre " type="button">
+                <img src="../images/ressourcesLogo/notificationL.png" alt="..." class="img-fluid linkImageH" style="width:30px" />
+                <span class="text-light bg-danger p-1 rounded-circle nbrSujet spaceNbreAUTRE"></span>
             </span>
         </div>
 
@@ -73,7 +73,7 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
     <?= $venementASK; ?>
     <li type="button"><a href="forum.php"><i class="far fa-comments mr-1"></i> Acceder au forum</a></li>
     <li type="button"><a href="ma_messagerie.php"><i class="fas fa-sms mr-1"></i>Ma messagerie</a></li>
-    <li type="button" class="addFeedback" data-toggle="modal" data-target="#staticBackdrop3"><i class="fas fa-hands-helping mr-1"></i>Partagez & Aidez</li>
+    <li type="button" class="addFeedback" data-toggle="modal" data-target="#staticBackdrop3"> <i class="fas fa-hand-holding-heart mr-1"></i>Partage experiences</li>
     <li type="button"><a href="profil.php"><i class="fas fa-user mr-1"></i>Mon profil</a></li>
     <?php echo $adminASK; ?>
 

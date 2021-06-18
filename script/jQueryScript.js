@@ -1528,7 +1528,25 @@ $(document).ready(function () {
   var id_user_connecter = $(".user_log_identifiant").val();
   // recuperation de nombre message non lu
   setInterval(() => {
-    console.log("2625");
+   
+      if($('.spaceNbreMessage').text()==""){
+        $('.spaceNbreMessage').addClass("hideurClass")
+      }
+      if ($(".spaceNbreMessage").text() != "") {
+        $(".spaceNbreMessage").removeClass("hideurClass");
+      }
+        if ($(".spaceNbreEVE").text() == "") {
+          $(".spaceNbreEVE").addClass("hideurClass");
+        }
+        if ($(".spaceNbreEVE").text() != "") {
+          $(".spaceNbreEVE").removeClass("hideurClass");
+        }
+         if ($(".spaceNbreAUTRE").text() == "") {
+           $(".spaceNbreAUTRE").addClass("hideurClass");
+         }
+         if ($(".spaceNbreAUTRE").text() != "") {
+           $(".spaceNbreAUTRE").removeClass("hideurClass");
+         }
 
     $.ajax({
       type: "POST",
@@ -1637,4 +1655,24 @@ $(document).ready(function () {
         console.log("error");
       });
   });
+
+  // rechercher un utilisateur dans la messagerie
+      $("#myInput").keyup(function () {
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(),
+          count = 0;
+
+        // Loop through the comment list
+        $("#contentUserBox div").each(function () {
+          // If the list item does not contain the text phrase fade it out
+          if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+            $(this).hide(); // MY CHANGE
+
+            // Show the list item if the phrase matches and increase the count by 1
+          } else {
+            $(this).show(); // MY CHANGE
+            count++;
+          }
+        });
+      });
 });
