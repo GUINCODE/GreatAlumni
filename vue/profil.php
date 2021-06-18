@@ -620,7 +620,7 @@
                 <div class="modal-body zone_infos">
                     <div class=" space_response">
                         <h4> <i class="fas fa-exclamation-triangle mr-4" style="color: rgb(255, 208, 0); font-size:30px"></i>Attention</h4>
-                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cette formation:</strong>
+                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cette éxperience:</strong>
                         <div class="d-flex w-100 align-items-center  mt-5">
                             <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
                             <button class="btn btn-outline-danger  btn-sm rounded ml-auto  valid_sup_experience  mr-4">SUPPRIMER</button>
@@ -790,7 +790,7 @@
             <div class="modal-content rounded shadow-lg mt-5">
 
                 <div class="modal-header bg-danger rounded-top">
-                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION D'une éxperience</h5>
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION De  Hobbie</h5>
                     <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 40px;">&times;</span>
                     </button>
@@ -799,7 +799,7 @@
                 <div class="modal-body zone_infos">
                     <div class=" space_response">
                         <h4> <i class="fas fa-exclamation-triangle mr-4" style="color: rgb(255, 208, 0); font-size:30px"></i>Attention</h4>
-                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement cette formation:</strong>
+                        <strong class="text-warning text-center">Cette action est irreverssible, souhaitez-vous supprimer définitivement ce Hobbie:</strong>
                         <div class="d-flex w-100 align-items-center  mt-5">
                             <button class="btn btn-outline-primary annulerBTN_Z btn-sm rounded ml-4" data-dismiss="modal" aria-label="Close">ANNULER</button>
                             <button class="btn btn-outline-danger  btn-sm rounded ml-auto  valid_sup_hobbie  mr-4">SUPPRIMER</button>

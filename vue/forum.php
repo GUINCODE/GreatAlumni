@@ -111,7 +111,9 @@
                 <!-- champs input pour reagir a sujet donné  -->
                 <div class="w-75 d-flex justify-conter-center align-items-center mx-auto mt-3 shadow p-2 rounded">
                     <textarea autofocus placeholder="dites quelques chose..." cols="5" rows="2" class="rounded form-control textareaRepSujet" id="champSaisie_reponse"></textarea>
-                    <span type="button" class="ml-1 btbt d-flex justify-conter-center align-items-center " style="font-size:30px" id="btn_repondre_sujet"><i class="far fa-paper-plane rep_sujet"></i></send>
+                    <span type="button" class="ml-1 btbt d-flex justify-conter-center align-items-center " style="font-size:30px" id="btn_repondre_sujet">
+                    <img src="../images/ressourcesLogo/sendMessageIcn.png" alt="..." class="img-fluid linkImageH" style="width:65px" />
+                 </send>
                 </div>
             </div>
 
