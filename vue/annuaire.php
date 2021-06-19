@@ -27,7 +27,7 @@
     include_once('../partials/header.php');
 
     ?>
-    <h2 class="text-center ">Annuaire des anciens </h2>
+    <h2 class="text-center ">l'Annuaire </h2>
     <div class="container d-flex justify-content-center align-items-center ml-auto">
         <div class="  ml-5 d-flex justify-content-center align-items-center mb-2 w-100 ml-auto pl-5 ">
             <input type="search" placeholder="saisir le nom, le prenom, la promotion, le campus, la profession..." class="ml-5 form-control  text-center  shadow-lg border-bottom boder-dark  rounded  bg-light " id="myInput">
