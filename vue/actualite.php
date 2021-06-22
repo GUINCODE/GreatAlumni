@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../styles/designY.css">
 </head>
 
-<body>
+<body >
     <?php
     include_once('../partials/header.php');
 

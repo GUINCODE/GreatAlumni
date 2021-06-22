@@ -20,13 +20,14 @@
     <!-- -----cdn fontawsone----  -->
     <script src="https://kit.fontawesome.com/94935e316c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles/designY.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="">
     <?php
     include_once('../partials/header.php');
     ?>
-    <div class="container">
+    <div class="container ">
         <div class="  d-flex justify-content-start align-items-center mt-2">
             <div class=" flex-column">
                 <div class="contien_img_profil  mr-5">
@@ -790,7 +791,7 @@
             <div class="modal-content rounded shadow-lg mt-5">
 
                 <div class="modal-header bg-danger rounded-top">
-                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION De  Hobbie</h5>
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">SUPPRéSSION De Hobbie</h5>
                     <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 40px;">&times;</span>
                     </button>
@@ -824,7 +825,7 @@
     <script src="../script/script.js"></script>
     <script src="../script/jQueryScript.js"></script>
     <script>
-     
+
     </script>
 
 </body>

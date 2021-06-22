@@ -51,6 +51,14 @@
                     $stmt2->execute();
                     $countaction = $stmt2->rowCount();
 
+                    //recuperer le nom de l'hauteur:
+                    $stmt = $db->prepare("SELECT * FROM `utilisateur`   WHERE `id`=:id_auteur ");
+                    $stmt->bindParam(":id_auteur", $id_auteur);
+                    $stmt->execute();
+                    $colonne = $stmt->fetch();
+                    $nom = $colonne['Nom'];
+                    $prenom = $colonne['Prenom'];
+
                     // compter le nomre d'intervation sur ce sujet
                     $stmt3 = $db->prepare("SELECT  * FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
                     $stmt3->bindParam(":id_sujet", $id_sujet);
@@ -76,6 +84,7 @@
                             <span class="h5 border border-bottom p-2"><?= $leTitre ?> </span>
                             <span class=""> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>
                             <span class=""> <span class="text-muted">date création:</span> <?= $date_creation ?></span>
+                            <span class=""> <span class="text-muted">Auteur :</span> <a href="profli_consulter.php?id_user_consulter=<?= $id_auteur ?>"> <?= $nom." ".$prenom ?> </a></span>
                             <span> <span class="text-muted">Nombre de participant: </span> <?= $countaction ?></span>
                             <span> <span class="text-muted">Nombre de réaction: </span> <?= $nombreReaction ?></span>
                             <?= $infos_participation  ?>
@@ -112,8 +121,8 @@
                 <div class="w-75 d-flex justify-conter-center align-items-center mx-auto mt-3 shadow p-2 rounded">
                     <textarea autofocus placeholder="dites quelques chose..." cols="5" rows="2" class="rounded form-control textareaRepSujet" id="champSaisie_reponse"></textarea>
                     <span type="button" class="ml-1 btbt d-flex justify-conter-center align-items-center " style="font-size:30px" id="btn_repondre_sujet">
-                    <img src="../images/ressourcesLogo/sendMessageIcn.png" alt="..." class="img-fluid linkImageH" style="width:65px" />
-                 </send>
+                        <img src="../images/ressourcesLogo/sendMessageIcn.png" alt="..." class="img-fluid linkImageH" style="width:65px" />
+                        </send>
                 </div>
             </div>
 
