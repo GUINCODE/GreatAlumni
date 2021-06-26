@@ -253,7 +253,7 @@ ul {
     position: absolute;
     z-index: 20;
     left: 65rem;
-    top: 4rem;
+    top: 4.9rem;
     display: none;
     color: whitesmoke;
 }
@@ -893,7 +893,7 @@ tbody {
     transition: .5s ease-in-out;
     position: absolute;
     top: 2.3rem;
-    left: 30rem;
+    left: 30.5rem;
 }
 
 .reportBlock span:hover {
