@@ -24,11 +24,27 @@
             <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
             <span class=" mb-3 btn btn-sm Mbouton d-flex btn_creer_sujet justify-content-center align-items-center mx-auto rounded  btn_creer_sujet" data-toggle="modal" data-target="#modal_creer_article"><i class="fas fa-file-alt mr-2" style="font-size:25px"></i>Creer un sujet</span>
             <div class="w-100 border les_sujet  ">
+                <div class="d-flex  justify-content-center align-items-center mb-5 ">
+                    <div class="d-flex w-50  justify-content-center align-items-center border bg-light  rounded p-2 mr-5">
+                        <input id="inputchercheSujet" type="search" class="ml-1 form-control bg-light border-0 chercheTopic" placeholder="Rcehrcher un sujet" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
 
-                <div class="d-flex w-50 mx-auto justify-content-center align-items-center border bg-light  rounded p-2">
-                    <input id="inputchercheSujet" type="search" class="ml-1 form-control bg-light border-0 chercheTopic" placeholder="Rcehrcher un sujet" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
+                    </div>
+                    <div class="ml-5 ">
+                        <span>Catégorie: </span>
+                        <select id="tri_categorie" class="p-2">
+                            <option value="toutes">Toutes</option>
+                            <option value="emploi">Emploi</option>
+                            <option value="stage">Stage</option>
+                            <option value="juridique">Juridique</option>
+                            <option value="divers">Divers</option>
+
+                        </select>
+                    </div>
+
                 </div>
-                <span class="text-muted bg-lignt p-3"> les sujets déja abordés</span>
+
+
+                <span class="text-muted bg-lignt p-3 h5 mb-2"> les sujets déja abordés</span>
                 <div id="All_topic">
                     <?php
                     //sujet forum
@@ -87,8 +103,8 @@
                         <!-- un sujet -->
                         <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2 " id="topic">
                             <div class="d-flex justify-content-center alignt-items-center flex-column ml-4 text-wrap">
-                                <span class="h5 border border-bottom p-2"><?= $leTitre ?> </span>
-                                <span class=""> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>
+                                <span class="h5 border border-bottom p-2 leSujet"><?= $leTitre ?> </span>
+                                <span class="categorieX"> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>
                                 <span class=""> <span class="text-muted">date création:</span> <?= $date_creation ?></span>
                                 <span class=""> <span class="text-muted">Auteur :</span> <a href="profli_consulter.php?id_user_consulter=<?= $id_auteur ?>"> <?= $nom . " " . $prenom ?> </a></span>
                                 <span> <span class="text-muted">Nombre de participant: </span> <?= $countaction ?></span>
@@ -204,11 +220,10 @@
                 // Retrieve the input field text and reset the count to zero
                 var filter = $(this).val(),
                     count = 0;
-                console.log(filter);
                 // Loop through the comment list
                 $("#All_topic div").each(function() {
                     // If the list item does not contain the text phrase fade it out
-                    if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    if ($(this).find(".leSujet").text().search(new RegExp(filter, "i")) < 0) {
                         // $(this).hide(); // MY CHANGE
                         $(this).addClass("hideurClass")
 
@@ -218,6 +233,30 @@
                         count++;
                     }
                 });
+            });
+
+            // trier les sujets par categorie 
+            $("#tri_categorie").change(function(e) {
+                e.preventDefault();
+                let choixCategorie = $(this).val();
+                if (choixCategorie == "toutes") {
+                    $("#All_topic div").removeClass("hideurClass")
+                } else {
+                    $("#All_topic div").each(function() {
+                        // If the list item does not contain the text phrase fade it out
+                        if ($(this).find(".categorieX").text().search(new RegExp(choixCategorie, "i")) < 0) {
+
+                            $(this).addClass("hideurClass")
+
+                            // Show the list item if the phrase matches and increase the count by 1
+                        } else {
+                            $(this).removeClass("hideurClass")
+
+                        }
+                    });
+                }
+
+
             });
         </script>
 
