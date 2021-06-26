@@ -1,59 +1,5 @@
 $(document).ready(function () {
-  function loadSMS() {
-    $.ajax({
-      type: "POST",
-      url: "../_partials_actualite/_load_msg.php",
-      data: { id_user: 1 },
-    })
-      .done(function (response) {
-        $("#subMessagerie").html(response);
-      })
-      .fail(function () {
-        console.log("error");
-      });
-  }
-  function loadEVE() {
-    $.ajax({
-      type: "POST",
-      url: "../_partials_actualite/_load_evenement.php",
-      data: { id_user: 1 },
-    })
-      .done(function (response) {
-        $("#subEvenement").html(response);
-      })
-      .fail(function () {
-        console.log("error");
-      });
-  }
-  function loadAutre() {
-    $.ajax({
-      type: "POST",
-      url: "../_partials_actualite/_load_autre.php",
-      data: { id_user: 1 },
-    })
-      .done(function (response) {
-        $("#subAutre").html(response);
-      })
-      .fail(function () {
-        console.log("error");
-      });
-  }
-
-  $("#btn_notif_message").click(function () {
-    $(".fermet3").hide();
-    $(".fermet2").hide();
-    $("#subMessagerie").stop(true, true).slideToggle(200, loadSMS);
-  });
-  $("#btn_notif_evenement").click(function () {
-    $(".fermet1").hide();
-    $(".fermet3").hide();
-    $("#subEvenement").stop(true, true).slideToggle(200, loadEVE);
-  });
-  $("#btn_notif_autre").click(function () {
-    $(".fermet1").hide();
-    $(".fermet2").hide();
-    $("#subAutre").stop(true, true).slideToggle(200, loadAutre);
-  });
+ 
 
   $("#btn_edit_comment").click(function () {
     $("#bloc_Parent_commentaire").toggleClass("hideurClass");
@@ -91,7 +37,7 @@ $(document).ready(function () {
         console.log("id article: " + identifiant_article);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _unLike");
       });
   });
   //  scrpt like btn
@@ -125,7 +71,7 @@ $(document).ready(function () {
         zoneStar.html(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _like");
       });
   });
 
@@ -161,7 +107,7 @@ $(document).ready(function () {
           zone_comm.html(response);
         })
         .fail(function () {
-          console.log("error");
+          console.log("error _enreg_commentaire");
         });
       //fin requete ajax
     }
@@ -210,7 +156,7 @@ $(document).ready(function () {
         zone_infos.html(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _creer_post");
       });
   });
 
@@ -237,7 +183,7 @@ $(document).ready(function () {
         zone_infos_eve.html(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _creer_evenement");
       });
   });
   $("#form_events2").on("submit", function (event) {
@@ -260,7 +206,7 @@ $(document).ready(function () {
         zone_infos_eve2.html(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _creer_feedback");
       });
   });
 
@@ -288,7 +234,7 @@ $(document).ready(function () {
         les_commentaires.html(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _fetch_commentaire");
       });
   });
 
@@ -326,7 +272,7 @@ $(document).ready(function () {
         console.log(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _update_statut_sms");
       });
     load_discussion(id_userConnecter, id_expeditaire);
     $("html,body,.fil_sms_echange").animate(
@@ -406,7 +352,7 @@ $(document).ready(function () {
         fil_sms_echange.html(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _fetch_discussion");
       });
   }
 
@@ -459,7 +405,7 @@ $(document).ready(function () {
             console.log(response);
           })
           .fail(function () {
-            console.log("error");
+            console.log("error _envoi_message");
           });
       }
     }
@@ -514,7 +460,7 @@ $(document).ready(function () {
         }, 2000);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _update_user");
       });
   });
 
@@ -544,7 +490,7 @@ $(document).ready(function () {
         }, 2000);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _delete_user");
       });
   });
 
@@ -587,7 +533,7 @@ $(document).ready(function () {
         }, 2000);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _update_eve");
       });
   });
   //  suppression d'evenement par admin
@@ -621,7 +567,7 @@ $(document).ready(function () {
         }, 2000);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _delete_eve");
       });
   });
 
@@ -656,7 +602,7 @@ $(document).ready(function () {
         }, 2000);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _delete_post");
       });
   });
 
@@ -722,7 +668,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error add_member_form");
       });
   });
   $(".mailW").keyup(function (e) {
@@ -838,15 +784,11 @@ $(document).ready(function () {
             $(".champsEmail").addClass("border border-danger text-danger");
           } else {
             $(".fa-spinner").removeClass("hideurClass");
-            setTimeout(() => {
-              location.replace(
-                "http://localhost/GreatAlumni/vue/actualite.php"
-              );
-            }, 1500);
+             location.replace("http://localhost/GreatAlumni/vue/actualite.php");
           }
         })
         .fail(function () {
-          console.log("error");
+          console.log("error login");
         });
     }
   });
@@ -946,7 +888,7 @@ $(document).ready(function () {
         }
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _report_post");
       });
   });
   $(".reportUser").click(function (e) {
@@ -972,7 +914,7 @@ $(document).ready(function () {
         }
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _report_user");
       });
   });
   // page profil user connecter
@@ -1049,7 +991,7 @@ $(document).ready(function () {
         // setTimeout(() => {
         //   location.reload();
         // }, 2000);
-        console.log("error");
+        console.log("error _update_user_connecter");
       });
   });
   $(".update_citation").click(function (e) {
@@ -1081,7 +1023,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _update_user_citation");
       });
   });
   // update profil user
@@ -1107,7 +1049,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _update_image_profil");
       });
   });
 
@@ -1134,7 +1076,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _add_new_formation");
       });
   });
 
@@ -1164,7 +1106,7 @@ $(document).ready(function () {
         }, 900);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _delete_formation");
       });
   });
 
@@ -1204,7 +1146,7 @@ $(document).ready(function () {
         // setTimeout(() => {
         //   location.reload();
         // }, 7000);
-        console.log("error");
+        console.log("error _update_formation");
       });
   });
 
@@ -1231,7 +1173,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _add_new_experience");
       });
   });
   // mise a jour d'une experience de l'utilisateur
@@ -1275,7 +1217,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _update_experience");
       });
   });
 
@@ -1304,7 +1246,7 @@ $(document).ready(function () {
         }, 900);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _delete_experience");
       });
   });
 
@@ -1331,7 +1273,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _add_new_hobbie");
       });
   });
 
@@ -1367,7 +1309,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _update_hobbie");
       });
   });
 
@@ -1397,7 +1339,7 @@ $(document).ready(function () {
         }, 900);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _delete_hobbie");
       });
   });
 
@@ -1445,7 +1387,7 @@ $(document).ready(function () {
         $("#les_reactionForum").html(response);
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _load_rep_sujet");
       });
   });
 
@@ -1486,7 +1428,7 @@ $(document).ready(function () {
           );
         })
         .fail(function () {
-          console.log("error");
+          console.log("error _repondre_sujet");
         });
       $("html,body, .discussion").animate(
         {
@@ -1520,7 +1462,7 @@ $(document).ready(function () {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        console.log("error");
+        console.log("error _creer_sujet_forum");
       });
   });
 
@@ -1560,7 +1502,7 @@ $(document).ready(function () {
         //  alert("fdfdf")
       })
       .fail(function () {
-        console.log("error");
+        console.log("erreur recuperation message notif");
       });
 
     // recuperation de nombre evenement
@@ -1576,7 +1518,7 @@ $(document).ready(function () {
         //  alert("fdfdf")
       })
       .fail(function () {
-        console.log("error");
+        console.log("erreur de recuperation nombre evenement");
       });
 
     // recuperation de nombre sujet creer
@@ -1592,9 +1534,9 @@ $(document).ready(function () {
         //  alert("fdfdf")
       })
       .fail(function () {
-        console.log("error");
+        console.log("errerur recuperation nmbr sujet");
       });
-  }, 1);
+  }, 200);
 
   // rendre le message lu une fois cliquer
   $(".notifSMS").click(function (e) {
@@ -1612,7 +1554,7 @@ $(document).ready(function () {
         console.log("");
       })
       .fail(function () {
-        console.log("error");
+        console.log("imposiible de lire sms");
       });
   });
 
@@ -1632,7 +1574,7 @@ $(document).ready(function () {
         console.log("");
       })
       .fail(function () {
-        console.log("error");
+        console.log("erreur lecture evenement vu");
       });
   });
   
@@ -1652,12 +1594,12 @@ $(document).ready(function () {
         console.log("");
       })
       .fail(function () {
-        console.log("error");
+        console.log("error _update_statut_autre");
       });
   });
 
   // rechercher un utilisateur dans la messagerie
-      $("#myInput").keyup(function () {
+      $("#myInputMessagerie").keyup(function () {
         // Retrieve the input field text and reset the count to zero
         var filter = $(this).val(),
           count = 0;

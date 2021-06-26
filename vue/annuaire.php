@@ -30,7 +30,7 @@
     <h2 class="text-center ">l'Annuaire </h2>
     <div class="container d-flex justify-content-center align-items-center ml-auto">
         <div class="  ml-5 d-flex justify-content-center align-items-center mb-2 w-100 ml-auto pl-5 ">
-            <input type="search" placeholder="saisir le nom, le prenom, la promotion, le campus, la profession..." class="ml-5 form-control  text-center  shadow-lg border-bottom boder-dark  rounded  bg-light " id="myInput">
+            <input type="search" placeholder="saisir le nom, le prenom, la promotion, le campus ou la profession..." class="ml-5 form-control  text-center  shadow-lg border-bottom boder-dark  rounded  bg-light " id="myInput">
             <i class="fas fa-search w-25" style="font-size:27px"></i>
         </div>
     </div>
@@ -64,7 +64,7 @@
     </div>
     <div class="row annuaire_conten mx-5 my-3 overflow-auto h-100" id="annuaire_conten">
         <?php
-        $stmt = $db->prepare("SELECT * FROM `utilisateur` ");
+        $stmt = $db->prepare("SELECT * FROM `utilisateur` where `Annee_promotion`>2010 ");
         $stmt->bindParam(':id_utlisateur_connecter', $id_user_conecter);
         $stmt->execute();
         $users_list = $stmt->fetchAll();
@@ -118,7 +118,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
-    <script src="../script/script.js"></script>
+
     <script src="../script/jQueryScript.js"></script>
     <script>
 

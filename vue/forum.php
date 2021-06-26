@@ -24,81 +24,88 @@
             <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
             <span class=" mb-3 btn btn-sm Mbouton d-flex btn_creer_sujet justify-content-center align-items-center mx-auto rounded  btn_creer_sujet" data-toggle="modal" data-target="#modal_creer_article"><i class="fas fa-file-alt mr-2" style="font-size:25px"></i>Creer un sujet</span>
             <div class="w-100 border les_sujet  ">
+
+                <div class="d-flex w-50 mx-auto justify-content-center align-items-center border bg-light  rounded p-2">
+                    <input id="inputchercheSujet" type="search" class="ml-1 form-control bg-light border-0 chercheTopic" placeholder="Rcehrcher un sujet" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
+                </div>
                 <span class="text-muted bg-lignt p-3"> les sujets déja abordés</span>
-                <?php
-                //sujet forum
-                $stmt = $db->prepare("SELECT * FROM `sujet_forum`  order by date_creation DESC ");
-                $stmt->execute();
-                $sujets = $stmt->fetchAll();
-
-                foreach ($sujets as $row => $colonne) {
-                    $id_sujet = $colonne["id"];
-                    $titre = $colonne["titre"];
-                    $categorie = $colonne["categorie"];
-                    $id_auteur = $colonne["id_auteur"];
-                    $date_creation = $colonne["date_creation"];
-
-                    if (strlen($titre) > 200) {
-                        $text_reduit = substr($titre, 0, 200);
-                        $leTitre = $text_reduit . "...";
-                    } else {
-                        $leTitre = $titre;
-                    }
-
-                    // compter le nombre de personne qui ont intervenu sur ce sujet 
-                    $stmt2 = $db->prepare("SELECT DISTINCT `id_repondeur` FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
-                    $stmt2->bindParam(":id_sujet", $id_sujet);
-                    $stmt2->execute();
-                    $countaction = $stmt2->rowCount();
-
-                    //recuperer le nom de l'hauteur:
-                    $stmt = $db->prepare("SELECT * FROM `utilisateur`   WHERE `id`=:id_auteur ");
-                    $stmt->bindParam(":id_auteur", $id_auteur);
+                <div id="All_topic">
+                    <?php
+                    //sujet forum
+                    $stmt = $db->prepare("SELECT * FROM `sujet_forum`  order by date_creation DESC ");
                     $stmt->execute();
-                    $colonne = $stmt->fetch();
-                    $nom = $colonne['Nom'];
-                    $prenom = $colonne['Prenom'];
+                    $sujets = $stmt->fetchAll();
 
-                    // compter le nomre d'intervation sur ce sujet
-                    $stmt3 = $db->prepare("SELECT  * FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
-                    $stmt3->bindParam(":id_sujet", $id_sujet);
-                    $stmt3->execute();
-                    $nombreReaction = $stmt3->rowCount();
+                    foreach ($sujets as $row => $colonne) {
+                        $id_sujet = $colonne["id"];
+                        $titre = $colonne["titre"];
+                        $categorie = $colonne["categorie"];
+                        $id_auteur = $colonne["id_auteur"];
+                        $date_creation = $colonne["date_creation"];
 
-                    // verifier si l'utilisateur connecter a participer ou non
-                    $stmt4 = $db->prepare("SELECT  * FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet AND `id_repondeur`=:id_repondeur");
-                    $stmt4->bindParam(":id_sujet", $id_sujet);
-                    $stmt4->bindParam(":id_repondeur", $id_user_conecter);
-                    $stmt4->execute();
-                    $partcipationUser = $stmt4->rowCount();
-                    if ($partcipationUser > 0) {
-                        $infos_participation = '<span class=" mt-1 mb-1 text-success" > <i class="fas fa-circle mr-1" ></i>Vous avez participer    </span>';
-                    } else {
-                        $infos_participation = '<span class=" mt-1 mb-1 text-warning" > <i class="fas fa-circle mr-1" ></i>Vous n\'avez  pas participer pour l\'instant    </span>';
+                        if (strlen($titre) > 200) {
+                            $text_reduit = substr($titre, 0, 200);
+                            $leTitre = $text_reduit . "...";
+                        } else {
+                            $leTitre = $titre;
+                        }
+
+                        // compter le nombre de personne qui ont intervenu sur ce sujet 
+                        $stmt2 = $db->prepare("SELECT DISTINCT `id_repondeur` FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
+                        $stmt2->bindParam(":id_sujet", $id_sujet);
+                        $stmt2->execute();
+                        $countaction = $stmt2->rowCount();
+
+                        //recuperer le nom de l'auteur:
+                        $stmt = $db->prepare("SELECT * FROM `utilisateur`   WHERE `id`=:id_auteur ");
+                        $stmt->bindParam(":id_auteur", $id_auteur);
+                        $stmt->execute();
+                        $colonne = $stmt->fetch();
+                        $nom = $colonne['Nom'];
+                        $prenom = $colonne['Prenom'];
+
+                        // compter le nomre d'intervation sur ce sujet
+                        $stmt3 = $db->prepare("SELECT  * FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet");
+                        $stmt3->bindParam(":id_sujet", $id_sujet);
+                        $stmt3->execute();
+                        $nombreReaction = $stmt3->rowCount();
+
+                        // verifier si l'utilisateur connecter a participer ou non
+                        $stmt4 = $db->prepare("SELECT  * FROM `reponse_sujet`  WHERE `id_sujet`=:id_sujet AND `id_repondeur`=:id_repondeur");
+                        $stmt4->bindParam(":id_sujet", $id_sujet);
+                        $stmt4->bindParam(":id_repondeur", $id_user_conecter);
+                        $stmt4->execute();
+                        $partcipationUser = $stmt4->rowCount();
+                        if ($partcipationUser > 0) {
+                            $infos_participation = '<span class=" mt-1 mb-1 text-success" > <i class="fas fa-circle mr-1" ></i>Vous avez participer    </span>';
+                        } else {
+                            $infos_participation = '<span class=" mt-1 mb-1 text-warning" > <i class="fas fa-circle mr-1" ></i>Vous n\'avez  pas participer pour l\'instant    </span>';
+                        }
+
+
+                    ?>
+                        <!-- un sujet -->
+                        <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2 " id="topic">
+                            <div class="d-flex justify-content-center alignt-items-center flex-column ml-4 text-wrap">
+                                <span class="h5 border border-bottom p-2"><?= $leTitre ?> </span>
+                                <span class=""> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>
+                                <span class=""> <span class="text-muted">date création:</span> <?= $date_creation ?></span>
+                                <span class=""> <span class="text-muted">Auteur :</span> <a href="profli_consulter.php?id_user_consulter=<?= $id_auteur ?>"> <?= $nom . " " . $prenom ?> </a></span>
+                                <span> <span class="text-muted">Nombre de participant: </span> <?= $countaction ?></span>
+                                <span> <span class="text-muted">Nombre de réaction: </span> <?= $nombreReaction ?></span>
+                                <?= $infos_participation  ?>
+                            </div>
+                            <input type="hidden" value="<?= $id_sujet ?>" class="id_sujet" />
+                            <input type="hidden" value="<?= $titre ?>" class="titre_sujet" />
+                            <input type="hidden" value="<?= $categorie ?>" class="categorie_sujet" />
+                            <span class="btn btn-sm Mbouton  ml-auto  mr-5 rounded acceder_sujet lireSujet">acceder</span>
+                        </div>
+
+                    <?php
                     }
 
-
-                ?>
-                    <div class=" d-flex justify-content-center align-items-center shadow border rounded py-2 my-2 ">
-                        <div class="d-flex justify-content-center alignt-items-center flex-column ml-4 text-wrap">
-                            <span class="h5 border border-bottom p-2"><?= $leTitre ?> </span>
-                            <span class=""> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>
-                            <span class=""> <span class="text-muted">date création:</span> <?= $date_creation ?></span>
-                            <span class=""> <span class="text-muted">Auteur :</span> <a href="profli_consulter.php?id_user_consulter=<?= $id_auteur ?>"> <?= $nom." ".$prenom ?> </a></span>
-                            <span> <span class="text-muted">Nombre de participant: </span> <?= $countaction ?></span>
-                            <span> <span class="text-muted">Nombre de réaction: </span> <?= $nombreReaction ?></span>
-                            <?= $infos_participation  ?>
-                        </div>
-                        <input type="hidden" value="<?= $id_sujet ?>" class="id_sujet" />
-                        <input type="hidden" value="<?= $titre ?>" class="titre_sujet" />
-                        <input type="hidden" value="<?= $categorie ?>" class="categorie_sujet" />
-                        <span class="btn btn-sm Mbouton  ml-auto  mr-5 rounded acceder_sujet lireSujet">acceder</span>
-                    </div>
-
-                <?php
-                }
-
-                ?>
+                    ?>
+                </div>
 
 
 
@@ -134,7 +141,7 @@
         </div>
 
 
-        <!-- Ajout d'une nounelle formation  -->
+        <!-- Creation de  nouveaux Sujet  -->
         <div class="modal fade   " id="modal_creer_article" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
             <div class="modal-dialog  " style="max-width: 50%;" role="document">
                 <div class="modal-content rounded  shadow-lg">
@@ -190,12 +197,28 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
         </script>
-        <script src="../script/script.js"></script>
+
         <script src="../script/jQueryScript.js"></script>
         <script>
+            $("#inputchercheSujet").keyup(function() {
+                // Retrieve the input field text and reset the count to zero
+                var filter = $(this).val(),
+                    count = 0;
+                console.log(filter);
+                // Loop through the comment list
+                $("#All_topic div").each(function() {
+                    // If the list item does not contain the text phrase fade it out
+                    if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                        // $(this).hide(); // MY CHANGE
+                        $(this).addClass("hideurClass")
 
-
-
+                        // Show the list item if the phrase matches and increase the count by 1
+                    } else {
+                        $(this).removeClass("hideurClass")
+                        count++;
+                    }
+                });
+            });
         </script>
 
 

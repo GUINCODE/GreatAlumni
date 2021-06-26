@@ -957,7 +957,7 @@ tbody {
     max-width: fit-content;
 }
 
-.les_sujet, .discussion {
+.les_sujet, .discussion, #topic {
     /* transition: 3s ease-in-out; */
     animation: fadeIn 1s;
     -webkit-animation: fadeIn 1s;
@@ -1041,4 +1041,8 @@ tbody {
 .textareaRepSujet {
     background: rgba(255, 255, 255, 0.473) !important;
     color: rgb(3, 3, 34) !important;
+}
+
+input[type="search"]:focus {
+    outline: 5px solid white;
 }
