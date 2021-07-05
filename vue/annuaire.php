@@ -30,7 +30,7 @@
     <h2 class="text-center ">l'Annuaire </h2>
     <div class="container d-flex justify-content-center align-items-center ml-auto">
         <div class="  ml-5 d-flex justify-content-center align-items-center mb-2 w-100 ml-auto pl-5 ">
-            <input type="search" placeholder="saisir le nom, le prenom, la promotion, le campus ou la profession..." class="ml-5 form-control  text-center  shadow-lg border-bottom boder-dark  rounded  bg-light " id="myInput">
+            <input type="search" placeholder="saisir le nom, le prenom, la promotion, le campus ou la proféssion..." class="ml-5 form-control  text-center  shadow-lg border-bottom boder-dark  rounded  bg-light " id="myInput">
             <i class="fas fa-search w-25" style="font-size:27px"></i>
         </div>
     </div>
@@ -93,7 +93,7 @@
                 <p class="text-fluid d-flex flex-column">
                     <span>Campus: <strong><?= $campus ?></strong></span>
                     <span>Promotion: <strong><?= $promotion ?></strong></span>
-                    <span>Profession: <strong><?= $profession ?></strong></span>
+                    <span>Proféssion: <strong><?= $profession ?></strong></span>
                 </p>
                 <a href="profli_consulter.php?id_user_consulter=<?= $id_authe_user ?>" class="btn btn-outline-info btn-sm btn-sm  d-flex w-50 justify-content-center align-items-center mx-auto shadow rounded Mbouton "> voir le profil</a>
 

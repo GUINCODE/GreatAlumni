@@ -35,23 +35,26 @@
 
     <div class="mx-5">
         <h3 class="text-center mt-2" style=" color:tomato"> Rôle Admin <i class="fas fa-user-lock" style="font-size:25px; color:tomato"></i></h3>
-        <p class="text-center"> Sur cette page vous pouvez effectuer des opérations d'administration </p>
+        <p class="text-center"> Espace de suivi et de gestion </p>
         <div class="d-flex">
             <div class="  d-flex flex-column justify-content-start  side_bar    rounded">
                 <h3 class="text-muted text-center  rounded mt-1  ">gérer<i class="fas fa-toolbox ml-1" style="font-size:35px; "></i> </h3>
                 <!-- <div class="d-flex flex-column justify-content-center align-items-center  w-100 rounded border"> -->
-                <span class="p-1  admin-items mt-2 item_active admin_item_user " type="button"> <i class="fas fa-users-cog mr-2" style="font-size:25px; "></i>UTULISATEURS</span>
-                <span class="p-1    admin-items mt-1 mb-1 admin_item_event " type="button"><i class="fas fa-calendar-times mr-2" style="font-size:25px; "></i> EVENEMENTS</span>
+                <span class="p-1  admin-items mt-2 item_active admin_item_user " type="button"> <i class="fas fa-users-cog mr-2" style="font-size:25px; "></i>UTILISATEURS</span>
+                <span class="p-1    admin-items mt-1 mb-1 admin_item_event " type="button"><i class="fas fa-calendar-alt mr-2" style="font-size:25px; "></i> EVENEMENTS</span>
                 <span class="p-1   admin-items admin_item_post" type="button"><i class="fas fa-tools mr-2" style="font-size:25px; "></i> POSTS</span>
                 <!-- </div> -->
             </div>
 
             <div class="w-100  content_user_space_admin togglerALL ">
                 <div class="d-flex  w-100 ">
-                    <h3 class="text-center ml-5">Géstion des utilisateur</h3>
-                    <span style="font-size:22px; " class="ml-auto bg-success rounded p-1 text-light mb-1  z_new_user" type="button" data-toggle="modal" data-target="#modal_new_memeber">New Member <i class="fas fa-user-plus"></i></span>
+                    <h3 class="text-center ml-5">Gestion des utilisateurs</h3>
+                    <span style="font-size:22px; " class="ml-auto bg-success rounded p-1 text-light mb-1  z_new_user " type="button" data-toggle="modal" data-target="#modal_new_memeber">Nouveau Membre <i class="fas fa-user-plus"></i></span>
                 </div>
-                <input type="search" placeholder="rechercher" class=" form-control w-50 text-center mb-2 shadow-lg border boder-dark  mx-auto rounded-top h1  " id="chercheAdminUser" />
+
+                <div class="d-flex w-50 mb-2 mx-auto justify-content-center align-items-center border bg-light  rounded p-1 mr-2">
+                    <input id="chercheAdminUser" type="search" class="ml-1 form-control bg-light border-0 " placeholder="Rechercher un membre" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
+                </div>
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
                     <thead class="backgroundSecondPlan text-light text-center  ">
                         <tr class="p-5 text-center">
@@ -59,7 +62,7 @@
                             <th class="p-3">Nom</th>
                             <th class="p-3">Prenom</th>
                             <th class="p-3">Mail</th>
-                            <th class="p-3">Role</th>
+                            <th class="p-3">Rôle</th>
                             <th class="p-3">Report <i class='fas fa-flag-checkered ml-1' style=' font-size:30px'></i></th>
                             <th class="p-3">Actions</th>
                         </tr>
@@ -131,8 +134,10 @@
 
             <div class="w-100  content_events_space_admin  togglerALL hideurClass">
 
-                <h3 class="text-center ml-5">Géstion des evenements</h3>
-                <input type="search" placeholder="rechercher" class=" form-control w-50 text-center mb-2 shadow-lg border boder-dark  mx-auto rounded-top h1  " id="chercheAdminEve" />
+                <h3 class="text-center ml-5">Gestion des Evénements</h3>
+                <div class="d-flex w-50 mb-2 mx-auto justify-content-center align-items-center border bg-light  rounded p-1 mr-2">
+                    <input id="chercheAdminEve" type="search" class="ml-1 form-control bg-light border-0 " placeholder="Rechercher un evenement" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
+                </div>
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
                     <thead class="backgroundSecondPlan text-light text-center  ">
                         <tr class="p-5 text-center">
@@ -167,7 +172,7 @@
                                 <td><?= $sub_titre ?></td>
                                 <td><?= $dates ?></td>
                                 <td class="d-flex justify-content-center align-items-center pt-2 flex-row">
-                                    <i class=" mr-3 fas fa-calendar-minus btn_edit_ev update_btn_all" style="font-size:30px; " type="button" data-toggle="modal" data-target="#static_update_event"></i>
+                                    <i class=" mr-3 fas fa-edit btn_edit_ev update_btn_all" style="font-size:30px; " type="button" data-toggle="modal" data-target="#static_update_event"></i>
                                     <i class="fas fa-trash-alt btn_delete_ev delele_btn_all" style="font-size:30px; " type="button" data-toggle="modal" data-target="#deleteEVenemt_modal"></i>
                                 </td>
                                 <input type="hidden" value="<?= $id; ?>" class="z_id_ev" />
@@ -190,8 +195,11 @@
 
             <div class="w-100  content_posts_space_admin  togglerALL hideurClass ">
 
-                <h3 class="text-center ml-5">Géstion des articles</h3>
-                <input type="search" placeholder="rechercher" class=" form-control w-50 text-center mb-2 shadow-lg border boder-dark  mx-auto rounded-top h1  " id="chercheAdminPost" />
+                <h3 class="text-center ml-5">Gestion des Posts</h3>
+
+                <div class="d-flex w-50 mb-2 mx-auto justify-content-center align-items-center border bg-light  rounded p-1 mr-2">
+                    <input id="chercheAdminPost" type="search" class="ml-1 form-control bg-light border-0 " placeholder="Rechercher un post" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
+                </div>
                 <table class="w-100 table-striped table-hover table-bordered ml-2  p-0">
                     <thead class="backgroundSecondPlan text-light text-center  ">
                         <tr class="p-5 text-center">
@@ -239,7 +247,7 @@
                             $sql3 = "SELECT * FROM `report_post` WHERE `id_post` = $id    ";
                             $result3 = $db->query($sql3);
                             $nomreReport = $result3->rowCount();
-                        
+
                             if ($nomreReport == 0) {
                                 $nomreReportP = "<span class='text-muted'>auncun </span>";
                             } else   if ($nomreReport > 0 && $nomreReport <= 2) {
@@ -305,16 +313,16 @@
                         <input type="hidden" value="" class="z_f_id_user" name="z_f_id_user">
                         <div class="form-group">
                             <label>Nom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_nom_user" value="" id="" class=" text-center form-control form-control-sm z_f_nom_user " placeholder="">
+                            <input type="text" name="z_f_nom_user" value=""  class=" text-center form-control form-control-sm z_f_nom_user " placeholder="">
                             <label>Prenom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_prenom_user" id="" class=" text-center form-control form-control-sm z_f_prenom_user" placeholder="">
+                            <input type="text" name="z_f_prenom_user"  class=" text-center form-control form-control-sm z_f_prenom_user" placeholder="">
                             <label>Mail <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_mail_user" id="" class=" text-center form-control form-control-sm z_f_mail_user " placeholder="">
+                            <input type="text" name="z_f_mail_user" class=" text-center form-control form-control-sm z_f_mail_user " placeholder="">
                             <label>Login <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_login_user" id="" class=" text-center form-control form-control-sm z_f_login_user " placeholder="">
+                            <input type="text" name="z_f_login_user"  class=" text-center form-control form-control-sm z_f_login_user " placeholder="">
 
                             <label>Password <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_psw_user" id="" class=" text-center form-control form-control-sm z_f_psw_user " placeholder="">
+                            <input type="text" name="z_f_psw_user" class=" text-center form-control form-control-sm z_f_psw_user " placeholder="">
 
 
                         </div>
@@ -517,7 +525,7 @@
                         <div class="form-row w-100 mt-3 ">
                             <div class="col  d-flex align-items-center">
                                 <input type="text" class="form-control mr-1 loginW" placeholder="Login" name="login" required>
-                                <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i>
+                                <!-- <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i> -->
                             </div>
                             <div class="col d-flex align-items-center">
                                 <input type="text" class="form-control mr-1 passwordW " placeholder="Password" name="mdp" required>

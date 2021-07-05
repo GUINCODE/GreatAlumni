@@ -727,17 +727,17 @@ $(document).ready(function () {
     <span style="color:Indigo">Password: </span> ${password} <br/> <br/>
     Pour se Connecter cliquez sur: http://localhost/GreatAlumni/ <br/>
     <h1 style="color:DarkGoldenRod"> Attention :</h1>
-    Vous etes le seul destinataire de ce message, alors pour<span style="color:red"> la securierié de votre compte</span> 
-    Veuillez à ne pas communiquez vos identifications de connexion à un tiers.
+Vous êtes le seul destinataire de ce message, alors pour <span style="color:red"> la sécurité de votre compte</span>, 
+  Veuillez à ne pas communiquer vos identifications de connexion à un tiers.
 <br/>  <br/> 
-   <b>Ce ci est un message automatique merci de ne pas repondre !!!</b>  <br/><br/> 
-    Si vous avez de probleme de connexion veuillez contacter l'administrateur:
+   <b>Ce courriel a été envoyé automatiquement, merci de ne pas y répondre. !!!</b>  <br/><br/> 
+    Si vous avez des problèmes de connexion veuillez contacter l'administrateur:
     <br/> <br/><strong>tel: 06 05 60 21 30</strong><br/><b>e-mail: admin@greatalumni.com</b>
     <br/> <br/> <br/>
    <span style=" font-size:80px; color:Navy; font-family: Georgia, serif; text-shadow: 1px 1px 2px yellow; margin-left:110px"> 
      GREATCOM+
   </span> 
-  <br/><span style="color:white; background:black; font-size:15px; margin-left:190px; padding-top:10px; padding-bottom:10px">ENSITECH - ALUMNI - PLATEFORME </span>`,
+  <br/><span style="color:white; background:black; font-size:15px; margin-left:190px; padding-top:10px; padding-bottom:10px">ENSITECH - ALUMNI - PLATEFORM</span>`,
     }).then((message) => console.log("mail sent successfully"));
   }
 

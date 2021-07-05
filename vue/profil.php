@@ -87,7 +87,7 @@
                 <span class="btn btn-sm  Mbouton mt-2 rounded update_citation" data-toggle="modal" data-target="#modal_update_citation">Modifier <i class="fas fa-pencil-alt ml-1"> </i></span>
             </p>
             <div class="d-flex justify-content-center align-items-center ">
-                <span class="h4 mr-3  boutonAllBlue btn btn-outline btn-sm item_active_Profil  btn_formation_user"> <i class="fas fa-graduation-cap mr-2"></i>FORMATION</span>
+                <span class="h4 mr-3  boutonAllBlue btn btn-outline btn-sm item_active_Profil  btn_formation_user"> <i class="fas fa-graduation-cap mr-2"></i>FORMATIONS</span>
                 <span class="h4 mx-5  boutonAllBlue btn btn-outline btn-sm btn_experience_user "><i class="fas fa-briefcase mr-2"></i>EXPERIENCES</span>
                 <span class="h4 ml-3 boutonAllBlue btn btn-outline btn-sm btn_hobbie_user"><i class="fas fa-gamepad mr-2"></i>HOBBIES</span>
             </div>
@@ -253,7 +253,7 @@
         <div class="modal-dialog  " style="max-width: 75%;" role="document">
             <div class="modal-content rounded  shadow-lg">
                 <div class="modal-header backgroundSecondPlan rounded-top">
-                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Modifications de mes informations</h5>
+                    <h5 class="modal-title text-center" id="staticBackdropLabel2">Modification de mes informations</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 50px;">&times;</span>
                     </button>
@@ -285,7 +285,7 @@
                         <div class="form-row w-100 mt-3 ">
                             <div class="col  d-flex align-items-center">
                                 <input type="text" class="form-control mr-1 loginW" id="login" placeholder="Login" name="login" required>
-                                <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i>
+                                <!-- <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i> -->
                             </div>
                             <div class="col d-flex align-items-center">
                                 <input type="text" class="form-control mr-1 passwordW " id="password" placeholder="Password" name="mdp" required>
@@ -397,7 +397,7 @@
 
                         <div class="form-row w-100 mt-1 ">
                             <input type="hidden" value="<?= $id_user_conecter ?>" name="id" />
-                            <label> Ajouter une une nouvelle photo de profil <br> <small class="text-muted"> type d'image prise en charge: (png, gif, jpg,
+                            <label> Ajouter une nouvelle photo de profil <br> <small class="text-muted"> type d'image prise en charge: (png, gif, jpg,
                                     ou
                                     jpeg) </small>
                             </label>

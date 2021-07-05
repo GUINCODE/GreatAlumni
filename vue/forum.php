@@ -20,13 +20,13 @@
 
         ?>
         <div class="container ">
-            <h2 class="text-center mb-5">FORUM D'ECHANGE ET DE PARTAGE</h2>
+            <h2 class="text-center mb-5">FORUM D'ECHANGES ET DE PARTAGES</h2>
             <input type="hidden" value="<?= $id_user_conecter; ?>" class="id_user_log" />
             <span class=" mb-3 btn btn-sm Mbouton d-flex btn_creer_sujet justify-content-center align-items-center mx-auto rounded  btn_creer_sujet" data-toggle="modal" data-target="#modal_creer_article"><i class="fas fa-file-alt mr-2" style="font-size:25px"></i>Creer un sujet</span>
             <div class="w-100 border les_sujet  ">
                 <div class="d-flex  justify-content-center align-items-center mb-5 ">
                     <div class="d-flex w-50  justify-content-center align-items-center border bg-light  rounded p-2 mr-5">
-                        <input id="inputchercheSujet" type="search" class="ml-1 form-control bg-light border-0 chercheTopic" placeholder="Rcehrcher un sujet" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
+                        <input id="inputchercheSujet" type="search" class="ml-1 form-control bg-light border-0 chercheTopic" placeholder="Chercher un sujet" /> <i class="fas fa-search ml-auto" style="font-size:34px"></i>
 
                     </div>
                     <div class="ml-5 ">
@@ -93,9 +93,9 @@
                         $stmt4->execute();
                         $partcipationUser = $stmt4->rowCount();
                         if ($partcipationUser > 0) {
-                            $infos_participation = '<span class=" mt-1 mb-1 text-success" > <i class="fas fa-circle mr-1" ></i>Vous avez participer    </span>';
+                            $infos_participation = '<span class=" mt-1 mb-1 text-success" > <i class="fas fa-circle mr-1" ></i>Vous avez participé    </span>';
                         } else {
-                            $infos_participation = '<span class=" mt-1 mb-1 text-warning" > <i class="fas fa-circle mr-1" ></i>Vous n\'avez  pas participer pour l\'instant    </span>';
+                            $infos_participation = '<span class=" mt-1 mb-1 text-warning" > <i class="fas fa-circle mr-1" ></i>Vous n\'avez  pas participé encore   </span>';
                         }
 
 
@@ -142,7 +142,7 @@
                 </ul>
                 <!-- champs input pour reagir a sujet donné  -->
                 <div class="w-75 d-flex justify-conter-center align-items-center mx-auto mt-3 shadow p-2 rounded">
-                    <textarea autofocus placeholder="dites quelques chose..." cols="5" rows="2" class="rounded form-control textareaRepSujet" id="champSaisie_reponse"></textarea>
+                    <textarea autofocus placeholder="Dites quelques choses..." cols="5" rows="2" class="rounded form-control textareaRepSujet" id="champSaisie_reponse"></textarea>
                     <span type="button" class="ml-1 btbt d-flex justify-conter-center align-items-center " style="font-size:30px" id="btn_repondre_sujet">
                         <img src="../images/ressourcesLogo/sendMessageIcn.png" alt="..." class="img-fluid linkImageH" style="width:65px" />
                         </send>
