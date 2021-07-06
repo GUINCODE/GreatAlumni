@@ -35,7 +35,7 @@
             <div class="mt-3  ">
 
                 <?php
-                include_once('../_partials_actualite/_carousel_evenement.php');
+                include_once('../Model_actualite/_carousel_evenement.php');
                 ?>
             </div>
 
@@ -45,14 +45,14 @@
             <!-- -----fil_article--- -->
             <div class="mt-3 ">
                 <?php
-                include_once('../_partials_actualite/_fil_article.php');
+                include_once('../Model_actualite/_fil_article.php');
                 ?>
             </div>
             <!-- --end fil_article--- -->
         </div>
         <div class="col-3 ">
             <?php
-            include_once('../_partials_actualite/_partages.php');
+            include_once('../Model_actualite/_partages.php');
             ?>
         </div>
 
@@ -70,7 +70,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
    
-    <script src="../script/jQueryScript.js"></script>
+    <script src="../Controller/jQueryScript.js"></script>
     <script>
      
     </script>

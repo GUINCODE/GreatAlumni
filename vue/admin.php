@@ -313,13 +313,13 @@
                         <input type="hidden" value="" class="z_f_id_user" name="z_f_id_user">
                         <div class="form-group">
                             <label>Nom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_nom_user" value=""  class=" text-center form-control form-control-sm z_f_nom_user " placeholder="">
+                            <input type="text" name="z_f_nom_user" value="" class=" text-center form-control form-control-sm z_f_nom_user " placeholder="">
                             <label>Prenom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_prenom_user"  class=" text-center form-control form-control-sm z_f_prenom_user" placeholder="">
+                            <input type="text" name="z_f_prenom_user" class=" text-center form-control form-control-sm z_f_prenom_user" placeholder="">
                             <label>Mail <b class="text-muted"></b></label>
                             <input type="text" name="z_f_mail_user" class=" text-center form-control form-control-sm z_f_mail_user " placeholder="">
                             <label>Login <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_login_user"  class=" text-center form-control form-control-sm z_f_login_user " placeholder="">
+                            <input type="text" name="z_f_login_user" class=" text-center form-control form-control-sm z_f_login_user " placeholder="">
 
                             <label>Password <b class="text-muted"></b></label>
                             <input type="text" name="z_f_psw_user" class=" text-center form-control form-control-sm z_f_psw_user " placeholder="">
@@ -588,7 +588,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
 
-    <script src="../script/jQueryScript.js"></script>
+    <script src="../Controller/jQueryScript.js"></script>
     <!-- -----cdn AOS--- -->
     <script>
         $("#chercheAdminUser").on("keyup", function() {

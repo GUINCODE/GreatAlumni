@@ -174,7 +174,7 @@
             <div class="form-group w-75 d-flex flex-row justify-content-center align-items-center    mx-auto">
                 <textarea class="form-control rounded message_rep" name="" autofocus rows="1" id="" placeholder="votre message.." required></textarea>
                 <span type="button" class="btn_envoyer_message  ">
-                    
+
                     <img src="../images/ressourcesLogo/sendMessageIcn.png" alt="..." class="img-fluid linkImageH" style="width:45px" />
 
                 </span>
@@ -203,7 +203,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
 
-    <script src="../script/jQueryScript.js"></script>
+    <script src="../Controller/jQueryScript.js"></script>
     <script>
 
 

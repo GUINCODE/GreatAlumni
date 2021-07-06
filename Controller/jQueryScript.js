@@ -24,7 +24,7 @@ $(document).ready(function () {
     $(this).parents("span").toggleClass("hideur");
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_unLike.php",
+      url: "../Model_actualite/_unLike.php",
       data: {
         identifiant_user: identifiant_user,
         identifiant_article: identifiant_article,
@@ -61,7 +61,7 @@ $(document).ready(function () {
     $(this).parents("span").toggleClass("hideur");
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_like.php",
+      url: "../Model_actualite/_like.php",
       data: {
         identifiant_user: identifiant_user,
         identifiant_article: identifiant_article,
@@ -96,7 +96,7 @@ $(document).ready(function () {
       ////ici la requete ajax
       $.ajax({
         type: "POST",
-        url: "../_partials_actualite/_enreg_commentaire.php",
+        url: "../Model_actualite/_enreg_commentaire.php",
         data: {
           identifiant_user: id_user,
           identifiant_article: id_article,
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_creer_post.php",
+      url: "../Model_actualite/_creer_post.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -174,7 +174,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_creer_evenement.php",
+      url: "../Model_actualite/_creer_evenement.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -197,7 +197,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_creer_feedback.php",
+      url: "../Model_actualite/_creer_feedback.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -225,7 +225,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_fetch_commentaire.php",
+      url: "../Model_actualite/_fetch_commentaire.php",
       data: {
         id_article: id_article,
       },
@@ -262,7 +262,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "../_partials_messagerie/_update_statut_sms.php",
+      url: "../Model_messagerie/_update_statut_sms.php",
       data: {
         id_userConnecter: id_userConnecter,
         id_expeditaire: id_expeditaire,
@@ -342,7 +342,7 @@ $(document).ready(function () {
     let fil_sms_echange = $(".fil_sms_echange");
     $.ajax({
       type: "POST",
-      url: "../_partials_messagerie/_fetch_discussion.php",
+      url: "../Model_messagerie/_fetch_discussion.php",
       data: {
         id_connecter: id_connecter,
         id_interLocutaire: id_interLocutaire,
@@ -394,7 +394,7 @@ $(document).ready(function () {
         //requete d'insertion de message
         $.ajax({
           type: "POST",
-          url: "../_partials_messagerie/_envoi_message.php",
+          url: "../Model_messagerie/_envoi_message.php",
           data: {
             id_userConnecter: id_userConnecter,
             id_destinataire: id_destinataire,
@@ -448,7 +448,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "../_partials_admin/_update_user.php",
+      url: "../Model_admin/_update_user.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -478,7 +478,7 @@ $(document).ready(function () {
     let space_response = $(".space_response");
     $.ajax({
       type: "POST",
-      url: "../_partials_admin/_delete_user.php",
+      url: "../Model_admin/_delete_user.php",
       data: {
         id_user: id_user,
       },
@@ -521,7 +521,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "../_partials_admin/_update_eve.php",
+      url: "../Model_admin/_update_eve.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -554,7 +554,7 @@ $(document).ready(function () {
     let space_response = $(".space_response");
     $.ajax({
       type: "POST",
-      url: "../_partials_admin/_delete_eve.php",
+      url: "../Model_admin/_delete_eve.php",
       data: {
         id_evenement: id_evenement,
         media_eve: media_eve,
@@ -589,7 +589,7 @@ $(document).ready(function () {
     let space_response = $(".space_response");
     $.ajax({
       type: "POST",
-      url: "../_partials_admin/_delete_post.php",
+      url: "../Model_admin/_delete_post.php",
       data: {
         id_post: id_post,
         mediaPost: mediaPost,
@@ -645,7 +645,7 @@ $(document).ready(function () {
     $(".mailW").focus(function (e) {});
     $.ajax({
       type: "POST",
-      url: "../_partials_admin/_add_new_member.php",
+      url: "../Model_admin/_add_new_member.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -798,13 +798,13 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     e.preventDefault();
     let choix = $(this).val();
     if (choix == "nom") {
-      $(".annuaire_conten").load("../_partials_annuaire/_tri_by_nom.php");
+      $(".annuaire_conten").load("../Model_annuaire/_tri_by_nom.php");
     } else if (choix == "prenom") {
-      $(".annuaire_conten").load("../_partials_annuaire/_tri_by_prenom.php");
+      $(".annuaire_conten").load("../Model_annuaire/_tri_by_prenom.php");
     } else if (choix == "promotion") {
-      $(".annuaire_conten").load("../_partials_annuaire/_tri_by_promotion.php");
+      $(".annuaire_conten").load("../Model_annuaire/_tri_by_promotion.php");
     } else {
-      $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
+      $(".annuaire_conten").load("../Model_annuaire/_aucun_tri.php");
     }
   });
   ////
@@ -836,7 +836,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     // Retrieve the input field text and reset the count to zero
     let filter = $(this).val();
     if (filter == "all_campus") {
-      $(".annuaire_conten").load("../_partials_annuaire/_aucun_tri.php");
+      $(".annuaire_conten").load("../Model_annuaire/_aucun_tri.php");
     } else {
       count = 0;
 
@@ -872,7 +872,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_report_post.php",
+      url: "../Model_actualite/_report_post.php",
       data: {
         id_article: id_article,
         id_auteur_post: id_auteur_post,
@@ -899,7 +899,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_report_user.php",
+      url: "../Model_actualite/_report_user.php",
       data: {
         id_auteur_post: id_auteur_post,
         id_signaleur: id_signaleur,
@@ -969,7 +969,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_update_user_connecter.php",
+      url: "../Model_profil/_update_user_connecter.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1008,7 +1008,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_update_user_citation.php",
+      url: "../Model_profil/_update_user_citation.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1034,7 +1034,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_update_image_profil.php",
+      url: "../Model_profil/_update_image_profil.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1061,7 +1061,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_add_new_formation.php",
+      url: "../Model_profil/_add_new_formation.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1094,7 +1094,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     let space_response = $(".space_response");
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_delete_formation.php",
+      url: "../Model_profil/_delete_formation.php",
       data: {
         id_formationz: id_formationz,
       },
@@ -1131,7 +1131,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_update_formation.php",
+      url: "../Model_profil/_update_formation.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1158,7 +1158,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_add_new_experience.php",
+      url: "../Model_profil/_add_new_experience.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1202,7 +1202,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_update_experience.php",
+      url: "../Model_profil/_update_experience.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1234,7 +1234,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     let space_response = $(".space_response");
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_delete_experience.php",
+      url: "../Model_profil/_delete_experience.php",
       data: {
         id_experience_z: id_experience_z,
       },
@@ -1258,7 +1258,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_add_new_hobbie.php",
+      url: "../Model_profil/_add_new_hobbie.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1294,7 +1294,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_update_hobbie.php",
+      url: "../Model_profil/_update_hobbie.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1327,7 +1327,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     let space_response = $(".space_response");
     $.ajax({
       type: "POST",
-      url: "../_partials_profil/_delete_hobbie.php",
+      url: "../Model_profil/_delete_hobbie.php",
       data: {
         hobie_id_del: hobie_id_del,
       },
@@ -1377,7 +1377,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_forum/_load_rep_sujet.php",
+      url: "../Model_forum/_load_rep_sujet.php",
       data: {
         id_sujet: id_sujet,
         id_user_connecter: id_user_connecter,
@@ -1403,7 +1403,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
       // alert(id_user_connecter)
       $.ajax({
         type: "POST",
-        url: "../_partials_forum/_repondre_sujet.php",
+        url: "../Model_forum/_repondre_sujet.php",
         data: {
           idSujete: idSujete,
           id_user_connecter: id_user_connecter,
@@ -1447,7 +1447,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_forum/_creer_sujet_forum.php",
+      url: "../Model_forum/_creer_sujet_forum.php",
       data: donnees,
       processData: false,
       contentType: false,
@@ -1492,7 +1492,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_fetch_msg_notif.php",
+      url: "../Model_actualite/_fetch_msg_notif.php",
       data: {
         id_user_connecter: id_user_connecter,
       },
@@ -1508,7 +1508,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     // recuperation de nombre evenement
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_fetch_eve_notif.php",
+      url: "../Model_actualite/_fetch_eve_notif.php",
       data: {
         id_user_connecter: id_user_connecter,
       },
@@ -1524,7 +1524,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     // recuperation de nombre sujet creer
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_fetch_autre_notif.php",
+      url: "../Model_actualite/_fetch_autre_notif.php",
       data: {
         id_user_connecter: id_user_connecter,
       },
@@ -1534,7 +1534,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
         //  alert("fdfdf")
       })
       .fail(function () {
-        console.log("errerur recuperation nmbr sujet");
+        console.log("erreur de recuperation nmbr sujet");
       });
   }, 200);
 
@@ -1545,7 +1545,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_update_statut_message.php",
+      url: "../Model_actualite/_update_statut_message.php",
       data: {
         id_user_connecter: id_user_connecter,
       },
@@ -1565,7 +1565,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_update_statut_evenement.php",
+      url: "../Model_actualite/_update_statut_evenement.php",
       data: {
         id_user_connecter: id_user_connecter,
       },
@@ -1585,7 +1585,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
 
     $.ajax({
       type: "POST",
-      url: "../_partials_actualite/_update_statut_autre.php",
+      url: "../Model_actualite/_update_statut_autre.php",
       data: {
         id_user_connecter: id_user_connecter,
       },
