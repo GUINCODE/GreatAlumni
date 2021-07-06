@@ -35,7 +35,7 @@
             <div class="mt-3  ">
 
                 <?php
-                include_once('../Model_actualite/_carousel_evenement.php');
+                include_once('../Models/Model_actualite/_carousel_evenement.php');
                 ?>
             </div>
 
@@ -45,14 +45,14 @@
             <!-- -----fil_article--- -->
             <div class="mt-3 ">
                 <?php
-                include_once('../Model_actualite/_fil_article.php');
+                include_once('../Models/Model_actualite/_fil_article.php');
                 ?>
             </div>
             <!-- --end fil_article--- -->
         </div>
         <div class="col-3 ">
             <?php
-            include_once('../Model_actualite/_partages.php');
+            include_once('../Models/Model_actualite/_partages.php');
             ?>
         </div>
 
