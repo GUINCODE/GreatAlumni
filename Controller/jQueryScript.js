@@ -769,7 +769,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     if (email != "" && psw != "") {
       $.ajax({
         type: "POST",
-        url: "./partials/_loginUser.php",
+        url: "./Models/_loginUser.php",
         data: {
           email: email,
           psw: psw,

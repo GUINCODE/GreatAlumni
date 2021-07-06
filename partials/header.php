@@ -77,7 +77,7 @@ if ($role_user_conecter == "admin" && (is_null($profil_user_connect) or empty($p
     <li type="button"><a href="profil.php"><i class="fas fa-user mr-1"></i>Mon profil</a></li>
     <?php echo $adminASK; ?>
 
-    <li type="button" class="logOut text-danger"><a href="../partials/_logOut_user.php" class="logOut text-danger"><i class="fas fa-sign-out-alt mr-1 "> </i>Se deconnecter </a></li>
+    <li type="button" class="logOut text-danger"><a href="../Models/_logOut_user.php" class="logOut text-danger"><i class="fas fa-sign-out-alt mr-1 "> </i>Se deconnecter </a></li>
 </ul>
 
 <!-- Modal ADD POST -->
