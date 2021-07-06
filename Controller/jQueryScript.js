@@ -784,7 +784,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
             $(".champsEmail").addClass("border border-danger text-danger");
           } else {
             $(".fa-spinner").removeClass("hideurClass");
-             location.replace("http://localhost/GreatAlumni/vue/actualite.php");
+             location.replace("http://localhost/GreatAlumni/View/actualite.php");
           }
         })
         .fail(function () {
@@ -1541,7 +1541,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
   // rendre le message lu une fois cliquer
   $(".notifSMS").click(function (e) {
     e.preventDefault();
-    location.replace("http://localhost/GreatAlumni/vue/ma_messagerie.php");
+    location.replace("http://localhost/GreatAlumni/View/ma_messagerie.php");
 
     $.ajax({
       type: "POST",
@@ -1561,7 +1561,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
   // rendre le message lu une fois cliquer
   $(".notifEVE").click(function (e) {
     e.preventDefault();
-    location.replace("http://localhost/GreatAlumni/vue/all_evenement.php");
+    location.replace("http://localhost/GreatAlumni/View/all_evenement.php");
 
     $.ajax({
       type: "POST",
@@ -1581,7 +1581,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
   // rendre le message lu une fois cliquer
   $(".notifAUtre").click(function (e) {
     e.preventDefault();
-    location.replace("http://localhost/GreatAlumni/vue/forum.php");
+    location.replace("http://localhost/GreatAlumni/View/forum.php");
 
     $.ajax({
       type: "POST",
