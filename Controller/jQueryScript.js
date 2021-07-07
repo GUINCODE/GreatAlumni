@@ -738,7 +738,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
      GREATCOM+
   </span> 
   <br/><span style="color:white; background:black; font-size:15px; margin-left:190px; padding-top:10px; padding-bottom:10px">ENSITECH - ALUMNI - PLATEFORM</span>`,
-    }).then((message) => console.log("mail sent successfully"));
+    }).then((message) => console.log("mail send successfully"));
   }
 
   // Connexion de l'utlisateur

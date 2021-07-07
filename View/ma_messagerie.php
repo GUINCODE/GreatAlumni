@@ -35,7 +35,8 @@
             <div class="les_sms_recus  shadow-lg p-2 rounded  d-flex flex-column mt-2">
                 <?php
 
-                $stmt = $db->prepare("SELECT   *  FROM `messagerie` WHERE `id_destinataire` = :id_utlisateur_connecter   GROUP BY id_expeditaire  ORDER BY dates DESC ");
+                $stmt = $db->prepare("SELECT   *  FROM `messagerie` WHERE `id_destinataire` = :id_utlisateur_connecter  
+                 GROUP BY id_expeditaire  ORDER BY dates DESC ");
                 $stmt->bindParam(':id_utlisateur_connecter', $id_user_conecter);
                 $stmt->execute();
                 $liste_sms_recus = $stmt->fetchAll();
@@ -43,7 +44,8 @@
                     $id_expeditaire = $sms['id_expeditaire'];
 
 
-                    $stmt2 = $db->prepare("SELECT   *  FROM `messagerie` WHERE `id_destinataire` = :id_utlisateur_connecter  AND `id_expeditaire`=:id_expeditaire   ORDER BY dates DESC  LIMIT 1");
+                    $stmt2 = $db->prepare("SELECT   *  FROM `messagerie` WHERE `id_destinataire` = :id_utlisateur_connecter  
+                    AND `id_expeditaire`=:id_expeditaire   ORDER BY dates DESC  LIMIT 1");
                     $stmt2->bindParam(':id_utlisateur_connecter', $id_user_conecter);
                     $stmt2->bindParam(':id_expeditaire', $id_expeditaire);
                     $stmt2->execute();
@@ -53,7 +55,7 @@
                     $statutX = $donnes['statut'];
                     $id_expeditaireX = $donnes['id_expeditaire'];
 
-                    // verifier si le message depasse 7 caractere, si oui on retir le reste et on affiches seuelement 7 caractere
+                    // verifier si le message depasse 10 caractere, si oui on retir le reste et on affiches seuelement 7 caractere
 
                     if (strlen($smsX) > 10) {
                         $text_reduit = substr($smsX, 0, 10);
@@ -174,9 +176,7 @@
             <div class="form-group w-75 d-flex flex-row justify-content-center align-items-center    mx-auto">
                 <textarea class="form-control rounded message_rep" name="" autofocus rows="1" id="" placeholder="votre message.." required></textarea>
                 <span type="button" class="btn_envoyer_message  ">
-
                     <img src="../images/ressourcesLogo/sendMessageIcn.png" alt="..." class="img-fluid linkImageH" style="width:45px" />
-
                 </span>
 
             </div>
