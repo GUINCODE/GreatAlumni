@@ -105,10 +105,10 @@
                             <div class="d-flex justify-content-center alignt-items-center flex-column ml-4 text-wrap">
                                 <span class="h5 border border-bottom p-2 leSujet"><?= $leTitre ?> </span>
                                 <span class="categorieX"> <span class="text-muted">Categorie:</span> <span style="font-weight: bold; color:#071035 " class="h4"><?= $categorie ?></span></span>
-                                <span class=""> <span class="text-muted">date création:</span> <?= $date_creation ?></span>
+                                <span class=""> <span class="text-muted">date de création:</span> <?= $date_creation ?></span>
                                 <span class=""> <span class="text-muted">Auteur :</span> <a href="profli_consulter.php?id_user_consulter=<?= $id_auteur ?>"> <?= $nom . " " . $prenom ?> </a></span>
-                                <span> <span class="text-muted">Nombre de participant: </span> <?= $countaction ?></span>
-                                <span> <span class="text-muted">Nombre de réaction: </span> <?= $nombreReaction ?></span>
+                                <span> <span class="text-muted">Nombre de participant(s): </span> <?= $countaction ?></span>
+                                <span> <span class="text-muted">Nombre de réaction(s): </span> <?= $nombreReaction ?></span>
                                 <?= $infos_participation  ?>
                             </div>
                             <input type="hidden" value="<?= $id_sujet ?>" class="id_sujet" />
