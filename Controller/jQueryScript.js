@@ -435,7 +435,7 @@ $(document).ready(function () {
     $(".z_f_prenom_user").val(prenom_user);
     $(".z_f_mail_user").val(mail_user);
     $(".z_f_role_user").val(role_user);
-    $(".z_f_psw_user").val(z_psw);
+    // $(".z_f_psw_user").val(z_psw);
     $(".z_f_login_user").val(z_login);
   });
 
@@ -954,7 +954,7 @@ Vous êtes le seul destinataire de ce message, alors pour <span style="color:red
     $(".mailUser").val(mail);
     $(".promotionUser").val(promotion);
     $(".loginW").val(login);
-    $(".passwordW").val(password);
+    // $(".passwordW").val(password);
     $(".campus").val(campus);
     $(".departement").val(departement);
     $(".professionUser").val(profession);

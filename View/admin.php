@@ -313,16 +313,16 @@
                         <input type="hidden" value="" class="z_f_id_user" name="z_f_id_user">
                         <div class="form-group">
                             <label>Nom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_nom_user" value="" class=" text-center form-control form-control-sm z_f_nom_user " placeholder="">
+                            <input type="text" name="z_f_nom_user" value="" class=" text-center form-control form-control-sm z_f_nom_user " placeholder="" required>
                             <label>Prenom <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_prenom_user" class=" text-center form-control form-control-sm z_f_prenom_user" placeholder="">
+                            <input type="text" name="z_f_prenom_user" class=" text-center form-control form-control-sm z_f_prenom_user" placeholder="" required>
                             <label>Mail <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_mail_user" class=" text-center form-control form-control-sm z_f_mail_user " placeholder="">
+                            <input type="text" name="z_f_mail_user" class=" text-center form-control form-control-sm z_f_mail_user " placeholder="" required>
                             <label>Login <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_login_user" class=" text-center form-control form-control-sm z_f_login_user " placeholder="">
+                            <input type="text" name="z_f_login_user" class=" text-center form-control form-control-sm z_f_login_user " placeholder="" required>
 
-                            <label>Password <b class="text-muted"></b></label>
-                            <input type="text" name="z_f_psw_user" class=" text-center form-control form-control-sm z_f_psw_user " placeholder="">
+                            <label>New Password <small class="text-muted">: (laisser le champs vide si vous ne souhaiter pas changer le mot de passe)</small></label>
+                            <input type="text" name="z_f_psw_user" class=" text-center form-control form-control-sm z_f_psw_user " placeholder="noueau mot de passe">
 
 
                         </div>

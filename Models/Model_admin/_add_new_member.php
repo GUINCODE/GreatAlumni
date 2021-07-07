@@ -6,15 +6,9 @@ $mail = $_POST['mail'];
 $annee = $_POST['annee'];
 $loginn = $_POST['login'];
 
-$mdp = $_POST['mdp'];
+$passwordRec = $_POST['mdp'];
 $typee = $_POST['type'];
-// $nom = "bobob";
-// $prenom = "tatsfd";
-// $mail = "hsgd";
-// $annee = 223;
-// $loginn = "logogog";
-// $mdp = "psw";
-// $typee = "standard";
+$mdp= password_hash( $passwordRec,  PASSWORD_DEFAULT);
 
 
 $stmt = $db->prepare("SELECT * FROM `utilisateur`  where  Mail=:mail LIMIT 1");

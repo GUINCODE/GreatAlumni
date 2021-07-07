@@ -288,7 +288,8 @@
                                 <!-- <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i> -->
                             </div>
                             <div class="col d-flex align-items-center">
-                                <input type="text" class="form-control mr-1 passwordW " id="password" placeholder="Password" name="mdp" required>
+                           
+                                <input type="text" class="form-control mr-1 passwordW " id="password" placeholder="Nouveau mot de passe" name="mdp">
                                 <i class="fas fa-redo _btn_all generate" style="font-size:25px; color:thistle" type="button"></i>
 
                             </div>
